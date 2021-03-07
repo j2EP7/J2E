@@ -1,0 +1,20 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.7165.2.1.55,ou=attributeTypes,cn=samba,ou=schema
+entryCSN: 20210307195204.993000Z#000000#000#000000
+m-usage: USER_APPLICATIONS
+m-collective: FALSE
+creatorsname: uid=admin,ou=system
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.26
+m-singlevalue: TRUE
+entryUUID: 2af31222-d603-4697-b063-945c2906c340
+m-equality: caseIgnoreIA5Match
+m-description: Logon Hours
+m-obsolete: FALSE
+m-oid: 1.3.6.1.4.1.7165.2.1.55
+objectclass: top
+objectclass: metaTop
+objectclass: metaAttributeType
+createTimestamp: 20210307195207.634Z
+m-name: sambaLogonHours
+entryParentId: 2d92c928-1fef-44ee-ab93-1fe46b70a631

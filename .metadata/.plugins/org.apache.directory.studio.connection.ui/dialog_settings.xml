@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="hostHistory">
+		<item value="localhost"/>
+	</list>
+	<list key="portHistory">
+		<item value="10389"/>
+	</list>
+	<list key="principalHistory">
+		<item value="uid=admin,ou=system"/>
+	</list>
+</section>

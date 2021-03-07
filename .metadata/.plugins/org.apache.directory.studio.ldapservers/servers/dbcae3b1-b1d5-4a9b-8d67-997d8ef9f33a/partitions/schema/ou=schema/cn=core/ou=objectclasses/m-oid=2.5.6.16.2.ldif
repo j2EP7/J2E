@@ -1,0 +1,17 @@
+version: 1
+dn: m-oid=2.5.6.16.2,ou=objectClasses,cn=core,ou=schema
+entryCSN: 20210307195202.314000Z#000000#000#000000
+creatorsname: uid=admin,ou=system
+entryUUID: bb4e44d1-a787-42da-9fa2-76eb6e236895
+m-may: deltaRevocationList
+m-typeobjectclass: AUXILIARY
+m-supobjectclass: certificationAuthority
+m-description: X.509 certificate authority, version 2
+m-obsolete: FALSE
+objectclass: top
+objectclass: metaTop
+objectclass: metaObjectClass
+m-oid: 2.5.6.16.2
+createTimestamp: 20210307195206.682Z
+m-name: certificationAuthority-V2
+entryParentId: c424ef6c-ce6c-4b4c-b118-071190721a10

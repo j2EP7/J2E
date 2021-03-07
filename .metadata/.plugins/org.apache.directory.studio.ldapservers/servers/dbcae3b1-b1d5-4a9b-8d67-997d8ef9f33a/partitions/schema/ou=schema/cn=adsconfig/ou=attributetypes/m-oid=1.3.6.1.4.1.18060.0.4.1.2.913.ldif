@@ -1,0 +1,16 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.1.2.913,ou=attributeTypes,cn=adsconfig,ou=schema
+entryCSN: 20210307195200.401000Z#000000#000#000000
+creatorsname: uid=admin,ou=system
+m-length: 0
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.27
+m-singlevalue: TRUE
+entryUUID: ea75de15-a80a-4256-a5aa-5b833768bc56
+m-equality: integerMatch
+m-oid: 1.3.6.1.4.1.18060.0.4.1.2.913
+objectclass: top
+objectclass: metaTop
+objectclass: metaAttributeType
+createTimestamp: 20210307195206.927Z
+m-name: ads-pwdFailureCountInterval
+entryParentId: 2ea362e2-53da-455b-b23d-5a6b36d7e5bc

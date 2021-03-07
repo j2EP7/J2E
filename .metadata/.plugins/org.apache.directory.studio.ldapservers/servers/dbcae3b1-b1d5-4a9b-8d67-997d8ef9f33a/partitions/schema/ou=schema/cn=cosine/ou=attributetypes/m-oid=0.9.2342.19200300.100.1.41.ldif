@@ -1,0 +1,22 @@
+version: 1
+dn: m-oid=0.9.2342.19200300.100.1.41,ou=attributeTypes,cn=cosine,ou=schema
+entryCSN: 20210307195202.519000Z#000000#000#000000
+m-usage: USER_APPLICATIONS
+creatorsname: uid=admin,ou=system
+m-collective: FALSE
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.50
+m-singlevalue: FALSE
+entryUUID: dc15e8d1-fb37-49e6-9a71-c8121cf4264c
+m-substr: telephoneNumberSubstringsMatch
+m-equality: telephoneNumberMatch
+m-description: RFC1274: mobile telephone number
+m-obsolete: FALSE
+m-oid: 0.9.2342.19200300.100.1.41
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+createTimestamp: 20210307195207.655Z
+m-name: mobile
+m-name: mobileTelephoneNumber
+entryParentId: fe189f04-d3b7-4a88-b4ff-3799124341e4

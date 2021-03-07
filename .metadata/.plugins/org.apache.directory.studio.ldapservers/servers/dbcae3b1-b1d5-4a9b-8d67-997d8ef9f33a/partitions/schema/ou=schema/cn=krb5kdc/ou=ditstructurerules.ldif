@@ -1,0 +1,10 @@
+version: 1
+dn: ou=ditStructureRules,cn=krb5kdc,ou=schema
+entryCSN: 20210307195203.384000Z#000000#000#000000
+ou: ditstructurerules
+objectclass: organizationalUnit
+objectclass: top
+createTimestamp: 20210307195207.841Z
+creatorsname: uid=admin,ou=system
+entryUUID: 9da55927-ebaa-488b-aa29-654e007134e0
+entryParentId: 4de9951d-2e75-4836-af52-40b81d673a52

@@ -1,0 +1,21 @@
+version: 1
+dn: m-oid=1.3.6.1.1.16.4,ou=attributeTypes,cn=apache,ou=schema
+entryCSN: 20210307195200.670000Z#000000#000#000000
+m-usage: DIRECTORY_OPERATION
+creatorsname: uid=admin,ou=system
+m-collective: FALSE
+m-nousermodification: TRUE
+m-syntax: 1.3.6.1.1.16.1
+m-singlevalue: TRUE
+m-ordering: uuidOrderingMatch
+entryUUID: 818106f5-73fd-4fe3-a921-643bdf1506ae
+m-equality: uuidMatch
+m-description: UUID of the entry
+m-obsolete: FALSE
+m-oid: 1.3.6.1.1.16.4
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+createTimestamp: 20210307195207.360Z
+m-name: entryUUID
+entryParentId: 68ead3cc-50a2-4305-9052-8c1d42b55218

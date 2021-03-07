@@ -1,0 +1,16 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.1.2.911,ou=attributeTypes,cn=adsconfig,ou=schema
+entryCSN: 20210307195200.398000Z#000000#000#000000
+creatorsname: uid=admin,ou=system
+m-length: 0
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.27
+m-singlevalue: TRUE
+entryUUID: 80ae1843-0ab2-4b6a-ae03-22c681ffcebe
+m-equality: integerMatch
+m-oid: 1.3.6.1.4.1.18060.0.4.1.2.911
+objectclass: top
+objectclass: metaTop
+objectclass: metaAttributeType
+createTimestamp: 20210307195207.070Z
+m-name: ads-pwdLockoutDuration
+entryParentId: 2ea362e2-53da-455b-b23d-5a6b36d7e5bc

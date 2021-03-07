@@ -1,0 +1,20 @@
+version: 1
+dn: m-oid=2.5.4.53,ou=attributeTypes,cn=core,ou=schema
+entryCSN: 20210307195202.274000Z#000000#000#000000
+m-usage: USER_APPLICATIONS
+m-collective: FALSE
+creatorsname: uid=admin,ou=system
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.9
+m-singlevalue: FALSE
+entryUUID: 7b43f869-80d6-4272-89da-d974d676be3d
+m-equality: certificateListExactMatch
+m-description: X.509 delta revocation list
+m-obsolete: FALSE
+objectclass: top
+objectclass: metaTop
+objectclass: metaAttributeType
+m-oid: 2.5.4.53
+createTimestamp: 20210307195206.029Z
+m-name: deltaRevocationList
+entryParentId: 95dd7bc4-314b-46c1-82ab-59b7ba5b5356

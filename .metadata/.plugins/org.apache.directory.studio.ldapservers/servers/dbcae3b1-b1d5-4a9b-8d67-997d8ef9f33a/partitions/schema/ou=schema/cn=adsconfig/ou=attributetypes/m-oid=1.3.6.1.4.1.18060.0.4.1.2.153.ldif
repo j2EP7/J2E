@@ -1,0 +1,18 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.1.2.153,ou=attributeTypes,cn=adsconfig,ou=schema
+entryCSN: 20210307195200.177000Z#000000#000#000000
+creatorsname: uid=admin,ou=system
+m-length: 0
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.27
+m-singlevalue: TRUE
+m-ordering: integerOrderingMatch
+entryUUID: 0efa0550-f6c8-4070-a014-e143808422c5
+m-equality: integerMatch
+m-description: The number of entries in the cache for this partition
+m-oid: 1.3.6.1.4.1.18060.0.4.1.2.153
+objectclass: top
+objectclass: metaTop
+objectclass: metaAttributeType
+createTimestamp: 20210307195207.513Z
+m-name: ads-partitionCacheSize
+entryParentId: 2ea362e2-53da-455b-b23d-5a6b36d7e5bc

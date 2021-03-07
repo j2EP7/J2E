@@ -1,0 +1,22 @@
+version: 1
+dn: m-oid=0.9.2342.19200300.100.1.3,ou=attributeTypes,cn=core,ou=schema
+entryCSN: 20210307195202.196000Z#000000#000#000000
+m-usage: USER_APPLICATIONS
+creatorsname: uid=admin,ou=system
+m-collective: FALSE
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.26
+m-singlevalue: FALSE
+entryUUID: 64d3f3df-9e8f-44cf-9191-2e9049faa295
+m-substr: caseIgnoreIA5SubstringsMatch
+m-equality: caseIgnoreIA5Match
+m-description: RFC1274: RFC822 Mailbox
+m-obsolete: FALSE
+m-oid: 0.9.2342.19200300.100.1.3
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+createTimestamp: 20210307195207.138Z
+m-name: mail
+m-name: rfc822Mailbox
+entryParentId: 95dd7bc4-314b-46c1-82ab-59b7ba5b5356

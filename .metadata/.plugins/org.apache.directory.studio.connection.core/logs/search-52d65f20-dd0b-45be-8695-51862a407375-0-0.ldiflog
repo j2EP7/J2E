@@ -1,0 +1,365 @@
+#!SEARCH REQUEST (0) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.178
+# LDAP URL     : ldap://localhost:10389/?subschemaSubentry??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "" -s base -a always "(objectClass=*)" "subschemaSubentry"
+# baseObject   : 
+# scope        : baseObject (0)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 0
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : subschemaSubentry
+
+#!SEARCH REQUEST (1) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.185
+# LDAP URL     : ldap://localhost:10389/cn=schema?objectClasses,attributeTypes,ldapSyntaxes,matchingRules,matchingRuleUse,createTimestamp,modifyTimestamp??(objectClass=subschema)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "cn=schema" -s base -a always "(objectClass=subschema)" "objectClasses" "attributeTypes" "ldapSyntaxes" "matchingRules" "matchingRuleUse" "createTimestamp" "modifyTimestamp"
+# baseObject   : cn=schema
+# scope        : baseObject (0)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 0
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=subschema)
+# attributes   : objectClasses attributeTypes ldapSyntaxes matchingRules matchingRuleUse createTimestamp modifyTimestamp
+
+#!SEARCH REQUEST (2) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.575
+# LDAP URL     : ldap://localhost:10389/?namingContexts,subschemaSubentry,supportedLDAPVersion,supportedSASLMechanisms,supportedExtension,supportedControl,supportedFeatures,vendorName,vendorVersion,+,objectClass??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "" -s base "(objectClass=*)" "namingContexts" "subschemaSubentry" "supportedLDAPVersion" "supportedSASLMechanisms" "supportedExtension" "supportedControl" "supportedFeatures" "vendorName" "vendorVersion" "+" "objectClass"
+# baseObject   : 
+# scope        : baseObject (0)
+# derefAliases : neverDerefAliases (0)
+# sizeLimit    : 0
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : namingContexts subschemaSubentry supportedLDAPVersion supportedSASLMechanisms supportedExtension supportedControl supportedFeatures vendorName vendorVersion + objectClass
+
+#!SEARCH RESULT DONE (2) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.803
+# numEntries : 1
+
+#!SEARCH REQUEST (3) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.805
+# LDAP URL     : ldap://localhost:10389/?*??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "" -s base "(objectClass=*)" "*"
+# baseObject   : 
+# scope        : baseObject (0)
+# derefAliases : neverDerefAliases (0)
+# sizeLimit    : 0
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : *
+
+#!SEARCH RESULT DONE (3) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.808
+# numEntries : 1
+
+#!SEARCH REQUEST (4) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.812
+# LDAP URL     : ldap://localhost:10389/ou=schema?hasSubordinates,objectClass??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "ou=schema" -s base -a always -z 1 "(objectClass=*)" "hasSubordinates" "objectClass"
+# baseObject   : ou=schema
+# scope        : baseObject (0)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 1
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : hasSubordinates objectClass
+
+#!SEARCH RESULT DONE (4) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.817
+# numEntries : 1
+
+#!SEARCH REQUEST (5) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.819
+# LDAP URL     : ldap://localhost:10389/ou=config?hasSubordinates,objectClass??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "ou=config" -s base -a always -z 1 "(objectClass=*)" "hasSubordinates" "objectClass"
+# baseObject   : ou=config
+# scope        : baseObject (0)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 1
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : hasSubordinates objectClass
+
+#!SEARCH RESULT DONE (5) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.826
+# numEntries : 1
+
+#!SEARCH REQUEST (6) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.827
+# LDAP URL     : ldap://localhost:10389/ou=system?hasSubordinates,objectClass??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "ou=system" -s base -a always -z 1 "(objectClass=*)" "hasSubordinates" "objectClass"
+# baseObject   : ou=system
+# scope        : baseObject (0)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 1
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : hasSubordinates objectClass
+
+#!SEARCH RESULT DONE (6) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.831
+# numEntries : 1
+
+#!SEARCH REQUEST (7) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.832
+# LDAP URL     : ldap://localhost:10389/cn=schema?hasSubordinates,objectClass??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "cn=schema" -s base -a always -z 1 "(objectClass=*)" "hasSubordinates" "objectClass"
+# baseObject   : cn=schema
+# scope        : baseObject (0)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 1
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : hasSubordinates objectClass
+
+#!SEARCH RESULT DONE (7) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.896
+# numEntries : 1
+
+#!SEARCH REQUEST (8) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.898
+# LDAP URL     : ldap://localhost:10389/dc=example,dc=com?hasSubordinates,objectClass??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "dc=example,dc=com" -s base -a always -z 1 "(objectClass=*)" "hasSubordinates" "objectClass"
+# baseObject   : dc=example,dc=com
+# scope        : baseObject (0)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 1
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : hasSubordinates objectClass
+
+#!SEARCH RESULT DONE (8) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:02:12.906
+# numEntries : 1
+
+#!SEARCH REQUEST (9) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:13.987
+# LDAP URL     : ldap://localhost:10389/?subschemaSubentry??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "" -s base -a always "(objectClass=*)" "subschemaSubentry"
+# baseObject   : 
+# scope        : baseObject (0)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 0
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : subschemaSubentry
+
+#!SEARCH REQUEST (10) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:13.990
+# LDAP URL     : ldap://localhost:10389/cn=schema?createTimestamp,modifyTimestamp??(objectClass=subschema)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "cn=schema" -s base -a always "(objectClass=subschema)" "createTimestamp" "modifyTimestamp"
+# baseObject   : cn=schema
+# scope        : baseObject (0)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 0
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=subschema)
+# attributes   : createTimestamp modifyTimestamp
+
+#!SEARCH RESULT DONE (10) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.021
+# numEntries : 1
+
+#!SEARCH REQUEST (11) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.023
+# LDAP URL     : ldap://localhost:10389/?namingContexts,subschemaSubentry,supportedLDAPVersion,supportedSASLMechanisms,supportedExtension,supportedControl,supportedFeatures,vendorName,vendorVersion,+,objectClass??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "" -s base "(objectClass=*)" "namingContexts" "subschemaSubentry" "supportedLDAPVersion" "supportedSASLMechanisms" "supportedExtension" "supportedControl" "supportedFeatures" "vendorName" "vendorVersion" "+" "objectClass"
+# baseObject   : 
+# scope        : baseObject (0)
+# derefAliases : neverDerefAliases (0)
+# sizeLimit    : 0
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : namingContexts subschemaSubentry supportedLDAPVersion supportedSASLMechanisms supportedExtension supportedControl supportedFeatures vendorName vendorVersion + objectClass
+
+#!SEARCH RESULT DONE (11) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.029
+# numEntries : 1
+
+#!SEARCH REQUEST (12) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.032
+# LDAP URL     : ldap://localhost:10389/?*??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "" -s base "(objectClass=*)" "*"
+# baseObject   : 
+# scope        : baseObject (0)
+# derefAliases : neverDerefAliases (0)
+# sizeLimit    : 0
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : *
+
+#!SEARCH RESULT DONE (12) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.047
+# numEntries : 1
+
+#!SEARCH REQUEST (13) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.050
+# LDAP URL     : ldap://localhost:10389/ou=schema?hasSubordinates,objectClass??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "ou=schema" -s base -a always -z 1 "(objectClass=*)" "hasSubordinates" "objectClass"
+# baseObject   : ou=schema
+# scope        : baseObject (0)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 1
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : hasSubordinates objectClass
+
+#!SEARCH RESULT DONE (13) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.055
+# numEntries : 1
+
+#!SEARCH REQUEST (14) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.058
+# LDAP URL     : ldap://localhost:10389/ou=config?hasSubordinates,objectClass??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "ou=config" -s base -a always -z 1 "(objectClass=*)" "hasSubordinates" "objectClass"
+# baseObject   : ou=config
+# scope        : baseObject (0)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 1
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : hasSubordinates objectClass
+
+#!SEARCH RESULT DONE (14) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.061
+# numEntries : 1
+
+#!SEARCH REQUEST (15) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.063
+# LDAP URL     : ldap://localhost:10389/ou=system?hasSubordinates,objectClass??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "ou=system" -s base -a always -z 1 "(objectClass=*)" "hasSubordinates" "objectClass"
+# baseObject   : ou=system
+# scope        : baseObject (0)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 1
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : hasSubordinates objectClass
+
+#!SEARCH RESULT DONE (15) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.070
+# numEntries : 1
+
+#!SEARCH REQUEST (16) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.072
+# LDAP URL     : ldap://localhost:10389/cn=schema?hasSubordinates,objectClass??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "cn=schema" -s base -a always -z 1 "(objectClass=*)" "hasSubordinates" "objectClass"
+# baseObject   : cn=schema
+# scope        : baseObject (0)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 1
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : hasSubordinates objectClass
+
+#!SEARCH RESULT DONE (16) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.118
+# numEntries : 1
+
+#!SEARCH REQUEST (17) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.119
+# LDAP URL     : ldap://localhost:10389/dc=example,dc=com?hasSubordinates,objectClass??(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "dc=example,dc=com" -s base -a always -z 1 "(objectClass=*)" "hasSubordinates" "objectClass"
+# baseObject   : dc=example,dc=com
+# scope        : baseObject (0)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 1
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : hasSubordinates objectClass
+
+#!SEARCH RESULT DONE (17) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:14.125
+# numEntries : 1
+
+#!SEARCH REQUEST (18) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:30.528
+# LDAP URL     : ldap://localhost:10389/ou=config?hasSubordinates,objectClass?one?(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "ou=config" -s one -a always -z 1000 "(objectClass=*)" "hasSubordinates" "objectClass"
+# baseObject   : ou=config
+# scope        : singleLevel (1)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 1000
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : hasSubordinates objectClass
+
+#!SEARCH RESULT DONE (18) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:30.541
+# numEntries : 1
+
+#!SEARCH REQUEST (19) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:31.908
+# LDAP URL     : ldap://localhost:10389/ou=system?hasSubordinates,objectClass?one?(objectClass=*)
+# command line : ldapsearch -H ldap://localhost:10389 -x -D "uid=admin,ou=system" -W -b "ou=system" -s one -a always -z 1000 "(objectClass=*)" "hasSubordinates" "objectClass"
+# baseObject   : ou=system
+# scope        : singleLevel (1)
+# derefAliases : derefAlways (3)
+# sizeLimit    : 1000
+# timeLimit    : 0
+# typesOnly    : False
+# filter       : (objectClass=*)
+# attributes   : hasSubordinates objectClass
+
+#!SEARCH RESULT DONE (19) OK
+#!CONNECTION ldap://localhost:10389
+#!DATE 2021-03-07T20:03:31.920
+# numEntries : 6
+

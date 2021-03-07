@@ -1,0 +1,10 @@
+dn: ou=transports,ads-serverId=ldapServer,ou=servers,ads-directoryServiceId=defa
+ ult,ou=config
+entryCSN: 20210307195141.086000Z#000000#000#000000
+ou: transports
+objectclass: organizationalUnit
+objectclass: top
+createTimestamp: 20210307195141.087Z
+creatorsName: uid=admin,ou=system
+entryUUID: 8772fdd6-be3b-4f94-ac42-a7f03da5d99d
+entryParentId: 69aad3aa-ece9-4adb-909c-431c9575ad36

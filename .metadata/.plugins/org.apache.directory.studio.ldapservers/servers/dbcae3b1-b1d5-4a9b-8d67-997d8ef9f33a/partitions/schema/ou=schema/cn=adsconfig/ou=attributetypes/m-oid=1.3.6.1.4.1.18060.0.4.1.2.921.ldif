@@ -1,0 +1,20 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.1.2.921,ou=attributeTypes,cn=adsconfig,ou=schema
+entryCSN: 20210307195200.415000Z#000000#000#000000
+creatorsname: uid=admin,ou=system
+m-length: 0
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.44
+m-singlevalue: TRUE
+m-ordering: caseExactOrderingMatch
+entryUUID: 8d5e3ece-9044-499c-bfb2-c2e6abafa8f3
+m-substr: caseExactSubstringsMatch
+m-supattributetype: name
+m-equality: caseExactMatch
+m-description: an ID used to identify the passwordPolicy configuration
+m-oid: 1.3.6.1.4.1.18060.0.4.1.2.921
+objectclass: top
+objectclass: metaTop
+objectclass: metaAttributeType
+createTimestamp: 20210307195206.855Z
+m-name: ads-pwdId
+entryParentId: 2ea362e2-53da-455b-b23d-5a6b36d7e5bc

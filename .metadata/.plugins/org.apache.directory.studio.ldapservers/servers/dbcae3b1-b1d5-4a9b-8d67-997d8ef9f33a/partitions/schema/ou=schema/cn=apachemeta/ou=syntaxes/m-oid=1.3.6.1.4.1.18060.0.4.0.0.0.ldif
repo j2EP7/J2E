@@ -1,0 +1,14 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.0.0.0,ou=syntaxes,cn=apachemeta,ou=schema
+entrycsn: 20100111202214.878000Z#000000#000#000000
+m-description: Numeric IDs Or Names
+m-obsolete: FALSE
+objectclass: top
+objectclass: metaTop
+objectclass: metaSyntax
+m-oid: 1.3.6.1.4.1.18060.0.4.0.0.0
+createtimestamp: 20100111145217Z
+creatorsname: uid=admin,ou=system
+x-not-human-readable: FALSE
+entryUUID: aa005e1b-84a2-4deb-9316-9aff75be14ad
+entryParentId: 71297b8d-414c-445a-89e3-7051634c1d23

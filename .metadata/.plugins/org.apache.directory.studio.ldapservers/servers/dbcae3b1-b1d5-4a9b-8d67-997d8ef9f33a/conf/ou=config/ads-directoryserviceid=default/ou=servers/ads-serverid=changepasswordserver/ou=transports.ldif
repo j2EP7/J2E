@@ -1,0 +1,10 @@
+dn: ou=transports,ads-serverId=changePasswordServer,ou=servers,ads-directoryServ
+ iceId=default,ou=config
+entryCSN: 20210307195140.910000Z#000000#000#000000
+ou: transports
+objectclass: organizationalUnit
+objectclass: top
+createTimestamp: 20210307195140.910Z
+creatorsName: uid=admin,ou=system
+entryUUID: 023edc13-ad58-410c-be55-54484aacf8e0
+entryParentId: ff9ed674-1419-446a-a1c1-a0840aba9d23

@@ -1,0 +1,20 @@
+version: 1
+dn: m-oid=2.5.6.19,ou=objectClasses,cn=core,ou=schema
+entryCSN: 20210307195202.319000Z#000000#000#000000
+creatorsname: uid=admin,ou=system
+entryUUID: fbb4eb2f-fadf-4565-9604-148003f07442
+m-may: certificateRevocationList
+m-may: authorityRevocationList
+m-may: deltaRevocationList
+m-typeobjectclass: STRUCTURAL
+m-supobjectclass: top
+m-must: cn
+m-description: X.509 CRL distribution point
+m-obsolete: FALSE
+objectclass: top
+objectclass: metaTop
+objectclass: metaObjectClass
+m-oid: 2.5.6.19
+createTimestamp: 20210307195206.262Z
+m-name: cRLDistributionPoint
+entryParentId: c424ef6c-ce6c-4b4c-b118-071190721a10

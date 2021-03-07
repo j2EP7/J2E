@@ -1,0 +1,10 @@
+version: 1
+dn: ou=comparators,cn=pwdpolicy,ou=schema
+entryCSN: 20210307195204.354000Z#000000#000#000000
+ou: comparators
+objectclass: organizationalUnit
+objectclass: top
+createTimestamp: 20210307195206.790Z
+creatorsname: uid=admin,ou=system
+entryUUID: 3b5a42a9-6a55-4b60-8346-b77892ee601a
+entryParentId: 6de4e819-f386-4a9f-b777-30a51d94cd0d

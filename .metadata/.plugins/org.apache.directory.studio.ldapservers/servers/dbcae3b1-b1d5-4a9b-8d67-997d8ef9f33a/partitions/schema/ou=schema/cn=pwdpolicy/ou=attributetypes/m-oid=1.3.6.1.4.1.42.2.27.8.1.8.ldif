@@ -1,0 +1,17 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.42.2.27.8.1.8,ou=attributeTypes,cn=pwdpolicy,ou=schema
+entryCSN: 20210307195204.449000Z#000001#000#000000
+creatorsname: uid=admin,ou=system
+m-length: 0
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.27
+m-singlevalue: TRUE
+m-ordering: integerOrderingMatch
+entryUUID: 07c2b1ce-0f69-4e13-aac7-9a4ea684e71f
+m-equality: integerMatch
+m-oid: 1.3.6.1.4.1.42.2.27.8.1.8
+objectclass: metaTop
+objectclass: metaAttributeType
+objectclass: top
+createTimestamp: 20210307195206.201Z
+m-name: pwdGraceAuthNLimit
+entryParentId: ef8026c9-bfa6-4e3a-bf76-b9b1addaa03c

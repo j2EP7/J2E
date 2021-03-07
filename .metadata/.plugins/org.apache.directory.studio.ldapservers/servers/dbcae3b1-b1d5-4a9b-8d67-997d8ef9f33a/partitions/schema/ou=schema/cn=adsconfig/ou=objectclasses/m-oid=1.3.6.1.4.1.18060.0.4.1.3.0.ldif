@@ -1,0 +1,16 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.1.3.0,ou=objectClasses,cn=adsconfig,ou=schema
+m-may: ads-enabled
+m-may: description
+m-typeobjectclass: ABSTRACT
+entryCSN: 20210307195200.460000Z#000000#000#000000
+m-description: The base bean
+m-oid: 1.3.6.1.4.1.18060.0.4.1.3.0
+objectclass: top
+objectclass: metaTop
+objectclass: metaObjectClass
+createTimestamp: 20210307195206.822Z
+m-name: ads-base
+creatorsname: uid=admin,ou=system
+entryUUID: 62280f10-5ab3-4af9-bfbb-2493f187a28e
+entryParentId: d51f7741-f735-4695-9dba-4ea5fa49c1de

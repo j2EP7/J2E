@@ -1,0 +1,10 @@
+version: 1
+dn: ou=syntaxes,cn=apachedns,ou=schema
+entryCSN: 20210307195200.973000Z#000000#000#000000
+ou: syntaxes
+objectclass: organizationalUnit
+objectclass: top
+createTimestamp: 20210307195207.402Z
+creatorsname: uid=admin,ou=system
+entryUUID: f5334275-3a4c-4975-9d72-73174c6d477b
+entryParentId: 06e46b67-53be-4eea-8141-49cf4707b5bc

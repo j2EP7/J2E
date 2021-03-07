@@ -1,0 +1,20 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.7165.2.1.33,ou=attributeTypes,cn=samba,ou=schema
+entryCSN: 20210307195204.809000Z#000000#000#000000
+m-usage: USER_APPLICATIONS
+m-collective: FALSE
+creatorsname: uid=admin,ou=system
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.26
+m-singlevalue: TRUE
+entryUUID: 7f9fee8a-5c70-4111-8276-216b6008d2f6
+m-equality: caseIgnoreIA5Match
+m-description: Driver letter of home directory mapping
+m-obsolete: FALSE
+m-oid: 1.3.6.1.4.1.7165.2.1.33
+objectclass: top
+objectclass: metaTop
+objectclass: metaAttributeType
+createTimestamp: 20210307195207.864Z
+m-name: sambaHomeDrive
+entryParentId: 2d92c928-1fef-44ee-ab93-1fe46b70a631

@@ -1,0 +1,18 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.1.2.68,ou=attributeTypes,cn=adsconfig,ou=schema
+entryCSN: 20210307195200.304000Z#000000#000#000000
+creatorsname: uid=admin,ou=system
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.26
+m-singlevalue: FALSE
+m-ordering: caseExactOrderingMatch
+entryUUID: aa4f388d-134f-4a71-8538-2d4f16a5321e
+m-substr: caseIgnoreIA5SubstringsMatch
+m-equality: caseIgnoreOrderingMatch
+m-description: Enabled ciphers
+objectclass: top
+objectclass: metaTop
+objectclass: metaAttributeType
+m-oid: 1.3.6.1.4.1.18060.0.4.1.2.68
+createTimestamp: 20210307195207.651Z
+m-name: ads-enabledCiphers
+entryParentId: 2ea362e2-53da-455b-b23d-5a6b36d7e5bc

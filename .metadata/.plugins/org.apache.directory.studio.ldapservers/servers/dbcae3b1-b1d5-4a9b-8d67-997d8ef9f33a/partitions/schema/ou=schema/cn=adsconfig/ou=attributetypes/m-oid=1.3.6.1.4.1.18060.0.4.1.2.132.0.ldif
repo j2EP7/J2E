@@ -1,0 +1,19 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.1.2.132.0,ou=attributeTypes,cn=adsconfig,ou=sche
+ ma
+entryCSN: 20210307195200.154000Z#000000#000#000000
+creatorsname: uid=admin,ou=system
+m-length: 0
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.44
+m-singlevalue: TRUE
+m-ordering: caseIgnoreOrderingMatch
+entryUUID: 0947ef16-16c4-4a86-914d-a19f3118250c
+m-equality: caseIgnoreMatch
+m-description: The hash algorithm
+objectclass: top
+objectclass: metaTop
+objectclass: metaAttributeType
+m-oid: 1.3.6.1.4.1.18060.0.4.1.2.132.0
+createTimestamp: 20210307195207.292Z
+m-name: ads-hashAlgorithm
+entryParentId: 2ea362e2-53da-455b-b23d-5a6b36d7e5bc

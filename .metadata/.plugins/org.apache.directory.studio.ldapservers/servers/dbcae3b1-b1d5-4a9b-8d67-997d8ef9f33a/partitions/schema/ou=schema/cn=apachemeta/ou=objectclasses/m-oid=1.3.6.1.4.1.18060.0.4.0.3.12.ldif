@@ -1,0 +1,18 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.0.3.12,ou=objectClasses,cn=apachemeta,ou=schema
+entryCSN: 20210307195201.571000Z#000000#000#000000
+creatorsname: uid=admin,ou=system
+entryUUID: 80fdb89a-25ef-493a-a21b-27362f0395c2
+m-may: m-bytecode
+m-typeobjectclass: STRUCTURAL
+m-supobjectclass: metaTop
+m-must: m-fqcn
+m-description: meta definition of a Normalizer object
+m-obsolete: FALSE
+m-oid: 1.3.6.1.4.1.18060.0.4.0.3.12
+objectclass: top
+objectclass: metaTop
+objectclass: metaObjectClass
+createTimestamp: 20210307195207.686Z
+m-name: metaNormalizer
+entryParentId: d51111ba-b195-47c8-ba32-9d9f8674362b

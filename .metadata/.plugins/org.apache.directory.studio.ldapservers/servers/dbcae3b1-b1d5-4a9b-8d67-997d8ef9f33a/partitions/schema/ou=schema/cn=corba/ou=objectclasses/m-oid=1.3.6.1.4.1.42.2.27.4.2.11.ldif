@@ -1,0 +1,17 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.42.2.27.4.2.11,ou=objectClasses,cn=corba,ou=schema
+entryCSN: 20210307195202.048000Z#000000#000#000000
+creatorsname: uid=admin,ou=system
+entryUUID: 6040bbee-49da-4460-becb-02471389559c
+m-typeobjectclass: AUXILIARY
+m-supobjectclass: corbaObject
+m-must: corbaIor
+m-description: CORBA interoperable object reference
+m-obsolete: FALSE
+m-oid: 1.3.6.1.4.1.42.2.27.4.2.11
+objectclass: metaObjectClass
+objectclass: metaTop
+objectclass: top
+createTimestamp: 20210307195206.756Z
+m-name: corbaObjectReference
+entryParentId: 19f22546-309b-4187-842d-9e5565ad6f4a

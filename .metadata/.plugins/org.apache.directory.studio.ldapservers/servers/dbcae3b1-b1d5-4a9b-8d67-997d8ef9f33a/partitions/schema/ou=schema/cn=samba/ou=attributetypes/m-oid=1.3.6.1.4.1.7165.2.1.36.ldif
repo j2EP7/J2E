@@ -1,0 +1,20 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.7165.2.1.36,ou=attributeTypes,cn=samba,ou=schema
+entryCSN: 20210307195204.833000Z#000000#000#000000
+m-usage: USER_APPLICATIONS
+m-collective: FALSE
+creatorsname: uid=admin,ou=system
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.15
+m-singlevalue: TRUE
+entryUUID: 6e4f90c8-5dd1-41da-b8ff-9e5debcaf0b5
+m-equality: caseIgnoreMatch
+m-description: List of user workstations the user is allowed to logon to
+m-obsolete: FALSE
+m-oid: 1.3.6.1.4.1.7165.2.1.36
+objectclass: top
+objectclass: metaTop
+objectclass: metaAttributeType
+createTimestamp: 20210307195206.653Z
+m-name: sambaUserWorkstations
+entryParentId: 2d92c928-1fef-44ee-ab93-1fe46b70a631

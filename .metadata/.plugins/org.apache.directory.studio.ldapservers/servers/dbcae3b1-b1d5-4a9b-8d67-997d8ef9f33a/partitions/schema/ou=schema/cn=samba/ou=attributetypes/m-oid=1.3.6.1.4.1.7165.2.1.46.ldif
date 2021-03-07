@@ -1,0 +1,20 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.7165.2.1.46,ou=attributeTypes,cn=samba,ou=schema
+entryCSN: 20210307195204.917000Z#000000#000#000000
+m-usage: USER_APPLICATIONS
+m-collective: FALSE
+creatorsname: uid=admin,ou=system
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.15
+m-singlevalue: FALSE
+entryUUID: df5c4b3f-14b6-4db5-9984-ed1f51e35dd8
+m-equality: caseIgnoreMatch
+m-description: A string list option
+m-obsolete: FALSE
+m-oid: 1.3.6.1.4.1.7165.2.1.46
+objectclass: top
+objectclass: metaTop
+objectclass: metaAttributeType
+createTimestamp: 20210307195206.909Z
+m-name: sambaStringListOption
+entryParentId: 2d92c928-1fef-44ee-ab93-1fe46b70a631

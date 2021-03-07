@@ -1,0 +1,20 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.2.2.1,ou=attributeTypes,cn=apachedns,ou=schema
+entryCSN: 20210307195200.984000Z#000000#000#000000
+m-usage: USER_APPLICATIONS
+m-collective: FALSE
+creatorsname: uid=admin,ou=system
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.26
+m-singlevalue: TRUE
+entryUUID: d86ddb20-0a69-4727-9052-303d3fb32ffc
+m-equality: caseIgnoreIA5Match
+m-description: The class of a resource record
+m-obsolete: FALSE
+m-oid: 1.3.6.1.4.1.18060.0.4.2.2.1
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+createTimestamp: 20210307195207.111Z
+m-name: apacheDnsClass
+entryParentId: 413c724e-1e11-4920-8de2-19b03838a97b

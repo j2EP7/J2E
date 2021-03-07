@@ -1,0 +1,20 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.42.2.27.4.1.15,ou=attributeTypes,cn=corba,ou=schema
+entryCSN: 20210307195202.026000Z#000000#000#000000
+m-usage: USER_APPLICATIONS
+m-collective: FALSE
+creatorsname: uid=admin,ou=system
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.15
+m-singlevalue: FALSE
+entryUUID: 8475d0ba-d805-4e79-8f40-98541a6aeed2
+m-equality: caseExactMatch
+m-description: Repository ids of interfaces implemented by a CORBA object
+m-obsolete: FALSE
+m-oid: 1.3.6.1.4.1.42.2.27.4.1.15
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+createTimestamp: 20210307195207.135Z
+m-name: corbaRepositoryId
+entryParentId: 3abf2923-5b02-47aa-b26c-a6cca4c59739

@@ -1,0 +1,19 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.1466.101.120.15,ou=attributeTypes,cn=system,ou=schema
+entryCSN: 20210307195205.263000Z#000000#000#000000
+m-usage: DSA_OPERATION
+m-collective: FALSE
+creatorsname: uid=admin,ou=system
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.27
+m-singlevalue: FALSE
+entryUUID: 67d3208d-9348-408c-bf97-a7a6621903f1
+m-description: RFC2252: supported LDAP versions
+m-obsolete: FALSE
+m-oid: 1.3.6.1.4.1.1466.101.120.15
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+createTimestamp: 20210307195207.445Z
+m-name: supportedLDAPVersion
+entryParentId: 98ffc580-c056-4876-a896-4a4458524cf6

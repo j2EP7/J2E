@@ -1,0 +1,20 @@
+version: 1
+dn: m-oid=2.5.4.37,ou=attributeTypes,cn=core,ou=schema
+entryCSN: 20210307195202.254000Z#000000#000#000000
+m-usage: USER_APPLICATIONS
+m-collective: FALSE
+creatorsname: uid=admin,ou=system
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.8
+m-singlevalue: FALSE
+entryUUID: 8a0d4882-a9b2-4115-a522-520aa72faa39
+m-equality: certificateExactMatch
+m-description: X.509 CA certificate
+m-obsolete: FALSE
+objectclass: top
+objectclass: metaTop
+objectclass: metaAttributeType
+m-oid: 2.5.4.37
+createTimestamp: 20210307195207.180Z
+m-name: cACertificate
+entryParentId: 95dd7bc4-314b-46c1-82ab-59b7ba5b5356

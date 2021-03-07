@@ -1,0 +1,20 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.42.2.27.4.1.11,ou=attributeTypes,cn=java,ou=schema
+entryCSN: 20210307195203.333000Z#000000#000#000000
+m-usage: USER_APPLICATIONS
+m-collective: FALSE
+creatorsname: uid=admin,ou=system
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.15
+m-singlevalue: FALSE
+entryUUID: 81164e79-f0d7-454d-b0d7-efd05e0c3953
+m-equality: caseExactMatch
+m-description: Addresses associated with a JNDI Reference
+m-obsolete: FALSE
+m-oid: 1.3.6.1.4.1.42.2.27.4.1.11
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+createTimestamp: 20210307195207.053Z
+m-name: javaReferenceAddress
+entryParentId: edaa11d1-3952-4920-ae0c-68eb9758e5e7

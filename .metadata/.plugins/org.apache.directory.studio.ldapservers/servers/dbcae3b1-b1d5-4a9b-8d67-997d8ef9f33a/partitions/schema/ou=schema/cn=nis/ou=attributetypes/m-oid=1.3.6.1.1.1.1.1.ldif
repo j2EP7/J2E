@@ -1,0 +1,21 @@
+version: 1
+dn: m-oid=1.3.6.1.1.1.1.1,ou=attributeTypes,cn=nis,ou=schema
+entryCSN: 20210307195203.835000Z#000000#000#000000
+m-usage: USER_APPLICATIONS
+m-collective: FALSE
+creatorsname: uid=admin,ou=system
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.27
+m-singlevalue: TRUE
+entryUUID: a090f035-de8b-45de-a4e2-c78058d42f1d
+m-equality: integerMatch
+m-description: An integer uniquely identifying a group in an administrative doma
+ in
+m-obsolete: FALSE
+m-oid: 1.3.6.1.1.1.1.1
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+createTimestamp: 20210307195207.497Z
+m-name: gidNumber
+entryParentId: b18d8e10-f0ab-4ead-856c-35c07a171ff3

@@ -1,0 +1,16 @@
+version: 1
+dn: m-oid=0.9.2342.19200300.100.4.18,ou=objectClasses,cn=cosine,ou=schema
+entryCSN: 20210307195202.553000Z#000000#000#000000
+creatorsname: uid=admin,ou=system
+entryUUID: a1fde754-6182-432d-aafe-09dc1670a7b3
+m-typeobjectclass: STRUCTURAL
+m-supobjectclass: country
+m-must: co
+m-obsolete: FALSE
+m-oid: 0.9.2342.19200300.100.4.18
+objectclass: metaObjectClass
+objectclass: metaTop
+objectclass: top
+createTimestamp: 20210307195206.155Z
+m-name: friendlyCountry
+entryParentId: 237b45bd-acb4-4a4d-b223-51a8c89e94fc

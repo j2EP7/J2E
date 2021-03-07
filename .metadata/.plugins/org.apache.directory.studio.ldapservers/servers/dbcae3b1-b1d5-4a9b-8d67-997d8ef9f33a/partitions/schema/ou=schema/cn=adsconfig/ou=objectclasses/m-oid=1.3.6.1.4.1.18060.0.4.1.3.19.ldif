@@ -1,0 +1,18 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.1.3.19,ou=objectClasses,cn=adsconfig,ou=schema
+m-may: ads-enabledProtocols
+m-may: ads-enabledCiphers
+m-may: ads-wantClientAuth
+m-may: ads-needClientAuth
+entryCSN: 20210307195200.482000Z#000000#000#000000
+m-supobjectclass: ads-transport
+m-description: A TCP transport
+m-oid: 1.3.6.1.4.1.18060.0.4.1.3.19
+objectclass: top
+objectclass: metaTop
+objectclass: metaObjectClass
+createTimestamp: 20210307195206.649Z
+m-name: ads-tcpTransport
+creatorsname: uid=admin,ou=system
+entryUUID: 8bfbdc89-066d-46d7-aae9-02f7488a4816
+entryParentId: d51f7741-f735-4695-9dba-4ea5fa49c1de

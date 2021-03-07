@@ -1,0 +1,12 @@
+version: 1
+dn: cn=apache,ou=schema
+entryCSN: 20210307195159.924000Z#000000#000#000000
+cn: apache
+objectclass: metaSchema
+objectclass: top
+createTimestamp: 20210307195207.893Z
+m-dependencies: system
+m-dependencies: core
+creatorsname: uid=admin,ou=system
+entryUUID: 9c2fbf45-23fa-4b69-b5da-d5ea1451694b
+entryParentId: 34f05f51-513a-4b90-9569-22236a10bc87

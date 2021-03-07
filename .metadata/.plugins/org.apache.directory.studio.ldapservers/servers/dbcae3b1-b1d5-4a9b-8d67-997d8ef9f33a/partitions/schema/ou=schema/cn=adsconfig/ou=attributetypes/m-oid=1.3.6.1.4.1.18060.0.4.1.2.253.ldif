@@ -1,0 +1,20 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.1.2.253,ou=attributeTypes,cn=adsconfig,ou=schema
+entryCSN: 20210307195200.209000Z#000000#000#000000
+creatorsname: uid=admin,ou=system
+m-length: 0
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.44
+m-singlevalue: TRUE
+m-ordering: caseExactOrderingMatch
+entryUUID: a45502f6-0611-4b00-8413-b4618d10f32b
+m-substr: caseExactSubstringsMatch
+m-supattributetype: name
+m-equality: caseExactMatch
+m-description: an ID used for ExtendeOpertion names
+m-oid: 1.3.6.1.4.1.18060.0.4.1.2.253
+objectclass: metaTop
+objectclass: metaAttributeType
+objectclass: top
+createTimestamp: 20210307195207.213Z
+m-name: ads-extendedOpId
+entryParentId: 2ea362e2-53da-455b-b23d-5a6b36d7e5bc

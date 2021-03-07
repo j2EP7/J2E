@@ -1,0 +1,20 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.1.2.925,ou=attributeTypes,cn=adsconfig,ou=schema
+entryCSN: 20210307195200.419000Z#000000#000#000000
+creatorsName:: MC45LjIzNDIuMTkyMDAzMDAuMTAwLjEuMT0gYWRtaW4gLDIuNS40LjExPSBzeXN0Z
+ W0g
+m-length: 0
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.44
+m-singlevalue: TRUE
+m-ordering: caseExactOrderingMatch
+entryUUID: 84dc4a84-7544-49e6-829d-aed63620127f
+m-substr: caseExactSubstringsMatch
+m-equality: caseExactMatch
+m-description: FQCN of password validator
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+m-oid: 1.3.6.1.4.1.18060.0.4.1.2.925
+createTimestamp: 20210307195206.634Z
+m-name: ads-pwdValidator
+entryParentId: 2ea362e2-53da-455b-b23d-5a6b36d7e5bc

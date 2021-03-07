@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ldapServers>
+  <ldapServer id="dbcae3b1-b1d5-4a9b-8d67-997d8ef9f33a" name="ApacheDS 2.0.0" adapterId="org.apache.directory.server.2.0.0" adapterName="ApacheDS" adapterVendor="Apache Software Foundation" adapterVersion="2.0.0"/>
+</ldapServers>

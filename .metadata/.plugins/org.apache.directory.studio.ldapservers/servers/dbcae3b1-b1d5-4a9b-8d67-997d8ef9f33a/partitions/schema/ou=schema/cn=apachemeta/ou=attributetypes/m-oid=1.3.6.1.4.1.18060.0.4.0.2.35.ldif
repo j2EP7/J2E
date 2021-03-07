@@ -1,0 +1,20 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.0.2.35,ou=attributeTypes,cn=apachemeta,ou=schema
+entryCSN: 20210307195201.521000Z#000000#000#000000
+m-usage: USER_APPLICATIONS
+m-collective: FALSE
+creatorsname: uid=admin,ou=system
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.15
+m-singlevalue: TRUE
+entryUUID: 654d367b-f373-4350-98d4-b08dfc7a5805
+m-equality: caseIgnoreMatch
+m-description: Stores the name of the schema
+m-obsolete: FALSE
+objectclass: top
+objectclass: metaTop
+objectclass: metaAttributeType
+m-oid: 1.3.6.1.4.1.18060.0.4.0.2.35
+createTimestamp: 20210307195206.776Z
+m-name: x-schema
+entryParentId: 8f81423c-9434-4c80-8f37-6c82ef772ec7

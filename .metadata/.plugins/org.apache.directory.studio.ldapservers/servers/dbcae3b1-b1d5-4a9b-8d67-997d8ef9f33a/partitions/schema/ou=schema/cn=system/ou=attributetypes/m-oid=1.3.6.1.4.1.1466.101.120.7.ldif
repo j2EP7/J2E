@@ -1,0 +1,19 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.1466.101.120.7,ou=attributeTypes,cn=system,ou=schema
+entryCSN: 20210307195205.266000Z#000001#000#000000
+m-usage: DSA_OPERATION
+m-collective: FALSE
+creatorsname: uid=admin,ou=system
+m-nousermodification: FALSE
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.38
+m-singlevalue: FALSE
+entryUUID: 7b672564-fd24-4f81-bd6b-17ccb1c17150
+m-description: RFC2252: supported extended operations
+m-obsolete: FALSE
+m-oid: 1.3.6.1.4.1.1466.101.120.7
+objectclass: metaAttributeType
+objectclass: metaTop
+objectclass: top
+createTimestamp: 20210307195207.648Z
+m-name: supportedExtension
+entryParentId: 98ffc580-c056-4876-a896-4a4458524cf6

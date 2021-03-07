@@ -1,0 +1,18 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.1.2.104,ou=attributeTypes,cn=adsconfig,ou=schema
+entryCSN: 20210307195200.127000Z#000000#000#000000
+creatorsname: uid=admin,ou=system
+m-length: 0
+m-syntax: 1.3.6.1.4.1.1466.115.121.1.7
+m-singlevalue: TRUE
+entryUUID: 1d04939d-5020-4218-9fea-0f5bee1055ec
+m-equality: booleanMatch
+m-description: Tells if the password is stored encrypted even for PLAIN authenti
+ cation
+m-oid: 1.3.6.1.4.1.18060.0.4.1.2.104
+objectclass: top
+objectclass: metaTop
+objectclass: metaAttributeType
+createTimestamp: 20210307195207.886Z
+m-name: ads-dsPasswordHidden
+entryParentId: 2ea362e2-53da-455b-b23d-5a6b36d7e5bc

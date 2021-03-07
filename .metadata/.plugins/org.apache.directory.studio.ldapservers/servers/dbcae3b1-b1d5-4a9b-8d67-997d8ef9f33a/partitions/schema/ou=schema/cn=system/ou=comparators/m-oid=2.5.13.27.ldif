@@ -1,0 +1,13 @@
+version: 1
+dn: m-oid=2.5.13.27,ou=comparators,cn=system,ou=schema
+entryCSN: 20210307195205.323000Z#000000#000#000000
+m-oid: 2.5.13.27
+objectclass: metaComparator
+objectclass: metaTop
+objectclass: top
+createTimestamp: 20210307195207.837Z
+creatorsname: uid=admin,ou=system
+entryUUID: 050922f0-6f9e-4bf8-8464-944e58067648
+m-fqcn: org.apache.directory.api.ldap.model.schema.comparators.GeneralizedTimeCo
+ mparator
+entryParentId: 02c822ad-d0da-4235-8d01-9c1e1f21e0f8

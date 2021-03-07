@@ -1,0 +1,14 @@
+dn: ads-extendedOpId=startTransactionHandler,ou=extendedOpHandlers,ads-serverId=
+ ldapServer,ou=servers,ads-directoryServiceId=default,ou=config
+ads-extendedopid: startTransactionHandler
+entryCSN: 20210307195141.196000Z#000000#000#000000
+objectclass: ads-extendedOpHandler
+objectclass: ads-base
+objectclass: top
+createTimestamp: 20210307195141.197Z
+creatorsName: uid=admin,ou=system
+ads-extendedophandlerclass: org.apache.directory.server.ldap.handlers.extended.S
+ tartTransactionHandler
+ads-enabled: TRUE
+entryUUID: b7c8e7b0-2f43-4f72-89bb-7d7dee086f47
+entryParentId: 4710bf1e-c6e0-4935-a766-726952ffc935

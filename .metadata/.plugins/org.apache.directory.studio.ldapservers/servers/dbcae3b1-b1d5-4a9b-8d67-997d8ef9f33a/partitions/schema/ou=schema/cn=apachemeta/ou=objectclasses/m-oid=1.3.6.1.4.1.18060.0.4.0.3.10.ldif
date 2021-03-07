@@ -1,0 +1,18 @@
+version: 1
+dn: m-oid=1.3.6.1.4.1.18060.0.4.0.3.10,ou=objectClasses,cn=apachemeta,ou=schema
+entryCSN: 20210307195201.568000Z#000000#000#000000
+creatorsname: uid=admin,ou=system
+entryUUID: 37e55937-a970-413b-b260-2a59ffc2da18
+m-may: m-bytecode
+m-typeobjectclass: STRUCTURAL
+m-supobjectclass: metaTop
+m-must: m-fqcn
+m-description: meta definition of the SyntaxChecker object
+m-obsolete: FALSE
+m-oid: 1.3.6.1.4.1.18060.0.4.0.3.10
+objectclass: top
+objectclass: metaTop
+objectclass: metaObjectClass
+createTimestamp: 20210307195207.867Z
+m-name: metaSyntaxChecker
+entryParentId: d51111ba-b195-47c8-ba32-9d9f8674362b
