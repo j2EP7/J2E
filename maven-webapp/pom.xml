@@ -1,12 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.p7</groupId>
-  <artifactId>sopaDeLetras</artifactId>
+  <artifactId>maven-webapp</artifactId>
   <version>0.1</version>
-  <name>ldapTest</name>
-  <description>Test de conexión a LDAP</description>
-  <properties>
+  <packaging>war</packaging>
+  <name>WebApp</name>
+  <description>Sopa de letras</description>
+    <properties>
     <maven.compiler.source>15</maven.compiler.source>
     <maven.compiler.target>15</maven.compiler.target>
+    <failOnMissingWebXml>false</failOnMissingWebXml>
   </properties>
 </project>

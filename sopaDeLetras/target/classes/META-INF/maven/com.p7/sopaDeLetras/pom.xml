@@ -3,8 +3,8 @@
   <groupId>com.p7</groupId>
   <artifactId>sopaDeLetras</artifactId>
   <version>0.1</version>
-  <name>SopaDeLetras</name>
-  <description>Juego de resolución de sopa de letras</description>
+  <name>ldapTest</name>
+  <description>Test de conexión a LDAP</description>
   <properties>
     <maven.compiler.source>15</maven.compiler.source>
     <maven.compiler.target>15</maven.compiler.target>
