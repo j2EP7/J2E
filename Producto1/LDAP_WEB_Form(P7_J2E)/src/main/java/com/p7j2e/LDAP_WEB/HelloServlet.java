@@ -148,6 +148,8 @@ public class HelloServlet extends HttpServlet {
             out.println("<h4> No ha sido posible la conexión: </h4>" +
                     "<p>Pruebe desplegando nuevamente la aplicación e introducciendo nuevos datos</p>");
         }
+        out.println("</body>" +
+                "</html>");
     }
 
 }
