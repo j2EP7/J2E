@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="LDAP_WEB:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>LDAP_WEB</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="LDAP_WEB-0.1.war">
+      <element id="artifact" artifact-name="LDAP_WEB:war exploded" />
+    </root>
+  </artifact>
+</component>
