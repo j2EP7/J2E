@@ -6,6 +6,8 @@ import dao.GameDao;
 import model.GameModel;
 
 
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.util.List;
 
 public class MySQLGameDAO implements GameDao {
@@ -13,27 +15,46 @@ public class MySQLGameDAO implements GameDao {
     }
 
     @Override
-    public void insertar(GameModel a) throws DAOException {
+    public void create(GameModel a) throws DAOException {
 
     }
 
     @Override
-    public void modificar(Integer id, GameModel a) throws DAOException {
+    public void update(Integer id, GameModel a) throws DAOException {
 
     }
 
     @Override
-    public void eliminar(Integer id) throws DAOException {
+    public void delete(Integer id) throws DAOException {
 
     }
 
     @Override
-    public List<GameModel> ObtenerTodos() throws DAOException {
+    public List<GameModel> readAll() throws DAOException {
         return null;
     }
 
     @Override
-    public GameModel obtener(Integer id) throws DAOException {
+    public GameModel read(Integer id) throws DAOException {
+
+    /*    conexion = Utility.conectar(conexion);
+
+        //Preparemos la Query con el ?
+
+        String query = "select * from ingresos where id = ?" ;
+
+        //Creamos el Statment
+        PreparedStatement st = conexion.prepareStatement(query);
+
+
+        //Setemoas el valor asegurando que pasan un long y solo aceptamos el primer tramo
+
+        st.setLong(1, id);
+
+        //ejecutar el la Query en execute porque es un select
+
+        ResultSet result = st.executeQuery();*/
+
         return null;
     }
 }

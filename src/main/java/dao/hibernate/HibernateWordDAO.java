@@ -13,27 +13,27 @@ public class HibernateWordDAO implements WordDAO {
     }
 
     @Override
-    public void insertar(Word a) throws DAOException {
+    public void create(Word a) throws DAOException {
 
     }
 
     @Override
-    public void modificar(Integer id, Word a) throws DAOException {
+    public void update(Integer id, Word a) throws DAOException {
 
     }
 
     @Override
-    public void eliminar(Integer id) throws DAOException {
+    public void delete(Integer id) throws DAOException {
 
     }
 
     @Override
-    public List<Word> ObtenerTodos() throws DAOException {
+    public List<Word> readAll() throws DAOException {
         return null;
     }
 
     @Override
-    public Word obtener(Integer id) throws DAOException {
+    public Word read(Integer id) throws DAOException {
         return null;
     }
 }

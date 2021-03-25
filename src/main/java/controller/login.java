@@ -1,5 +1,7 @@
 package controller;
 
+import dao.DAOException;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Hashtable;
@@ -55,7 +57,9 @@ public class login extends HttpServlet {
 
             System.out.println(context.getEnvironment());
             context.close();
-            response.sendRedirect("game.jsp");
+            request.setAttribute("words", new controller.game().printAllWords());
+            request.getRequestDispatcher("game.jsp").forward(request, response);
+            //response.sendRedirect("game.jsp");
         }
         catch (AuthenticationNotSupportedException exception)
         {
@@ -71,6 +75,10 @@ public class login extends HttpServlet {
         catch (NamingException exception)
         {
             System.out.println("Error when trying to create the context");
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (DAOException e) {
+            e.printStackTrace();
         }
 
 

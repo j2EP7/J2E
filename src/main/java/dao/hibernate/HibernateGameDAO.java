@@ -13,27 +13,27 @@ public class HibernateGameDAO implements GameDao {
     }
 
     @Override
-    public void insertar(GameModel a) throws DAOException {
+    public void create(GameModel a) throws DAOException {
 
     }
 
     @Override
-    public void modificar(Integer id, GameModel a) throws DAOException {
+    public void update(Integer id, GameModel a) throws DAOException {
 
     }
 
     @Override
-    public void eliminar(Integer id) throws DAOException {
+    public void delete(Integer id) throws DAOException {
 
     }
 
     @Override
-    public List<GameModel> ObtenerTodos() throws DAOException {
+    public List<GameModel> readAll() throws DAOException {
         return null;
     }
 
     @Override
-    public GameModel obtener(Integer id) throws DAOException {
+    public GameModel read(Integer id) throws DAOException {
         return null;
     }
 }

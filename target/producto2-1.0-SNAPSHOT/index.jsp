@@ -11,14 +11,6 @@
 <br/>
 <form name="form1" method="post" action="login">
 
-    <%
-        if (request.getParameter("result") != null) {
-            System.out.println("Login incorrecto. Inténtelo otra vez.");
-        }else{
-            System.out.println("Adelante");
-        }
-    %>
-
     <table witdh="200" id="one-column-emphasis">
         <caption>
             Formulario de Autenticación LDAP
