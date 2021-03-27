@@ -18,12 +18,12 @@ public class HibernateGameDAO implements GameDao {
     }
 
     @Override
-    public void update(Integer id, GameModel a) throws DAOException {
+    public void update(String parameter, GameModel a) throws DAOException {
 
     }
 
     @Override
-    public void delete(Integer id) throws DAOException {
+    public void delete(String parameter) throws DAOException {
 
     }
 
@@ -33,7 +33,7 @@ public class HibernateGameDAO implements GameDao {
     }
 
     @Override
-    public GameModel read(Integer id) throws DAOException {
+    public GameModel read(String parameter) throws DAOException {
         return null;
     }
 }

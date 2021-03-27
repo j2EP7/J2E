@@ -17,13 +17,13 @@
 <body>
 
 <ul>
-    <c:forEach var="wordValue" items="${words}">
+    <%--<c:forEach var="wordValue" items="${words}">
         <li>
                 ${wordValue.id}<br>
                 ${wordValue.word}<br>
                 ${wordValue.description}<br>
         </li>
-    </c:forEach>
+    </c:forEach>--%>
 </ul>
 
 </body>

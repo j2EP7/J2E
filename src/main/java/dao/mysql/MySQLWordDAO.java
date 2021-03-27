@@ -4,16 +4,11 @@ package dao.mysql;
 import dao.DAOException;
 import dao.WordDAO;
 import model.Word;
-import controller.connection;
+import controller.ConexBBDD;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class MySQLWordDAO implements WordDAO {
 
@@ -41,7 +36,7 @@ public class MySQLWordDAO implements WordDAO {
     public List<Word> readAll() throws DAOException{
         List<Word> lista = new ArrayList<>();
         try {
-            conexion = connection.createConnection(conexion);
+            conexion = ConexBBDD.createConnection();
             Statement st = conexion.createStatement();
             String query = "select * from words where 1";
             ResultSet result = st.executeQuery(query);
