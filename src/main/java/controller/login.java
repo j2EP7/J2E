@@ -41,7 +41,7 @@ public class login extends HttpServlet {
         environment.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.ldap.LdapCtxFactory");
         environment.put(Context.PROVIDER_URL, "ldap://localhost:10389");
         environment.put(Context.SECURITY_AUTHENTICATION, "simple");
-        environment.put(Context.SECURITY_PRINCIPAL, "cn=" + request.getParameter("username") + "+sn=user,ou=system");
+        environment.put(Context.SECURITY_PRINCIPAL, "uid=" + request.getParameter("username") + ",ou=users,ou=system");
         environment.put(Context.SECURITY_CREDENTIALS, request.getParameter("password"));
 
         try
@@ -57,9 +57,10 @@ public class login extends HttpServlet {
 
             System.out.println(context.getEnvironment());
             context.close();
-            request.setAttribute("words", new controller.game().printAllWords());
-            request.getRequestDispatcher("game.jsp").forward(request, response);
-            //response.sendRedirect("game.jsp");
+            /*request.setAttribute("words", new controller.game().printAllWords());
+            request.getRequestDispatcher("game.jsp").forward(request, response);*/
+            response.sendRedirect("game.jsp");
+
         }
         catch (AuthenticationNotSupportedException exception)
         {
@@ -75,10 +76,12 @@ public class login extends HttpServlet {
         catch (NamingException exception)
         {
             System.out.println("Error when trying to create the context");
-        } catch (ServletException e) {
+        } /*catch(ServletException e) {
             e.printStackTrace();
-        } catch (DAOException e) {
+        }catch (DAOException e) {
             e.printStackTrace();
+        }*/catch(Exception e){
+            System.out.println(e);
         }
 
 
