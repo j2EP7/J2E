@@ -2,6 +2,9 @@
 <%@ page import="controller.game" %>
 <%@ page import="model.Word" %>
 <%@ page import="java.util.List" %>
+<%@ page import="dao.GameDao" %>
+<%@ page import="dao.FactoryDAO" %>
+<%@ page import="model.GameModel" %>
 <%--
   Created by IntelliJ IDEA.
   User: esteb
@@ -17,13 +20,21 @@
 <body>
 
 <ul>
-    <%--<c:forEach var="wordValue" items="${words}">
+  <%--  <c:forEach var="wordValue" items="${words}">
         <li>
                 ${wordValue.id}<br>
                 ${wordValue.word}<br>
                 ${wordValue.description}<br>
         </li>
     </c:forEach>--%>
+
+
+    <%
+        GameDao gameDAO = FactoryDAO.getGameDAO();
+        GameModel gamemodel = gameDAO.read("max_time");
+    %>
+    <%= gamemodel %>
+
 </ul>
 
 </body>

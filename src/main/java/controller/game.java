@@ -1,8 +1,7 @@
 package controller;
 
-import dao.DAOException;
-import dao.FactoryDAO;
-import dao.WordDAO;
+import dao.*;
+import model.GameModel;
 import model.Word;
 
 import java.util.List;
@@ -14,5 +13,4 @@ public class game {
         List<Word> words = wordDAO.readAll();
         return words;
     }
-
 }
