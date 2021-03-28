@@ -4,7 +4,7 @@ package dao.mysql;
 import controller.ConexBBDD;
 import dao.DAOException;
 import dao.GameDao;
-import model.GameModel;
+import model.Game;
 
 
 import java.sql.*;
@@ -19,19 +19,19 @@ public class MySQLGameDAO implements GameDao {
     final static String MAXTIME = "max_time";
     final static String NUMBERWORDS = "words"; //indica el numero de palabras que habrá en la sopa de letras
 
-    GameModel objConfig;
+    Game objConfig;
 
 
     public MySQLGameDAO() {
     }
 
     @Override
-    public void create(GameModel a) throws DAOException {
+    public void create(Game a) throws DAOException {
 
     }
 
     @Override
-    public void update(String parameter, GameModel a) throws DAOException {
+    public void update(String parameter, Game a) throws DAOException {
 
     }
 
@@ -41,12 +41,12 @@ public class MySQLGameDAO implements GameDao {
     }
 
     @Override
-    public List<GameModel> readAll() throws DAOException {
+    public List<Game> readAll() throws DAOException {
         return null;
     }
 
     @Override //!!!!!!!!!!!!!!!!!!!Cambiada parametrización en interfaz!!!!!!!!!!!!!!!!!
-    public GameModel read(String parameterr) throws DAOException {
+    public Game read(String parameterr) throws DAOException {
 
         //GameModel
 
@@ -82,7 +82,7 @@ public class MySQLGameDAO implements GameDao {
                         int gameId = result.getInt("id");
                         valueTemp = result.getString("value");
                         //Creamos el objeto que será retornado como resultado de la consulta
-                        objConfig = new GameModel();
+                        objConfig = new Game();
                         objConfig.setParameter(parameterr);
                         objConfig.setValue(valueTemp);
                         objConfig.setId(gameId);
@@ -91,7 +91,7 @@ public class MySQLGameDAO implements GameDao {
                         int gameId = result.getInt("id");
                         valueTemp = result.getString("value");
                         //
-                        objConfig = new GameModel();
+                        objConfig = new Game();
                         objConfig.setParameter(parameterr);
                         objConfig.setValue(valueTemp);
                         objConfig.setId(gameId);

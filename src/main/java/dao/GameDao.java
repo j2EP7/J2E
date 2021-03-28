@@ -1,6 +1,6 @@
 package dao;
-import model.GameModel;
+import model.Game;
 
-public interface GameDao extends DAO<GameModel, String>{
+public interface GameDao extends DAO<Game, String>{
 
 }

@@ -16,6 +16,7 @@ import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.InitialDirContext;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,18 +24,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet(name = "login", value = "/login")
+// @WebServlet(name = "login", value = "/login")
 public class login extends HttpServlet {
     private String message;
 
     public void init() {
         message = "Hello World!";
     }
-
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println(request.getParameter("username"));
+        //out.println(request.getParameter("username"));
 
         Hashtable<String, String> environment = new Hashtable<String, String>();
 
@@ -59,6 +59,8 @@ public class login extends HttpServlet {
             context.close();
             /*request.setAttribute("words", new controller.game().printAllWords());
             request.getRequestDispatcher("game.jsp").forward(request, response);*/
+       /*     RequestDispatcher rd=request.getRequestDispatcher("servlet2");
+            rd.forward(request, response);*/
             response.sendRedirect("game.jsp");
 
         }
@@ -69,7 +71,11 @@ public class login extends HttpServlet {
 
         catch (AuthenticationException exception)
         {
-            response.sendRedirect("index.jsp?result=failed");
+
+            RequestDispatcher rd=request.getRequestDispatcher("/index.jsp");
+            out.print("Error! Usuario o contraseña incorrectos.");
+            rd.include(request, response);
+            //response.sendRedirect("index.jsp?result=failed");
             // System.out.println("Incorrect password or username");
         }
 

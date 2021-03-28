@@ -4,7 +4,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="dao.GameDao" %>
 <%@ page import="dao.FactoryDAO" %>
-<%@ page import="model.GameModel" %>
+<%@ page import="model.Game" %>
+<%@ page import="controller.game" %>
 <%--
   Created by IntelliJ IDEA.
   User: esteb
@@ -20,18 +21,22 @@
 <body>
 
 <ul>
-  <%--  <c:forEach var="wordValue" items="${words}">
+
+${example}
+
+    <% List<Word> words = new controller.game().printAllWords(); %>
+<c:forEach var="wordValue" items="${words}">
         <li>
                 ${wordValue.id}<br>
                 ${wordValue.word}<br>
                 ${wordValue.description}<br>
         </li>
-    </c:forEach>--%>
+    </c:forEach>
 
 
     <%
         GameDao gameDAO = FactoryDAO.getGameDAO();
-        GameModel gamemodel = gameDAO.read("max_time");
+        Game gamemodel = gameDAO.read("max_time");
     %>
     <%= gamemodel %>
 

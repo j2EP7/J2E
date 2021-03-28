@@ -3,7 +3,7 @@ package dao.hibernate;
 
 import dao.DAOException;
 import dao.GameDao;
-import model.GameModel;
+import model.Game;
 
 import java.util.List;
 
@@ -13,12 +13,12 @@ public class HibernateGameDAO implements GameDao {
     }
 
     @Override
-    public void create(GameModel a) throws DAOException {
+    public void create(Game a) throws DAOException {
 
     }
 
     @Override
-    public void update(String parameter, GameModel a) throws DAOException {
+    public void update(String parameter, Game a) throws DAOException {
 
     }
 
@@ -28,12 +28,12 @@ public class HibernateGameDAO implements GameDao {
     }
 
     @Override
-    public List<GameModel> readAll() throws DAOException {
+    public List<Game> readAll() throws DAOException {
         return null;
     }
 
     @Override
-    public GameModel read(String parameter) throws DAOException {
+    public Game read(String parameter) throws DAOException {
         return null;
     }
 }

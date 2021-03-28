@@ -1,11 +1,11 @@
 package model;
 
-public class GameModel {
+public class Game {
     private String parameter;
     private String value;
     private Integer id;
 
-    public GameModel (){}
+    public Game(){}
 
     // habrá parameters predefinidos y el usuario no podrá settear el parameter
     public void setParameter(String parameter) {

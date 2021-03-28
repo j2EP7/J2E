@@ -5,6 +5,7 @@
 <%@ page import="dao.GameDao" %>
 <%@ page import="dao.FactoryDAO" %>
 <%@ page import="model.GameModel" %>
+<%@ page import="controller.game" %>
 <%--
   Created by IntelliJ IDEA.
   User: esteb
@@ -20,13 +21,17 @@
 <body>
 
 <ul>
-  <%--  <c:forEach var="wordValue" items="${words}">
+
+${example}
+
+    <% List<Word> words = new controller.game().printAllWords(); %>
+<c:forEach var="wordValue" items="${words}">
         <li>
                 ${wordValue.id}<br>
                 ${wordValue.word}<br>
                 ${wordValue.description}<br>
         </li>
-    </c:forEach>--%>
+    </c:forEach>
 
 
     <%
