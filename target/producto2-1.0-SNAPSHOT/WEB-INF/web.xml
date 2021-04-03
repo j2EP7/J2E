@@ -44,6 +44,14 @@
         <servlet-name>game</servlet-name>
         <url-pattern>/game</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>play</servlet-name>
+        <servlet-class>controller.play</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>play</servlet-name>
+        <url-pattern>/play</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
