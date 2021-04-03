@@ -61,7 +61,7 @@ public class login extends HttpServlet {
             request.getRequestDispatcher("game.jsp").forward(request, response);*/
        /*     RequestDispatcher rd=request.getRequestDispatcher("servlet2");
             rd.forward(request, response);*/
-            response.sendRedirect("game.jsp");
+            response.sendRedirect("play.jsp");
 
         }
         catch (AuthenticationNotSupportedException exception)

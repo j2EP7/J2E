@@ -6,26 +6,15 @@
 <%@ page import="dao.FactoryDAO" %>
 <%@ page import="model.Game" %>
 <%@ page import="controller.game" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: esteb
-  Date: 21/03/2021
-  Time: 23:42
-  To change this template use File | Settings | File Templates.
---%>∫
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 
 <ul>
 
-${example}
+    ${example}
 
     <% List<Word> words = new controller.game().printAllWords(); %>
-<c:forEach var="wordValue" items="${words}">
+    <c:forEach var="wordValue" items="${words}">
         <li>
                 ${wordValue.id}<br>
                 ${wordValue.word}<br>
@@ -44,5 +33,11 @@ ${example}
 
 </ul>
 
-</body>
-</html>
+<div id="game"></div>
+
+<!-- Cargamos funciones js -->
+<script src="${pageContext.request.contextPath}/assets/js/functions.js" /></script>
+
+<!-- botón jugar que dispara función js para cargar la sopa de letras -->
+<input type="button" value="Jugar" onclick="play()">
+
