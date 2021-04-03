@@ -12,7 +12,7 @@
   Date: 21/03/2021
   Time: 23:42
   To change this template use File | Settings | File Templates.
---%>
+--%>∫
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -37,8 +37,10 @@ ${example}
     <%
         GameDao gameDAO = FactoryDAO.getGameDAO();
         Game gamemodel = gameDAO.read("max_time");
+        Game paramWords = gameDAO.read("words");
     %>
     <%= gamemodel %>
+    Número de palabras: <%= paramWords.getValue() %>
 
 </ul>
 

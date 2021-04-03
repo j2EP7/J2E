@@ -4,7 +4,7 @@
 <%@ page import="java.util.List" %>
 <%@ page import="dao.GameDao" %>
 <%@ page import="dao.FactoryDAO" %>
-<%@ page import="model.GameModel" %>
+<%@ page import="model.Game" %>
 <%@ page import="controller.game" %>
 <%--
   Created by IntelliJ IDEA.
@@ -36,9 +36,11 @@ ${example}
 
     <%
         GameDao gameDAO = FactoryDAO.getGameDAO();
-        GameModel gamemodel = gameDAO.read("max_time");
+        Game gamemodel = gameDAO.read("max_time");
+        Game paramWords = gameDAO.read("words");
     %>
     <%= gamemodel %>
+    Número de palabras: <%= paramWords.getValue() %>
 
 </ul>
 
