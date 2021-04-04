@@ -28,23 +28,7 @@ function play(){
     // Recoge parámetros para el juego
 
     //Nos comunicamos con servlet por ajax
-                                /*var req = new XMLHttpRequest();
-                                req.open('GET', 'game', false);
-                                req.onreadystatechange = function (aEvt) {
-                                    if (req.readyState == 4) {
-                                        if (req.status == 200) {
-                                        }
-                                        //Guardamos
-                                        var data = req.responseText;
-                                        document.getElementById("uno").innerHTML = data;
-                                        console.log(data);
-                                        //dump(req.responseText);
-                                    }else{
-                                            alert("Error loading page");
-                                    }
-                                };
-                                req.send(null);*/
-    //*------------------
+       //*------------------
     //----- AJAX JS
 
   /*  function processData(data) {
@@ -89,7 +73,8 @@ function play(){
     }else{
         document.getElementById('uno').innerText = "Aun quedan cosas por hacer";
         //demoAjaxServletRequest();
-        ajaxNumberWords();
+        //ajaxNumberWords();
+        gameFromAjax();
     }
 }
 
@@ -107,6 +92,21 @@ function demoAjaxServletRequest(){
                 document.getElementById('game').innerHTML = response;
                 // Inicializa el juego
                 initGame();
+            }else{
+                alert("Algo ha ido mal");
+            }
+        }
+    });
+}
+
+function gameFromAjax(){
+    jQuery.ajax({
+        type: 'POST',
+        url:"renderGame.jsp",
+        success: function(response) {
+            if(response != '') {
+                document.getElementById('game').innerHTML = response;
+                // Inicializa el juego
             }else{
                 alert("Algo ha ido mal");
             }
@@ -273,5 +273,6 @@ function renderWordDetails(){
 
 // Función para renderizar la sopa de letras
 function renderGame(){
+
 
 }
