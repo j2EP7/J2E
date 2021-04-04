@@ -25,6 +25,7 @@ $( ".letra" ).click(function() {
 
 // Función jugar
 function play(){
+    gameFromAjax();
     // Recoge parámetros para el juego
 
     //Nos comunicamos con servlet por ajax
@@ -74,7 +75,7 @@ function play(){
         document.getElementById('uno').innerText = "Aun quedan cosas por hacer";
         //demoAjaxServletRequest();
         //ajaxNumberWords();
-        gameFromAjax();
+
     }
 }
 
@@ -102,7 +103,7 @@ function demoAjaxServletRequest(){
 function gameFromAjax(){
     jQuery.ajax({
         type: 'POST',
-        url:"renderGame.jsp",
+        url:"templates/gameAjax.jsp",
         success: function(response) {
             if(response != '') {
                 document.getElementById('game').innerHTML = response;
