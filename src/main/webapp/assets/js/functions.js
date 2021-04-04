@@ -37,6 +37,8 @@ function play(){
     // Si los valores de los parámetros son mayores a 0, inicializamos el juego
     if(gameWords > 0 && gameSeconds > 0){
         initGame();
+    }else{
+        document.getElementById('game').innerText = "Aun quedan cosas por hacer";
     }
 }
 

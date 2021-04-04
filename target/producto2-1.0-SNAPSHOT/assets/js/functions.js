@@ -1,17 +1,53 @@
-// Variables globales
+/* Variables globales */
+
 // Número de palabras encontradas
 wordsFound = 0;
-// Número de palabras a encontrar
-wordsToFind = 0;
+// Array con la información de las palabras
+// Cada elemento es un objeto (Word) con sus propiedades (id, word y description) y una propiedad extra que es un array, el cual contiene las ids de las posiciones de las letras en el tablero
+gameWords = [];
+// Segundos del juego
+gameSeconds = 0;
 // Inicializador de tiempo restante
 countdown = undefined;
 
+/* Eventos */
+
+// Evento click casilla letra
+$( ".letra" ).click(function() {
+    alert( "Click en letra" );
+    // Definir un evento onclick asociado a la clase letra, que estaría presente en las casillas de la estructura de la sopa de letras
+    // Al hacer click comprueba si el elemento está seleccionado o no y aplica una clase de selección o no
+    // Comprobamos letras seleccionadas
+    checkLetters();
+});
+
+/* Funciones */
+
 // Función jugar
 function play(){
-    // petición ajax cuya respuesta sea insertar la sopa de letras en un div de esta página
-    // sería un post a un servlet
-    // ese servlet generaría la estructura de la sopa de letras completa y devuelve
-    // en la respuesta se inserta la sopa de letras
+    // Recoge parámetros para el juego
+    // https://stackoverflow.com/questions/43895473/promise-inside-promise-whats-the-correct-way-to-return-a-variable-from-the-chi/43895627
+    // Promesa 1
+    // Palabras
+    gameWords;
+    // Si se resuelve la Promesa 1 lanzamos la Promesa 2
+    // Segundos
+    gameSeconds;
+    // Si se resuelve la Promesa 2 comprobamos
+    // Si los valores de los parámetros son mayores a 0, inicializamos el juego
+    if(gameWords > 0 && gameSeconds > 0){
+        initGame();
+    }else{
+        document.getElementById('game').innerText = "Aun quedan cosas por hacer";
+    }
+}
+
+// Ejemplo petición Ajax a servlet
+// petición post vía ajax cuya a un servlet para obtener la estructura de la sopa de letras
+// sería un post a un servlet
+// ese servlet generaría la estructura de la sopa de letras completa y devuelve
+// en la respuesta se inserta la sopa de letras
+function demoAjaxServletRequest(){
     jQuery.ajax({
         type: 'POST',
         url:"play",
@@ -27,22 +63,32 @@ function play(){
     });
 }
 
-
-// Evento click casilla letra
-$( ".letra" ).click(function() {
-    alert( "Click en letra" );
-    // Definir un evento onclick asociado a la clase letra, que estaría presente en las casillas de la estructura de la sopa de letras
-    // Al hacer click comprueba si el elemento está seleccionado o no y aplica una clase de selección o no
-    // Esa función antes de finalizar ejecuta otra función llamada checkWords
-});
-
-
-// Función checkWords
-function checkWords() {
+// Función para comprobar las letras seleccionadas
+function checkLetters() {
+    let newWordFound = false;
     // Comprueba si las letras seleccionadas forman una palabra
-    // En ese caso deshabilita las casillas seleccionadas que forman la palabra
-    // Y contabiliza 1 palabra más encontrada de las X que hay que encontrar
-    wordFound();
+    newWordFound = lettersAreWord();
+    if(newWordFound == true){
+        // En ese caso deshabilita las casillas seleccionadas que forman la palabra
+        disableSelectedLetters();
+        // Y contabiliza 1 palabra más encontrada de las X que hay que encontrar
+        wordFound();
+    }
+}
+
+
+// Función para comprobar si las letras seleccionadas forman una palabra
+function lettersAreWord(){
+    // Obtenemos las letras seleccionadas
+    // Recorremos y obtenemos el identificador del casillero
+    // Comparamos los identificadores del casillero con los identificadores asignados a las palabras
+    // Si hay match devolvemos true
+    // En caso contrario false
+}
+
+// Función para desactivar letras seleccionadas del tablero
+function disableSelectedLetters(){
+    // Desactiva las letras que están actualmente marcadas como seleccionadas
 }
 
 // Función contabilizar palabra encontrada
@@ -55,7 +101,7 @@ function wordFound(){
 // Función checkWin
 function checkWin(){
     // Comprueba si ya están encontradas todas las palabras
-    if(wordsFound == wordsToFind){
+    if(wordsFound == gameWords.length){
         // Finalizar partida
         finishGame();
     }
@@ -66,6 +112,8 @@ function youWin(){
     // Muestra mensaje al usuario de que ha ganado
     const message = "¡Enhorabuena! Has ganado.";
     renderMessage(message);
+    // Renderizamos información de palabras
+    renderWordDetails();
 }
 
 // Función terminar la partida
@@ -75,7 +123,7 @@ function finishGame(){
     // Deshabilitamos casillero
     disableGame();
     // Comprueba número de palabras encontradas
-    if(wordsFound == wordsToFind){
+    if(wordsFound == gameWords.length){
         // Si el jugador ha encontrado todas le decimos que ha ganado
         youWin();
     }else{
@@ -98,22 +146,12 @@ function renderMessage(message){
 
 // Función iniciar juego
 function initGame(){
-    // Recoge el número de palabras a encontrar
-    wordsToFind;
-    // Promesa con petición AJAX
-    // Si la promesa es positiva y words > 0
-    // Promesa Recoge el parámetro de segundos del juego
-    const seconds = getParamTime();
-    // Si la promesa es positiva y seconds es > 0
+    // Renderizamos tablero
+    renderGame();
+    // Renderizamos palabras a encontrar
+    renderWords();
     // Inicia la cuenta regresiva
-    initCountdown(seconds);
-}
-
-// Función recoger parámetros del juego
-function getParamTime(){
-    const seconds = 0;
-    // Petición ajax para obtener los segundos de la configuración del juego
-    return seconds;
+    initCountdown();
 }
 
 // Función para contar el tiempo restante
@@ -122,11 +160,11 @@ function initCountdown(seconds){
     // El set interval se ejecuta cada 1000 milisegundos = 1 segundo
     // Vamos restando 1 segundo por ejecución
     countdown = setInterval(function(){
-        seconds = seconds - 1;
+        gameSeconds = gameSeconds - 1;
         // Muestra segundos restantes en pantalla
-        renderTime(seconds);
+        renderTime(gameSeconds);
         // Si llega a 0 el jugador pierde y se deshabilitan las casillas
-        if(seconds == 0){
+        if(gameSeconds == 0){
             // Finalizamos la partida
             finishGame();
         }
@@ -152,6 +190,21 @@ function secondsToTime(seconds){
 // Función mostrar derrota
 function gameOver(){
     // Muestra mensaje al usuario de que ha perdido
-    const message = "¡Vaya! No ha podido ser. En otra ocasión será.";
+    const message = "¡Vaya! Se ha agotado el tiempo.";
     renderMessage(message);
+}
+
+// Función para mostrar palabras a encontrar
+function renderWords(){
+
+}
+
+// Función para mostrar palabras y descripciones
+function renderWordDetails(){
+
+}
+
+// Función para renderizar la sopa de letras
+function renderGame(){
+
 }
