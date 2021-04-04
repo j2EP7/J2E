@@ -33,16 +33,37 @@ $( ".letra" ).click(function() {
     alert( "Click en letra" );
     // Definir un evento onclick asociado a la clase letra, que estaría presente en las casillas de la estructura de la sopa de letras
     // Al hacer click comprueba si el elemento está seleccionado o no y aplica una clase de selección o no
-    // Esa función antes de finalizar ejecuta otra función llamada checkWords
+    // Comprobamos letras seleccionadas
+    checkLetters();
 });
 
 
-// Función checkWords
-function checkWords() {
+// Función para comprobar las letras seleccionadas
+function checkLetters() {
+    let newWordFound = false;
     // Comprueba si las letras seleccionadas forman una palabra
-    // En ese caso deshabilita las casillas seleccionadas que forman la palabra
-    // Y contabiliza 1 palabra más encontrada de las X que hay que encontrar
-    wordFound();
+    newWordFound = lettersAreWord();
+    if(newWordFound == true){
+        // En ese caso deshabilita las casillas seleccionadas que forman la palabra
+        disableSelectedLetters();
+        // Y contabiliza 1 palabra más encontrada de las X que hay que encontrar
+        wordFound();
+    }
+}
+
+
+// Función para comprobar si las letras seleccionadas forman una palabra
+function lettersAreWord(){
+    // Obtenemos las letras seleccionadas
+    // Recorremos y obtenemos el identificador del casillero
+    // Comparamos los identificadores del casillero con los identificadores asignados a las palabras
+    // Si hay match devolvemos true
+    // En caso contrario false
+}
+
+// Función para desactivar letras seleccionadas del tablero
+function disableSelectedLetters(){
+    // Desactiva las letras que están actualmente marcadas como seleccionadas
 }
 
 // Función contabilizar palabra encontrada
