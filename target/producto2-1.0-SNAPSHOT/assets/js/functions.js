@@ -26,6 +26,55 @@ $( ".letra" ).click(function() {
 // Función jugar
 function play(){
     // Recoge parámetros para el juego
+
+    //Nos comunicamos con servlet por ajax
+                                /*var req = new XMLHttpRequest();
+                                req.open('GET', 'game', false);
+                                req.onreadystatechange = function (aEvt) {
+                                    if (req.readyState == 4) {
+                                        if (req.status == 200) {
+                                        }
+                                        //Guardamos
+                                        var data = req.responseText;
+                                        document.getElementById("uno").innerHTML = data;
+                                        console.log(data);
+                                        //dump(req.responseText);
+                                    }else{
+                                            alert("Error loading page");
+                                    }
+                                };
+                                req.send(null);*/
+    //*------------------
+    //----- AJAX JS
+
+  /*  function processData(data) {
+        document.getElementById("uno").innerHTML = data;
+    }
+
+    function handler() {
+        if(this.status == 200 &&
+            this.response != null)
+            {
+            // success!
+            processData(this.response.textContent);
+        }else if(this.status == 404){
+            alert("404");
+        }else if(this.response==null){
+            alert("null");
+        }
+        else {
+            // something went wrong
+            alert("error handler");
+        }
+    }
+
+    var client = new XMLHttpRequest();
+    client.onload = handler;
+    client.open("GET", "game");
+    client.send()*/
+
+    //-- AJAX JS FIN
+
     // https://stackoverflow.com/questions/43895473/promise-inside-promise-whats-the-correct-way-to-return-a-variable-from-the-chi/43895627
     // Promesa 1
     // Palabras
@@ -38,7 +87,9 @@ function play(){
     if(gameWords > 0 && gameSeconds > 0){
         initGame();
     }else{
-        document.getElementById('game').innerText = "Aun quedan cosas por hacer";
+        document.getElementById('uno').innerText = "Aun quedan cosas por hacer";
+        //demoAjaxServletRequest();
+        ajaxNumberWords();
     }
 }
 
@@ -56,6 +107,22 @@ function demoAjaxServletRequest(){
                 document.getElementById('game').innerHTML = response;
                 // Inicializa el juego
                 initGame();
+            }else{
+                alert("Algo ha ido mal");
+            }
+        }
+    });
+}
+
+function ajaxNumberWords(){
+    jQuery.ajax({
+        type: 'POST',
+        url:"game",
+        success: function(response) {
+            if(response != '') {
+                document.getElementById('config').innerHTML = response;
+                // Inicializa el juego
+                //initGame();
             }else{
                 alert("Algo ha ido mal");
             }

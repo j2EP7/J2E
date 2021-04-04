@@ -32,8 +32,11 @@
     Número de palabras: <%= paramWords.getValue() %>
 
 </ul>
+<div id="config"></div>
 
 <div id="game"></div>
+
+<h2 id="uno"></h2>
 
 <!-- Cargamos funciones js -->
 <script src="${pageContext.request.contextPath}/assets/js/functions.js" /></script>
