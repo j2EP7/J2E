@@ -24,22 +24,33 @@ $( ".letra" ).click(function() {
 /* Funciones */
 
 // Función jugar
+
+
+/*{
+    casillero: 'html del casillero',
+    words: [
+    {
+        id: '4',
+        word: 'Code',
+        description: 'lo que significa',
+        cell: ['14','26','38','40']
+    }
+],
+    gameSeconds
+}*/
+
+
 function play(){
     // Recoge parámetros para el juego
     // https://stackoverflow.com/questions/43895473/promise-inside-promise-whats-the-correct-way-to-return-a-variable-from-the-chi/43895627
-    // Promesa 1
-    // Palabras
-    gameWords;
-    // Si se resuelve la Promesa 1 lanzamos la Promesa 2
-    // Segundos
-    gameSeconds;
-    // Si se resuelve la Promesa 2 comprobamos
-    // Si los valores de los parámetros son mayores a 0, inicializamos el juego
-    if(gameWords > 0 && gameSeconds > 0){
-        initGame();
-    }else{
-        document.getElementById('game').innerText = "Aun quedan cosas por hacer";
-    }
+    jQuery.ajax({
+        type: 'POST',
+        url:"play",
+        success: function(response) {
+                // Inicializa el juego
+                initGame(response);
+            }
+        });
 }
 
 // Ejemplo petición Ajax a servlet
@@ -48,19 +59,7 @@ function play(){
 // ese servlet generaría la estructura de la sopa de letras completa y devuelve
 // en la respuesta se inserta la sopa de letras
 function demoAjaxServletRequest(){
-    jQuery.ajax({
-        type: 'POST',
-        url:"play",
-        success: function(response) {
-            if(response != '') {
-                document.getElementById('game').innerHTML = response;
-                // Inicializa el juego
-                initGame();
-            }else{
-                alert("Algo ha ido mal");
-            }
-        }
-    });
+
 }
 
 // Función para comprobar las letras seleccionadas
@@ -145,17 +144,19 @@ function renderMessage(message){
 }
 
 // Función iniciar juego
-function initGame(){
+function initGame(juego){
+    // Set número de palabras a encontrar
+    wordsFound = juego.words.length;
     // Renderizamos tablero
-    renderGame();
+    renderGame(juego.casillero);
     // Renderizamos palabras a encontrar
-    renderWords();
+    renderWords(juego.words);
     // Inicia la cuenta regresiva
     initCountdown();
 }
 
 // Función para contar el tiempo restante
-function initCountdown(seconds){
+function initCountdown(){
     // Cuenta regresiva con método setInterval
     // El set interval se ejecuta cada 1000 milisegundos = 1 segundo
     // Vamos restando 1 segundo por ejecución
@@ -195,16 +196,24 @@ function gameOver(){
 }
 
 // Función para mostrar palabras a encontrar
-function renderWords(){
+function renderWords(words){
+    // Obtiene listado de palabras
+    const wordList = generateWordList(words);
+    // Renderizamos listado de palabras
+    renderWordDetails(wordList);
+}
+
+// Función genera listado de palabras
+function generateWordList(words){
 
 }
 
 // Función para mostrar palabras y descripciones
-function renderWordDetails(){
+function renderWordDetails(wordList){
 
 }
 
 // Función para renderizar la sopa de letras
-function renderGame(){
-
+function renderGame(game){
+    document.getElementById('game').innerHTML = game;
 }

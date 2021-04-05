@@ -8,36 +8,58 @@
 <%@ page import="controller.game" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
+<!-- Container -->
+<div class="container-fluid h-100">
+    <!-- Row -->
+    <div class="row h-100">
+        <!-- First Column -->
+        <div class="col-12 col-md-8 align-self-center">
+            <!-- H1 -->
+            <h1>${param.title}</h1>
+            <!-- Conten -->
+            <br>
 
-<ul>
+            <ul>
 
-    ${example}
+                ${example}
 
-    <% List<Word> words = new controller.game().printAllWords(); %>
-    <c:forEach var="wordValue" items="${words}">
-        <li>
-                ${wordValue.id}<br>
-                ${wordValue.word}<br>
-                ${wordValue.description}<br>
-        </li>
-    </c:forEach>
+                <% List<Word> words = new controller.game().printAllWords(); %>
+                <c:forEach var="wordValue" items="${words}">
+                    <li>
+                            ${wordValue.id}<br>
+                            ${wordValue.word}<br>
+                            ${wordValue.description}<br>
+                    </li>
+                </c:forEach>
 
 
-    <%
-        GameDao gameDAO = FactoryDAO.getGameDAO();
-        Game gamemodel = gameDAO.read("max_time");
-        Game paramWords = gameDAO.read("words");
-    %>
-    <%= gamemodel %>
-    Número de palabras: <%= paramWords.getValue() %>
+                <%
+                    GameDao gameDAO = FactoryDAO.getGameDAO();
+                    Game gamemodel = gameDAO.read("max_time");
+                    Game paramWords = gameDAO.read("words");
+                %>
+                <%= gamemodel %>
+                Número de palabras: <%= paramWords.getValue() %>
 
-</ul>
+            </ul>
 
-<div id="game"></div>
+            <div id="game"></div>
 
-<!-- Cargamos funciones js -->
-<script src="${pageContext.request.contextPath}/assets/js/functions.js" /></script>
+            <!-- Cargamos funciones js -->
+            <script src="${pageContext.request.contextPath}/assets/js/functions.js" /></script>
 
-<!-- botón jugar que dispara función js para cargar la sopa de letras -->
-<input type="button" value="Jugar" onclick="play()">
+            <!-- botón jugar que dispara función js para cargar la sopa de letras -->
+            <button type="button" class="btn btn-primary" onclick="play()">Jugar</button>
+
+
+        </div>
+        <!-- Second Column -->
+        <div class="col-12 col-md-4 align-self-end vh-100 sidebar-bg-color">
+            Listado de palabras a encontrar
+            <div id="listLetters"></div>
+        </div>
+        <!-- End Row -->
+    </div>
+    <!-- End Container -->
+</div>
 
