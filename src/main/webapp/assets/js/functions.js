@@ -200,7 +200,12 @@ function renderWords(words){
     // Obtiene listado de palabras
     const wordList = generateWordList(words);
     // Renderizamos listado de palabras
-    renderWordDetails(wordList);
+    renderWords(wordList);
+}
+
+// Renderizamos listado de palabras
+function renderWords(wordList){
+
 }
 
 // Función genera listado de palabras
