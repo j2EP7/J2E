@@ -1,6 +1,7 @@
 package controller;
 
 import dao.*;
+import model.Game;
 import model.Word;
 
 import javax.servlet.ServletException;
@@ -32,6 +33,32 @@ public class game extends HttpServlet {
     // Función que prepara cosas
 
     // Obtener número de palabras de la configuración read param
+
+    //devuelve objeto Game (model) con el número de palabras que hay que buscar
+    public Game returnConfigWord(){
+        GameDao gameDAO = FactoryDAO.getGameDAO();
+        Game gamemodel=null;
+        try {
+            gamemodel = gameDAO.read("words");
+        }catch (Exception e){
+            System.out.println(e);
+        }finally {
+            return gamemodel;
+        }
+    }
+
+    //devuelve objeto Gme (model) con el Tiempo máximo de juego
+    public Game returnConfigTime(){
+        GameDao gameDAO = FactoryDAO.getGameDAO();
+        Game gamemodel=null;
+        try {
+            gamemodel = gameDAO.read("max_time");
+        }catch (Exception e){
+            System.out.println(e);
+        }finally {
+            return gamemodel;
+        }
+    }
 
 
     // Obtiene listado de palabras readAll
