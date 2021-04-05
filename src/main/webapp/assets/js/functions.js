@@ -1,7 +1,7 @@
 /* Variables globales */
 
 // Número de palabras encontradas
-wordsFound = 0;
+contWordsFound = 0;
 // Array con la información de las palabras
 // Cada elemento es un objeto (Word) con sus propiedades (id, word y description) y una propiedad extra que es un array, el cual contiene las ids de las posiciones de las letras en el tablero
 gameWords = [];
@@ -9,6 +9,8 @@ gameWords = [];
 gameSeconds = 300;
 // Inicializador de tiempo restante
 countdown = undefined;
+// Palabra que acaba de ser encontrada
+WFound = undefined;
 
 /* Eventos */
 
@@ -42,6 +44,7 @@ $( ".letra" ).click(function() {
 
 function play(){
     initCountdown();
+    generateWordList();
     // Recoge parámetros para el juego
     // https://stackoverflow.com/questions/43895473/promise-inside-promise-whats-the-correct-way-to-return-a-variable-from-the-chi/43895627
     jQuery.ajax({
@@ -49,7 +52,7 @@ function play(){
         url:"play",
         success: function(response) {
                 // Inicializa el juego
-                initGame(response);
+                //initGame(response);
             }
         });
 }
@@ -92,16 +95,21 @@ function disableSelectedLetters(){
 }
 
 // Función contabilizar palabra encontrada
-function wordFound(){
+function wordFound(wordFound){
     // Aumenta en 1 el contador de palabras encontradas
-    wordsFound = wordsFound + 1;
+    contWordsFound = contWordsFound + 1;
+    //Si ha sido encontrada una palabra mostramos la descripción
+    WFound = wordFound;
+    renderWordDetails(WFound);
+    //¿Ha ganado?
     checkWin();
+
 }
 
 // Función checkWin
 function checkWin(){
-    // Comprueba si ya están encontradas todas las palabras
-    if(wordsFound == gameWords.length){
+    // Comprueba si ya están encontradas TODAS las palabras
+    if(contWordsFound == gameWords.length){
         // Finalizar partida
         finishGame();
     }
@@ -113,7 +121,7 @@ function youWin(){
     const message = "¡Enhorabuena! Has ganado.";
     renderMessage(message);
     // Renderizamos información de palabras
-    renderWordDetails();
+//    renderWordDetails(); //Lo metemos en la función que comprueba que una palabra ha sido descubierta.
 }
 
 // Función terminar la partida
@@ -123,7 +131,7 @@ function finishGame(){
     // Deshabilitamos casillero
     disableGame();
     // Comprueba número de palabras encontradas
-    if(wordsFound == gameWords.length){
+    if(contWordsFound == gameWords.length){
         // Si el jugador ha encontrado todas le decimos que ha ganado
         youWin();
     }else{
@@ -147,7 +155,9 @@ function renderMessage(message){
 // Función iniciar juego
 function initGame(juego){
     // Set número de palabras a encontrar
-    wordsFound = juego.words.length;
+
+    //contWordsFound = juego.words.length; //comentado para ejecutar. Lenght no definido
+
     // Renderizamos tablero
     renderGame(juego.casillero);
     // Renderizamos palabras a encontrar
@@ -211,12 +221,32 @@ function renderWords(wordList){
 }
 
 // Función genera listado de palabras
-function generateWordList(words){
+function generateWordList(){
+    jQuery.ajax({
+        type: 'POST',
+        url:"SelectWords",
+        success: function(response) {
+            let listapalabras = response;
+            document.getElementById("listLetters").innerHTML=listapalabras;
+        }
+    });
 
 }
 
 // Función para mostrar palabras y descripciones
-function renderWordDetails(wordList){
+function renderWordDetails(word){
+    jQuery.ajax({
+        type: 'POST',
+        url:"SelectWords",
+        data: $.param({
+            palabra: word,
+        }),
+        success: function(response) {
+            let descriptionWord = response;
+            document.getElementById("wordDescription").innerHTML=descriptionWord;
+        }
+    });
+
 
 }
 

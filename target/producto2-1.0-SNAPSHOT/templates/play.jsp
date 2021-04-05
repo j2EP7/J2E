@@ -50,6 +50,7 @@
 
             <!-- botón jugar que dispara función js para cargar la sopa de letras -->
             <button type="button" class="btn btn-primary" onclick="play()">Jugar</button>
+            <button type="button" class="btn btn-primary" onclick="wordFound('long')">wordFound</button>
 
 
         </div>
@@ -61,6 +62,10 @@
             </div>
             Listado de palabras a encontrar
             <div id="listLetters"></div>
+            <div id="wordDescription"></div>
+
+
+
         </div>
         <!-- End Row -->
     </div>

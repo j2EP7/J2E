@@ -52,6 +52,14 @@
         <servlet-name>play</servlet-name>
         <url-pattern>/play</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>SelectWords</servlet-name>
+        <servlet-class>controller.SelectWords</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SelectWords</servlet-name>
+        <url-pattern>/SelectWords</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
