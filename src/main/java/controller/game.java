@@ -61,9 +61,9 @@ public class game extends HttpServlet {
             // Recorremos letras de la palabra
             for (j=0; j< text.length(); j++) {
                 // Letra
-                char letter = text[j];
+                char letter = text.charAt(j);
                 boolean asigned = false;
-                // Asignamos letra a la matrix
+                // Asignamos letra a la matriz
                 while(!asigned) {
                     // Generamos posición aleatoria para la letra en la matriz entre 0 y 11
                     int posicionFila = random.nextInt(11 - 0 + 1) + 0;
@@ -72,10 +72,10 @@ public class game extends HttpServlet {
                     // o ya tiene una letra igual a la que tenemos, nos sirve
                     if (A[posicionFila][posicionColumna] == 0 || A[posicionFila][posicionColumna] == letter) {
                         // Buscamos un hueco para la palabra
-                        boolean hole = false;∂
+                        boolean hole = false;
                         while(!hole) {
                             // Comprobamos si cabe la palabra
-
+                            
 
                             // Marcamos hueco encontrado para la palabra para salir del while
                             hole = true;
