@@ -55,6 +55,10 @@
         </div>
         <!-- Second Column -->
         <div class="col-12 col-md-4 align-self-end vh-100 sidebar-bg-color">
+            <div id="parentTime">
+                Tiempo restante:
+                <div id="time"></div>
+            </div>
             Listado de palabras a encontrar
             <div id="listLetters"></div>
         </div>

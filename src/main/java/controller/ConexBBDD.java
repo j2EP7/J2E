@@ -11,12 +11,12 @@ public class ConexBBDD {
         // Recommend connection pool implementation/usage
         Connection conexion=null;
         try{
-            String URL = "jdbc:mysql://localhost:8889/producto7";
+            String URL = "jdbc:mysql://localhost:3306/producto7";
             //Class.forName("com.mysql.jdbc.Driver");
             Class.forName("com.mysql.cj.jdbc.Driver");
 
 
-            conexion = DriverManager.getConnection(URL, "root", "root");
+            conexion = DriverManager.getConnection(URL, "root", "");
 
             System.out.println("Conectado correctamente a la Base de Datos");
 

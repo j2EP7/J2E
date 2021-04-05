@@ -101,7 +101,9 @@ public class game extends HttpServlet {
                     // o ya tiene una letra igual a la que tenemos, nos sirve. Continuamos
                     if (A[posicionFila][posicionColumna] == 0 || A[posicionFila][posicionColumna] == letter) {
                         // Definimos orientación de la palabra
-                        char[][] B = letterPosition(A[posicionFila][posicionColumna]);
+
+                        //char[][] B = letterPosition(A[posicionFila][posicionColumna]);
+
                         // Comprobamos si el resto de letras caben en esa orientación
                         boolean hole = false;
                         while(!hole) {
@@ -121,11 +123,11 @@ public class game extends HttpServlet {
     }
 
 
-    public char[][] letterPosition(char A){
+    /*public char[][] letterPosition(char A){
 
 
         return ;
-    }
+    }*/
 
     // Volvemos a recorrer el casillero y rellenamos los espacios vacíos con letras
 
