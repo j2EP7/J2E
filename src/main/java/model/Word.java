@@ -9,6 +9,7 @@ public class Word {
     private List<Letter> letters;
 
     public Word() {
+
     }
 
     public List<Letter> getLetters() {

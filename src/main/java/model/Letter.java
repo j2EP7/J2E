@@ -8,10 +8,7 @@ public class Letter {
     // En la posición 0 se guarda el valor de la fila y en la 1 el valor de la columna
     private Integer[] Position;
 
-    public Letter(Integer id, Character letter, Integer[] position) {
-        Id = id;
-        Letter = letter;
-        Position = position;
+    public Letter() {
     }
 
     public Integer getId() {

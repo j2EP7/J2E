@@ -6,7 +6,7 @@ wordsFound = 0;
 // Cada elemento es un objeto (Word) con sus propiedades (id, word y description) y una propiedad extra que es un array, el cual contiene las ids de las posiciones de las letras en el tablero
 gameWords = [];
 // Segundos del juego
-gameSeconds = 0;
+gameSeconds = 300;
 // Inicializador de tiempo restante
 countdown = undefined;
 
@@ -41,6 +41,7 @@ $( ".letra" ).click(function() {
 
 
 function play(){
+    initCountdown();
     // Recoge parámetros para el juego
     // https://stackoverflow.com/questions/43895473/promise-inside-promise-whats-the-correct-way-to-return-a-variable-from-the-chi/43895627
     jQuery.ajax({
@@ -177,7 +178,8 @@ function renderTime(seconds){
     // Transforma segundos a minutos y segundos
     const time = secondsToTime(seconds);
     // Muestra el tiempo en pantalla
-    console.log(time);
+    //console.log(time);
+    document.getElementById("time").innerHTML = time;
 }
 
 // Recibe segundos y devuelve minutos y segundos

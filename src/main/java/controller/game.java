@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -40,9 +41,9 @@ public class game extends HttpServlet {
 
     // Obtiene de forma aleatoria X número de palabras del listado de palabras
 
-    public void setWordLetters(List<Word> words){
+    public List<Word> setWordLetters(List<Word> words){
         // Filas y columnas
-        final int FILAS = 11, COLUMNAS = 11;
+        final int FILAS = 12, COLUMNAS = 12;
         // Variables para recorrer palabras, letras..
         int i, j;
         // Creamos una matriz de caracteres 5 filas y 4 columnas
@@ -78,7 +79,8 @@ public class game extends HttpServlet {
             }
         }
         // Mostramos casillero
-        renderCasillero(A);
+        //renderCasillero(A);
+        return words;
     }
 
 
@@ -90,7 +92,7 @@ public class game extends HttpServlet {
         String newLine = System.getProperty("line.separator");
         // Recorremos casillero y printamos
         for (row=0; row < casillero.length ;row++){
-            for (col=0; col < casillero[col].length; col++){
+            for (col=0; col < casillero.length; col++){
                 System.out.println(casillero[row][col]);
             }
             System.out.println(newLine);
@@ -108,6 +110,7 @@ public class game extends HttpServlet {
         for (i = 0; i < words.size(); i++) {
             // Obtenemos palabra
             Word word = words.get(i);
+            System.out.println(word.getWord());
             // Buscamos hueco para la palabra
             // Definimos asignado a falso
             boolean asigned = false;
@@ -122,6 +125,7 @@ public class game extends HttpServlet {
                 for (j=0; j < letters.size(); j++) {
                     // Obtenemos la letra
                     Letter letter = letters.get(j);
+                    //System.out.println("letra "+letter);
                     // Obtenemos el caracter de la letra
                     Character letra = letter.getLetter();
                     // Si es la primera letra de la palabra
@@ -132,9 +136,9 @@ public class game extends HttpServlet {
                     }else{
                         // Si no es la primera letra generamos la posición correspondiente
                         Letter previousLetter = letters.get(j-1);
-                        Integer[] position = letterPosition(direction, previousLetter, Casillero);
-                        row = position[0];
-                        col = position[1];
+                        List<Integer> position = letterPosition(direction, previousLetter, Casillero);
+                        row = position.get(0);
+                        col = position.get(1);
                     }
                     // Comprobamos que las posiciones no estén fuera de la matriz
                     if(row < 0 || col < 0 || row > 11 || col > 11){
@@ -143,7 +147,7 @@ public class game extends HttpServlet {
                     }
                     // Si la posición de la matriz está vacía
                     // o ya tiene una letra igual a la que tenemos, nos sirve. Continuamos
-                    if (Casillero[row][col] == 0 || Casillero[row][col] == letra) {
+                    if ( Casillero[row][col] == 0 || Casillero[row][col].equals(letra) ) {
                         // Asignamos letra a la matriz
                         Casillero[row][col] = letra;
                         // Almacenamos posición de la letra
@@ -169,11 +173,15 @@ public class game extends HttpServlet {
 
     // Devuelve un array con la posición de la letra de la palabra
     // 0 = fila y 1 = columna
-    public Integer[] letterPosition(Integer direction, Letter previousLetter, Character[][] Casillero){
-        Integer[] position = null;
+    public List<Integer> letterPosition(Integer direction, Letter previousLetter, Character[][] Casillero){
+        List<Integer> position = new ArrayList<>();
         Integer[] previousPosition = previousLetter.getPosition();
+        //System.out.println(direction);
+        //System.out.println(previousLetter.getLetter());
         Integer row = previousPosition[0];
+        //System.out.println("fila "+row);
         Integer col = previousPosition[1];
+        //System.out.println("row "+col);
         switch (direction) {
             case 1:  // arriba izquierda
                 row = row - 1;
@@ -210,14 +218,14 @@ public class game extends HttpServlet {
             default: // por defecto
                 break;
         }
-        position[0] = row;
-        position[1] = col;
+        position.add(row);
+        position.add(col);
         return position;
     }
 
     // Volvemos a recorrer el casillero y rellenamos los espacios vacíos con letras
 
-        // Si no tiene ninguno busca otra posición donde asignar
-        // Almacenamos la próxima posición
+    // Si no tiene ninguno busca otra posición donde asignar
+    // Almacenamos la próxima posición
 
 }
