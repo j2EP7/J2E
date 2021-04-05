@@ -62,20 +62,23 @@ public class game extends HttpServlet {
             for (j=0; j< text.length(); j++) {
                 // Letra
                 char letter = text.charAt(j);
+                // Definimos asignado a falso
                 boolean asigned = false;
-                // Asignamos letra a la matriz
+                // Buscamos hueco para la palabra
+                // Mientras la palabra no esté asignada seguimos intentando encontrarle un hueco
                 while(!asigned) {
-                    // Generamos posición aleatoria para la letra en la matriz entre 0 y 11
+                    // Generamos posición aleatoria para la primera letra en la matriz entre 0 y 11
                     int posicionFila = random.nextInt(11 - 0 + 1) + 0;
                     int posicionColumna = random.nextInt(11 - 0 + 1) + 0;
                     // Si la posición de la matriz está vacía
-                    // o ya tiene una letra igual a la que tenemos, nos sirve
+                    // o ya tiene una letra igual a la que tenemos, nos sirve. Continuamos
                     if (A[posicionFila][posicionColumna] == 0 || A[posicionFila][posicionColumna] == letter) {
-                        // Buscamos un hueco para la palabra
+                        // Definimos orientación de la palabra
+                        char[][] B = letterPosition(A[posicionFila][posicionColumna]);
+                        // Comprobamos si el resto de letras caben en esa orientación
                         boolean hole = false;
                         while(!hole) {
                             // Comprobamos si cabe la palabra
-                            
 
                             // Marcamos hueco encontrado para la palabra para salir del while
                             hole = true;
@@ -88,6 +91,13 @@ public class game extends HttpServlet {
                 }
             }
         }
+    }
+
+
+    public char[][] letterPosition(char A){
+
+
+        return ;
     }
 
     // Volvemos a recorrer el casillero y rellenamos los espacios vacíos con letras
