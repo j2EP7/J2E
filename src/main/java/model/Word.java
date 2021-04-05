@@ -1,11 +1,22 @@
 package model;
 
+import java.util.List;
+
 public class Word {
     private Integer id;
     private String word;
     private String description;
+    private List<Letter> letters;
 
     public Word() {
+    }
+
+    public List<Letter> getLetters() {
+        return letters;
+    }
+
+    public void setLetters(List<Letter> letters) {
+        this.letters = letters;
     }
 
     public void setId(Integer id) {

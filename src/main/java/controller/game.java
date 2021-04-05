@@ -1,6 +1,7 @@
 package controller;
 
 import dao.*;
+import model.Letter;
 import model.Word;
 
 import javax.servlet.ServletException;
@@ -42,62 +43,176 @@ public class game extends HttpServlet {
     public void setWordLetters(List<Word> words){
         // Filas y columnas
         final int FILAS = 11, COLUMNAS = 11;
-        // Variables para recorrer palabras, letras, filas y columnas
-        int i, j, f, c;
+        // Variables para recorrer palabras, letras..
+        int i, j;
         // Creamos una matriz de caracteres 5 filas y 4 columnas
-        char[][] A = new char[FILAS][COLUMNAS];
+        Character[][] A = new Character[FILAS][COLUMNAS];
         // Rellenamos con espacios vacíos (en char 0 es como si estuviera vacío)
         for (i = 0; i < FILAS; i++) {
             for (j = 0; j < COLUMNAS; j++) {
                 A[i][j] = 0;
             }
         }
-        // Objeto Random
-        Random random = new Random();
+        // Asignamos un hueco a las palabras
+        words = wordPosition(words, A);
+        // Asignamos las palabras a la matriz
         // Recorremos palabras
-        for (i = 0; i < words.size(); i++) {
+        for (i = 0; i < words.size(); i++){
             Word word = words.get(i);
-            String text = word.getWord();
-            // Recorremos letras de la palabra
-            for (j=0; j< text.length(); j++) {
-                // Letra
-                char letter = text.charAt(j);
-                // Definimos asignado a falso
-                boolean asigned = false;
-                // Buscamos hueco para la palabra
-                // Mientras la palabra no esté asignada seguimos intentando encontrarle un hueco
-                while(!asigned) {
-                    // Generamos posición aleatoria para la primera letra en la matriz entre 0 y 11
-                    int posicionFila = random.nextInt(11 - 0 + 1) + 0;
-                    int posicionColumna = random.nextInt(11 - 0 + 1) + 0;
-                    // Si la posición de la matriz está vacía
-                    // o ya tiene una letra igual a la que tenemos, nos sirve. Continuamos
-                    if (A[posicionFila][posicionColumna] == 0 || A[posicionFila][posicionColumna] == letter) {
-                        // Definimos orientación de la palabra
-                        char[][] B = letterPosition(A[posicionFila][posicionColumna]);
-                        // Comprobamos si el resto de letras caben en esa orientación
-                        boolean hole = false;
-                        while(!hole) {
-                            // Comprobamos si cabe la palabra
-
-                            // Marcamos hueco encontrado para la palabra para salir del while
-                            hole = true;
-                            // Asignamos letra a la matriz
-                            A[posicionFila][posicionColumna] = letter;
-                            // Marcamos la letra como asignada para salir del while
-                            asigned = true;
-                        }
-                    }
-                }
+            // Obtenemos las letras de la palabra
+            List<Letter> letters = word.getLetters();
+            // Recorremos las letras
+            for (j=0; j < letters.size(); j++){
+                // Obtenemos la letra
+                Letter letter = letters.get(j);
+                // Obtenemos el caracter
+                Character letra = letter.getLetter();
+                // Obtenemos la posición
+                Integer[] position = letter.getPosition();
+                // La fila está en el index 0
+                Integer row = position[0];
+                // La columna en el index 1
+                Integer col = position[1];
+                // Guardamos en matriz
+                A[row][col] = letra;
             }
+        }
+        // Mostramos casillero
+        renderCasillero(A);
+    }
+
+
+    // Render casillero
+    public void renderCasillero(Character[][] casillero){
+        // Variables
+        int row,col;
+        // Salto de línea
+        String newLine = System.getProperty("line.separator");
+        // Recorremos casillero y printamos
+        for (row=0; row < casillero.length ;row++){
+            for (col=0; col < casillero[col].length; col++){
+                System.out.println(casillero[row][col]);
+            }
+            System.out.println(newLine);
         }
     }
 
 
-    public char[][] letterPosition(char A){
+    // Asignamos un hueco a las palabras
+    public List<Word> wordPosition(List<Word> words, Character[][] Casillero){
+        // Variables int para loops
+        Integer i, j, row, col, direction;
+        // Objeto Random
+        Random random = new Random();
+        // Recorremos palabras
+        for (i = 0; i < words.size(); i++) {
+            // Obtenemos palabra
+            Word word = words.get(i);
+            // Buscamos hueco para la palabra
+            // Definimos asignado a falso
+            boolean asigned = false;
+            // Mientras la palabra no esté asignada seguimos intentando encontrarle un hueco
+            while(!asigned) {
+                // Definimos orientación de la palabra
+                // Hay 8 posibles direcciones
+                direction = random.nextInt(8 - 1 + 1) + 1;
+                // Obtenemos las letras de la palabra
+                List<Letter> letters = word.getLetters();
+                // Recorremos las letras
+                for (j=0; j < letters.size(); j++) {
+                    // Obtenemos la letra
+                    Letter letter = letters.get(j);
+                    // Obtenemos el caracter de la letra
+                    Character letra = letter.getLetter();
+                    // Si es la primera letra de la palabra
+                    if(j==0){
+                        // Generamos posición aleatoria para la primera letra en la matriz entre 0 y 11
+                        row = random.nextInt(11 - 0 + 1) + 0;
+                        col = random.nextInt(11 - 0 + 1) + 0;
+                    }else{
+                        // Si no es la primera letra generamos la posición correspondiente
+                        Letter previousLetter = letters.get(j-1);
+                        Integer[] position = letterPosition(direction, previousLetter, Casillero);
+                        row = position[0];
+                        col = position[1];
+                    }
+                    // Comprobamos que las posiciones no estén fuera de la matriz
+                    if(row < 0 || col < 0 || row > 11 || col > 11){
+                        // En ese caso salimos del for, y vuelve a empezar el while
+                        break;
+                    }
+                    // Si la posición de la matriz está vacía
+                    // o ya tiene una letra igual a la que tenemos, nos sirve. Continuamos
+                    if (Casillero[row][col] == 0 || Casillero[row][col] == letra) {
+                        // Asignamos letra a la matriz
+                        Casillero[row][col] = letra;
+                        // Almacenamos posición de la letra
+                        Integer[] position = new Integer[]{row,col};
+                        letter.setPosition(position);
+                        // Si es la última letra por asignar de la palabra
+                        if (j == letters.size()-1) {
+                            // Marcamos la palabra como asignada para salir del while
+                            asigned = true;
+                        }
+                    }else{
+                        // Si la posición de la matriz está ocupada, y la letra no es la misma
+                        // Cortamos el for
+                        break;
+                        // Por lo tanto el while vuelve a empezar
+                    }
+                }
+            }
+        }
+        return words;
+    }
 
 
-        return ;
+    // Devuelve un array con la posición de la letra de la palabra
+    // 0 = fila y 1 = columna
+    public Integer[] letterPosition(Integer direction, Letter previousLetter, Character[][] Casillero){
+        Integer[] position = null;
+        Integer[] previousPosition = previousLetter.getPosition();
+        Integer row = previousPosition[0];
+        Integer col = previousPosition[1];
+        switch (direction) {
+            case 1:  // arriba izquierda
+                row = row - 1;
+                col = col - 1;
+                break;
+            case 2:  // arriba
+                row = row - 1;
+                col = col;
+                break;
+            case 3:  // arriba derecha
+                row = row - 1;
+                col = col + 1;
+                break;
+            case 4:  // izquierda
+                row = row;
+                col = col - 1;
+                break;
+            case 5:  // derecha
+                row = row;
+                col = col + 1;
+                break;
+            case 6:  // abajo izquierda
+                row = row + 1;
+                col = col - 1;
+                break;
+            case 7:  // abajo
+                row = row + 1;
+                col = col;
+                break;
+            case 8:  // abajo derecha
+                row = row + 1;
+                col = col + 1;
+                break;
+            default: // por defecto
+                break;
+        }
+        position[0] = row;
+        position[1] = col;
+        return position;
     }
 
     // Volvemos a recorrer el casillero y rellenamos los espacios vacíos con letras
