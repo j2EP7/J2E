@@ -160,9 +160,6 @@ public class GameController extends HttpServlet {
             boolean asigned = false;
             // Mientras la palabra no esté asignada seguimos intentando encontrarle un hueco
             while(!asigned) {
-                // Definimos orientación de la palabra
-                // Hay 8 posibles direcciones
-                direction = random.nextInt(8 - 1 + 1) + 1;
                 // Obtenemos las letras de la palabra
                 List<Letter> letters = word.getLetters();
                 // Recorremos las letras
@@ -177,6 +174,11 @@ public class GameController extends HttpServlet {
                         // Generamos posición aleatoria para la primera letra en la matriz entre 0 y 11
                         row = random.nextInt(11 - 0 + 1) + 0;
                         col = random.nextInt(11 - 0 + 1) + 0;
+                        // Definimos orientación de la palabra
+                        // Hay 8 posibles direcciones
+                        // PENDIENTE Optimizar direcciones en función de los valores de la primera posición
+                        direction = random.nextInt(8 - 1 + 1) + 1;
+                        System.out.println(direction);
                     }else{
                         // Si no es la primera letra generamos la posición correspondiente
                         Letter previousLetter = letters.get(j-1);
@@ -186,12 +188,14 @@ public class GameController extends HttpServlet {
                     }
                     // Comprobamos que las posiciones no estén fuera de la matriz
                     if(row < 0 || col < 0 || row > 11 || col > 11){
+                        System.out.println("fuera de la matriz");
                         // En ese caso salimos del for, y vuelve a empezar el while
                         break;
                     }
                     // Si la posición de la matriz está vacía
                     // o ya tiene una letra igual a la que tenemos, nos sirve. Continuamos
                     if ( Casillero[row][col] == 0 || Casillero[row][col].equals(letra) ) {
+                        System.out.println(letra + " nos sirve");
                         // Asignamos letra a la matriz
                         Casillero[row][col] = letra;
                         // Almacenamos posición de la letra
@@ -218,7 +222,7 @@ public class GameController extends HttpServlet {
     // Devuelve un array con la posición de la letra de la palabra
     // 0 = fila y 1 = columna
     public List<Integer> letterPosition(Integer direction, Letter previousLetter, Character[][] Casillero){
-        System.out.println("letter position");
+        //System.out.println("letter position");
         List<Integer> position = new ArrayList<>();
         Integer[] previousPosition = previousLetter.getPosition();
         //System.out.println(direction);
