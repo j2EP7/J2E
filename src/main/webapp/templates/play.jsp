@@ -1,11 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="controller.game" %>
+<%@ page import="controller.GameController" %>
 <%@ page import="model.Word" %>
 <%@ page import="java.util.List" %>
 <%@ page import="dao.GameDao" %>
 <%@ page import="dao.FactoryDAO" %>
 <%@ page import="model.Game" %>
-<%@ page import="controller.game" %>
+<%@ page import="controller.GameController" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!-- Container -->
@@ -17,13 +17,13 @@
             <!-- H1 -->
             <h1>${param.title}</h1>
             <!-- Conten -->
-            <br>
+ <%--           <br>
 
             <ul>
 
                 ${example}
 
-                <% List<Word> words = new controller.game().printAllWords(); %>
+                <% List<Word> words = new GameController().printAllWords(); %>
                 <c:forEach var="wordValue" items="${words}">
                     <li>
                             ${wordValue.id}<br>
@@ -41,7 +41,7 @@
                 <%= gamemodel %>
                 Número de palabras: <%= paramWords.getValue() %>
 
-            </ul>
+            </ul>--%>
 
             <div id="game"></div>
 
@@ -60,7 +60,7 @@
                 <div id="time"></div>
             </div>
             Listado de palabras a encontrar
-            <div id="listLetters"></div>
+            <div id="words"></div>
         </div>
         <!-- End Row -->
     </div>

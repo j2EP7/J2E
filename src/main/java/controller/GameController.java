@@ -1,6 +1,7 @@
 package controller;
 
 import dao.*;
+import model.Game;
 import model.Letter;
 import model.Word;
 
@@ -13,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class game extends HttpServlet {
+public class GameController extends HttpServlet {
     public String example = "isdasdasdasd";
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,17 +32,25 @@ public class game extends HttpServlet {
         return words;
     }
 
-    // Función que prepara cosas
+    public Integer getGameConfigWords() throws DAOException {
+        Integer value;
+        GameDao gameDAO = FactoryDAO.getGameDAO();
+        Game gameModel = gameDAO.read("words");
+        String gameModelValue = gameModel.getValue();
+        value = Integer.parseInt(gameModelValue);
+        return value;
+    }
 
-    // Obtener número de palabras de la configuración read param
+    public Integer getGameConfigSeconds() throws DAOException {
+        Integer value;
+        GameDao gameDAO = FactoryDAO.getGameDAO();
+        Game gameModel = gameDAO.read("max_time");
+        String gameModelValue = gameModel.getValue();
+        value = Integer.parseInt(gameModelValue);
+        return value;
+    }
 
-
-    // Obtiene listado de palabras readAll
-
-
-    // Obtiene de forma aleatoria X número de palabras del listado de palabras
-
-    public List<Word> setWordLetters(List<Word> words){
+    public Character[][] createCasillero(){
         // Filas y columnas
         final int FILAS = 12, COLUMNAS = 12;
         // Variables para recorrer palabras, letras..
@@ -54,8 +63,32 @@ public class game extends HttpServlet {
                 A[i][j] = 0;
             }
         }
+        return A;
+    }
+
+    public List<Word> setWordLetters(List<Word> words){
+        // Variables para recorrer palabras, letras..
+        int i, j;
+        // Casillero
+        Character[][] A = createCasillero();
         // Asignamos un hueco a las palabras
         words = wordPosition(words, A);
+        return words;
+    }
+
+
+    // Render casillero
+    public String renderCasillero(List<Word> words){
+        System.out.println("render casillero");
+        // Variables
+        String html = "";
+        // Casillero
+        Character[][] A = createCasillero();
+        // Rellenamos casillero con palabras asignadas
+        // Variables para recorrer palabras, letras..
+        int i, j, row, col;
+        // Character random
+        char c;
         // Asignamos las palabras a la matriz
         // Recorremos palabras
         for (i = 0; i < words.size(); i++){
@@ -71,37 +104,48 @@ public class game extends HttpServlet {
                 // Obtenemos la posición
                 Integer[] position = letter.getPosition();
                 // La fila está en el index 0
-                Integer row = position[0];
+                row = position[0];
                 // La columna en el index 1
-                Integer col = position[1];
+                col = position[1];
                 // Guardamos en matriz
                 A[row][col] = letra;
             }
         }
-        // Mostramos casillero
-        //renderCasillero(A);
-        return words;
-    }
-
-
-    // Render casillero
-    public void renderCasillero(Character[][] casillero){
-        // Variables
-        int row,col;
-        // Salto de línea
-        String newLine = System.getProperty("line.separator");
-        // Recorremos casillero y printamos
-        for (row=0; row < casillero.length ;row++){
-            for (col=0; col < casillero.length; col++){
-                System.out.println(casillero[row][col]);
+        // Recorremos casillero y rellenamos huecos con letras random
+        Random rnd = new Random();
+        for (row=0; row < A.length ;row++){
+            for (col=0; col < A[row].length; col++){
+                if(A[row][col] == 0){
+                    c = (char) ('a' + rnd.nextInt(26));
+                    A[row][col] = c;
+                }
             }
-            System.out.println(newLine);
         }
+        html = generateCasilleroHTML(A);
+        return html;
     }
 
+
+    public String generateCasilleroHTML(Character[][] A){
+        System.out.println("generate casillero html");
+        String html = "<table class=\"table table-bordered\"><tbody>";
+        Integer row,col;
+        for (row=0; row < A.length ;row++){
+            html += "<tr>";
+            for (col=0; col < A[row].length; col++){
+                html += "<td class='letra'>";
+                html += A[col][row];
+                html += "</td>";
+            }
+            html += "</tr>";
+        }
+        html += "</tbody></table>";
+        return html;
+    }
 
     // Asignamos un hueco a las palabras
     public List<Word> wordPosition(List<Word> words, Character[][] Casillero){
+        System.out.println("word position");
         // Variables int para loops
         Integer i, j, row, col, direction;
         // Objeto Random
@@ -110,7 +154,7 @@ public class game extends HttpServlet {
         for (i = 0; i < words.size(); i++) {
             // Obtenemos palabra
             Word word = words.get(i);
-            System.out.println(word.getWord());
+            // System.out.println(word.getWord());
             // Buscamos hueco para la palabra
             // Definimos asignado a falso
             boolean asigned = false;
@@ -174,6 +218,7 @@ public class game extends HttpServlet {
     // Devuelve un array con la posición de la letra de la palabra
     // 0 = fila y 1 = columna
     public List<Integer> letterPosition(Integer direction, Letter previousLetter, Character[][] Casillero){
+        System.out.println("letter position");
         List<Integer> position = new ArrayList<>();
         Integer[] previousPosition = previousLetter.getPosition();
         //System.out.println(direction);

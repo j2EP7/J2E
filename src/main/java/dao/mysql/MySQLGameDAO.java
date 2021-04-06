@@ -1,7 +1,7 @@
 package dao.mysql;
 
 
-import controller.ConexBBDD;
+import controller.Utilities;
 import dao.DAOException;
 import dao.GameDao;
 import model.Game;
@@ -53,7 +53,7 @@ public class MySQLGameDAO implements GameDao {
         try {
 
             //Usamos clase ConexBDD para crear la conexión según lo que hemos establecido en aquella clase
-            conexion = ConexBBDD.createConnection();
+            conexion = Utilities.createConnection();
 
             //Preparemos la Query con el ?
             String query = "select * from game where parameter=?";

@@ -6,20 +6,10 @@ wordsFound = 0;
 // Cada elemento es un objeto (Word) con sus propiedades (id, word y description) y una propiedad extra que es un array, el cual contiene las ids de las posiciones de las letras en el tablero
 gameWords = [];
 // Segundos del juego
-gameSeconds = 300;
+gameSeconds = 0;
 // Inicializador de tiempo restante
 countdown = undefined;
 
-/* Eventos */
-
-// Evento click casilla letra
-$( ".letra" ).click(function() {
-    alert( "Click en letra" );
-    // Definir un evento onclick asociado a la clase letra, que estaría presente en las casillas de la estructura de la sopa de letras
-    // Al hacer click comprueba si el elemento está seleccionado o no y aplica una clase de selección o no
-    // Comprobamos letras seleccionadas
-    checkLetters();
-});
 
 /* Funciones */
 
@@ -41,14 +31,14 @@ $( ".letra" ).click(function() {
 
 
 function play(){
-    initCountdown();
     // Recoge parámetros para el juego
     // https://stackoverflow.com/questions/43895473/promise-inside-promise-whats-the-correct-way-to-return-a-variable-from-the-chi/43895627
     jQuery.ajax({
         type: 'POST',
         url:"play",
         success: function(response) {
-                // Inicializa el juego
+            console.log(response);
+            // Inicializa el juego
                 initGame(response);
             }
         });
@@ -148,12 +138,23 @@ function renderMessage(message){
 function initGame(juego){
     // Set número de palabras a encontrar
     wordsFound = juego.words.length;
+    // Set gameSeconds
+    gameSeconds = parseInt(juego.seconds);
     // Renderizamos tablero
     renderGame(juego.casillero);
     // Renderizamos palabras a encontrar
     renderWords(juego.words);
     // Inicia la cuenta regresiva
     initCountdown();
+    // Evento click letra
+    // Evento click casilla letra
+    $( ".letra" ).click(function() {
+        alert( "Click en letra" );
+        // Definir un evento onclick asociado a la clase letra, que estaría presente en las casillas de la estructura de la sopa de letras
+        // Al hacer click comprueba si el elemento está seleccionado o no y aplica una clase de selección o no
+        // Comprobamos letras seleccionadas
+        checkLetters();
+    });
 }
 
 // Función para contar el tiempo restante
@@ -199,20 +200,21 @@ function gameOver(){
 
 // Función para mostrar palabras a encontrar
 function renderWords(words){
+    console.log(words);
     // Obtiene listado de palabras
     const wordList = generateWordList(words);
     // Renderizamos listado de palabras
-    renderWords(wordList);
+    document.getElementById("words").innerHTML = wordList;
 }
 
 // Renderizamos listado de palabras
-function renderWords(wordList){
-
-}
-
-// Función genera listado de palabras
 function generateWordList(words){
-
+    let html = "<ul>";
+    for (let i=0; i<words.length;i++){
+        html += "<li>" + words[i].word + "</li>";
+    }
+    html += "</ul>";
+    return html;
 }
 
 // Función para mostrar palabras y descripciones

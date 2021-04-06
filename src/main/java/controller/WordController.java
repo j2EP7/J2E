@@ -2,48 +2,45 @@ package controller;
 
 import dao.DAOException;
 import dao.FactoryDAO;
+import dao.GameDao;
 import dao.WordDAO;
+import model.Game;
 import model.Letter;
 import model.Word;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@WebServlet(name = "SelectWords", value = "/SelectWords")
-public class SelectWords extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+public class WordController {
 
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-    public List<Word> selectWord() throws DAOException {
+    // Función para generar palabras aleatorias para el casillero del juego
+    public List<Word> selectRandomWords() throws DAOException {
+        // Variable de número de palabras a generar
+        int configNumberWords;
+        // Booleano
         boolean noExiste;
-
+        // Obtenemos el parámetro de configuración de palabras
+        GameDao gameDAO = FactoryDAO.getGameDAO();
+        Game paramWords = gameDAO.read("words");
+        String paramWordsValue = paramWords.getValue();
+        // Seteamos valor convirtiendo string a integer
+        configNumberWords = Integer.parseInt(paramWordsValue);
+        configNumberWords = 3;
         //Creamos array donde guardaremos las palabras seleccionadas
-        List<Word> selectWords = new ArrayList<Word>(7);
-
+        List<Word> selectWords = new ArrayList<Word>(configNumberWords);
+        // Obtenemos todas las palabras
         WordDAO wordDAO = FactoryDAO.getWordDAO();
         List<Word> words = wordDAO.readAll();
-
         // Instanciamos la clase Random
         Random random = new Random();
-
-        for (int i = 0; i < 7; i++) {
+        // Recorremos hasta X número de palabras
+        for (int i = 0; i < configNumberWords; i++) {
             noExiste = true;
             // Elegimos un índice al azar, entre 0 y el número de tamaño del array de words.
             int randomIndex = random.nextInt(words.size());
             while (noExiste){
-                //si la palabra no se encuentra en el array añadimos.
+                // Si la palabra no se encuentra en el array añadimos.
                 if (!selectWords.contains(words.get(randomIndex))) {
                     selectWords.add(words.get(randomIndex));
                 } else {
@@ -51,10 +48,11 @@ public class SelectWords extends HttpServlet {
                 }
             }
         }
-
+        // Recorremos las palabras seleccionadas
         // Generamos propiedad letras de palabras
-        for (Word word:words
-             ) {
+        // Seteamos la propiedad en la palabra
+        // Así podremos más tarde asignar la posición a cada letra
+        for (Word word:words) {
             String palabra = word.getWord();
             List<Letter> letters = new ArrayList<>();
             for (int i=0; i < palabra.length(); i++){
@@ -64,7 +62,8 @@ public class SelectWords extends HttpServlet {
             }
             word.setLetters(letters);
         }
-
+        // Return de palabras seleccionadas
         return selectWords;
     }
+
 }

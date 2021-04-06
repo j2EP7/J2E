@@ -1,14 +1,11 @@
+import controller.WordController;
 import dao.DAOException;
-import dao.FactoryDAO;
-import dao.WordDAO;
 import model.Word;
 import org.junit.jupiter.api.Test;
-import controller.game;
-import controller.SelectWords;
+import controller.GameController;
 
 import java.util.ArrayList;
 import java.util.List;
-import controller.game;
 
 public class test {
 
@@ -20,22 +17,20 @@ public class test {
     }*/
 
     @Test
-    public void generateCasillero(){
-        List<Word> words = new ArrayList<>();
-        try{
-            words = new SelectWords().selectWord();
-            for (Word word:words) {
-                System.out.println(word.getWord());
-            }
-            List<Word> results = new game().setWordLetters(words);
-            for (Word result:results
-                 ) {
-                System.out.println(result.getWord());
-                System.out.print(result.getLetters().toString());
-            }
-        } catch (DAOException e) {
-            e.printStackTrace();
+    public void generateCasillero() throws DAOException {
+        // Listado de palabras
+        List<Word> words = new WordController().selectRandomWords();
+        for (Word word:words){
+            System.out.println(word.getWord());
         }
+        // Listado de palabras con posiciones
+        List<Word> wordsPositions = new GameController().setWordLetters(words);
+        for (Word word:words){
+            System.out.print(word.getLetters());
+        }
+        // Casillero
+        // String casillero = new GameController().renderCasillero(wordsPositions);
+        //System.out.println(casillero);
 
 
 

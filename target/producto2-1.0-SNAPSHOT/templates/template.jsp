@@ -16,7 +16,7 @@
 </head>
 <body>
 <jsp:include page="${param.content}.jsp">
-    <jsp:param name="title" value="${param.title}.jsp"/>
+    <jsp:param name="title" value="${param.title}"/>
 </jsp:include>
 </body>
 </html>
