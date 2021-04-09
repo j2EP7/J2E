@@ -218,7 +218,7 @@ function generateWordList(words){
 }
 
 // Función para mostrar palabras y descripciones
-function renderWordDetails(wordList){
+function renderWordDetails(){
 
 }
 
