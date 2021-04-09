@@ -147,7 +147,7 @@ public class GameController extends HttpServlet {
     public List<Word> wordPosition(List<Word> words, Character[][] Casillero){
         System.out.println("word position");
         // Variables int para loops
-        Integer i, j, row, col, direction;
+        Integer i, j, row, col, direction = null;
         // Objeto Random
         Random random = new Random();
         // Recorremos palabras
@@ -197,7 +197,7 @@ public class GameController extends HttpServlet {
                     if ( Casillero[row][col] == 0 || Casillero[row][col].equals(letra) ) {
                         System.out.println(letra + " nos sirve");
                         // Asignamos letra a la matriz
-                        Casillero[row][col] = letra;
+                        // Casillero[row][col] = letra;
                         // Almacenamos posición de la letra
                         Integer[] position = new Integer[]{row,col};
                         letter.setPosition(position);

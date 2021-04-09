@@ -26,7 +26,7 @@ public class WordController {
         String paramWordsValue = paramWords.getValue();
         // Seteamos valor convirtiendo string a integer
         configNumberWords = Integer.parseInt(paramWordsValue);
-        configNumberWords = 3;
+        configNumberWords = 10;
         //Creamos array donde guardaremos las palabras seleccionadas
         List<Word> selectWords = new ArrayList<Word>(configNumberWords);
         // Obtenemos todas las palabras
