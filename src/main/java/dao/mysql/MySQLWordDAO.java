@@ -38,7 +38,7 @@ public class MySQLWordDAO implements WordDAO {
         try {
             conexion = Utilities.createConnection();
             Statement st = conexion.createStatement();
-            String query = "select * from words where 1";
+            String query = "select * from words where length(word) < 6";
             ResultSet result = st.executeQuery(query);
             System.out.println("readAll done");
             // Recorremos las palabras seleccionadas

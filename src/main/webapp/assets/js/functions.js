@@ -54,9 +54,13 @@ function demoAjaxServletRequest(){
 }
 
 // Función para comprobar las letras seleccionadas
-function checkLetters() {
+function checkLetters(letraId) {
     let newWordFound = false;
-    // Comprueba si las letras seleccionadas forman una palabra
+    // Seleccionar todas las letras seleccionadas (clase soup)
+    let selectedLetters = jQuery(".soup");
+    // Recorrer todas las palabras (words) y verificar si la posición de esas letras forman una palabra
+
+    // Solo daremos por válido si esa palabra formada tiene la misma cantidad de letras que el total de letras seleccionadas en la sopa de letras
     newWordFound = lettersAreWord();
     if(newWordFound == true){
         // En ese caso deshabilita las casillas seleccionadas que forman la palabra
@@ -134,26 +138,43 @@ function renderMessage(message){
     alert(message);
 }
 
+function disablePlayButton(){
+    // Deshabilitar el botón jugar
+}
+
 // Función iniciar juego
 function initGame(juego){
+    // Palabras con letras y posiciones
+    gameWords = juego.words;
     // Set número de palabras a encontrar
     wordsFound = juego.words.length;
     // Set gameSeconds
     gameSeconds = parseInt(juego.seconds);
     // Renderizamos tablero
     renderGame(juego.casillero);
+    // Deshabilitar botón jugar
+    disablePlayButton();
     // Renderizamos palabras a encontrar
     renderWords(juego.words);
     // Inicia la cuenta regresiva
     initCountdown();
     // Evento click letra
     // Evento click casilla letra
-    $( ".letra" ).click(function() {
-        alert( "Click en letra" );
+    $( ".letra" ).click(function(e) {
+        console.log(e.target);
+        let letraId = e.target.id;
+        let letraPosicion = letraId.split("-");
+        // Obtenemos posiciones de la letra clicada
+        let row = letraPosicion[0];
+        let col = letraPosicion[1];
+        console.log("row "+row+" col "+col);
+        // Comprobamos si está activada o no
+        jQuery('#' + letraId).toggleClass('soup');
         // Definir un evento onclick asociado a la clase letra, que estaría presente en las casillas de la estructura de la sopa de letras
         // Al hacer click comprueba si el elemento está seleccionado o no y aplica una clase de selección o no
+        // Esa clase define el estilo css, y además nos sirve para saber si la próxima vez que se clique hay que activarla o desactivarla
         // Comprobamos letras seleccionadas
-        checkLetters();
+        checkLetters(letraId);
     });
 }
 

@@ -60,7 +60,7 @@ public class GameController extends HttpServlet {
         // Rellenamos con espacios vacíos (en char 0 es como si estuviera vacío)
         for (i = 0; i < FILAS; i++) {
             for (j = 0; j < COLUMNAS; j++) {
-                A[i][j] = 0;
+                A[i][j] = (char)0;
             }
         }
         return A;
@@ -133,7 +133,7 @@ public class GameController extends HttpServlet {
         for (row=0; row < A.length ;row++){
             html += "<tr>";
             for (col=0; col < A[row].length; col++){
-                html += "<td class='letra'>";
+                html += "<td id="+row+"-"+col+" class='letra'>";
                 html += A[col][row];
                 html += "</td>";
             }
@@ -194,10 +194,10 @@ public class GameController extends HttpServlet {
                     }
                     // Si la posición de la matriz está vacía
                     // o ya tiene una letra igual a la que tenemos, nos sirve. Continuamos
-                    if ( Casillero[row][col] == 0 || Casillero[row][col].equals(letra) ) {
+                    if ( Casillero[row][col] == (char)0 || Casillero[row][col] == letra ) {
                         System.out.println(letra + " nos sirve");
                         // Asignamos letra a la matriz
-                        // Casillero[row][col] = letra;
+                        Casillero[row][col] = letra;
                         // Almacenamos posición de la letra
                         Integer[] position = new Integer[]{row,col};
                         letter.setPosition(position);
