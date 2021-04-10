@@ -49,7 +49,7 @@
             <script src="${pageContext.request.contextPath}/assets/js/functions.js" /></script>
 
             <!-- botón jugar que dispara función js para cargar la sopa de letras -->
-            <button type="button" class="btn btn-primary" onclick="play()">Jugar</button>
+            <button id="play" type="button" class="btn btn-primary" onclick="play()">Jugar</button>
 
 
         </div>

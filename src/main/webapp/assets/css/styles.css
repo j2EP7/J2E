@@ -1,14 +1,18 @@
+/* LAYOUT */
+
+/* Para que aproveche toda la altura del dispositivo */
 html,body {
     height: 100%;
-}
-
-.soup{
-    background-color: yellow !important;
 }
 
 .vh-100{
     height: 100%;
 }
+
+
+/* INDEX */
+
+/* Fondo de imagen de la columna de la portada */
 
 .indexWallpaper{
     background-image: url("https://www.tuexpertoapps.com/wp-content/uploads/2018/01/sopa-de-letras-android.jpg");
@@ -17,12 +21,35 @@ html,body {
     width:100%;
 }
 
+/* LOGIN */
+
+/* Padding del formulario de la página login */
 .loginForm{
     padding-left:40px !important;
     padding-right:40px !important;
 }
 
+/* PLAY */
+
+/* Color de fondo de la columna de la página play */
 .sidebar-bg-color{
     background: #ddaf79;
     color: #372218;
 }
+
+/* Color de fondo de letra seleccionada */
+.soup{
+    background-color: yellow !important;
+}
+
+/* Clase para div game de la página play */
+.gameOff{
+    pointer-events:none;
+}
+
+/* Clase para letra de la página play */
+.letterOff{
+    pointer-events:none;
+}
+
+/* Clase overline para tachar una palabra del listado */

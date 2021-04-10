@@ -9,7 +9,8 @@ gameWords = [];
 gameSeconds = 0;
 // Inicializador de tiempo restante
 countdown = undefined;
-
+// Letras seleccionadas (array con posiciones de letras seleccionadas)
+selectedLetters = [];
 
 /* Funciones */
 
@@ -55,19 +56,50 @@ function demoAjaxServletRequest(){
 
 // Función para comprobar las letras seleccionadas
 function checkLetters(letraId) {
-    let newWordFound = false;
-    // Seleccionar todas las letras seleccionadas (clase soup)
-    let selectedLetters = jQuery(".soup");
-    // Recorrer todas las palabras (words) y verificar si la posición de esas letras forman una palabra
 
-    // Solo daremos por válido si esa palabra formada tiene la misma cantidad de letras que el total de letras seleccionadas en la sopa de letras
-    newWordFound = lettersAreWord();
-    if(newWordFound == true){
-        // En ese caso deshabilita las casillas seleccionadas que forman la palabra
-        disableSelectedLetters();
-        // Y contabiliza 1 palabra más encontrada de las X que hay que encontrar
-        wordFound();
+    // Recorrer todas las palabras (words) y verificar si la posición de esas letras forman una palabra
+    for (let i = 0; i < gameWords.length; i++){
+        // Palabra
+        let word = gameWords[i];
+        // Letras de palabra
+        let letters = word.letters;
+        let newWordFound = false;
+        // Recorremos letras de palabra
+        for(let j = 0; j < letters.length; j++){
+            let letter = letters[j];
+            let position = letter.position;
+            let positions = [position[0],position[1]];
+            // Si la posición de la letra de la palabra que estamos recorriendo no está en las posiciones almacenadas de las letras seleccionadas
+            if(!selectedLetters.includes(positions)){
+                // Salimos del for, porque esta palabra no está completa
+               break;
+            }
+            // Si se ha llegado al final y tenemos todas las posiciones de las letras de la palabra
+            if(j == letters.length - 1){
+                newWordFound = true;
+            }
+        }
+        if(newWordFound == true){
+            // Tachamos la palabra de la lista
+            overlineWord(word);
+            // Bloqueamos las posiciones de esa palabra en la sopa de letras
+            blockWord(word.id);
+        }
     }
+}
+
+// Recibe como parámetro el identificador de una palabra que está dentro del array global gameWords
+function blockWord(wordId){
+    // recorremos gameWords
+    // obtenemos palabra por id
+    // recorremos letras
+    // bloqueamos la posición de la sopa de letars asignando
+    // Asignando la clase letterOff
+}
+
+// Recibe elemento word con propiedades del modelo
+function overlineWord(){
+    // tacha la palabra del listado de palabras
 }
 
 
@@ -124,11 +156,14 @@ function finishGame(){
         // En caso contrario le decimos que ha perdido
         gameOver();
     }
+    // Habilitamos el botón para que pueda volver a jugar
+    enablePlayButton();
 }
 
 // Función para deshabilitar todas las casillas
 function disableGame(){
     // Para que el jugador no pueda seguir interactuando con las casillas cuando la partida ha finalizado
+    jQuery("#game").addClass("gameOff");
 }
 
 // Función para mostrar mensaje
@@ -140,6 +175,12 @@ function renderMessage(message){
 
 function disablePlayButton(){
     // Deshabilitar el botón jugar
+    document.getElementById("play").disabled = true;
+}
+
+function enablePlayButton(){
+    // Deshabilitar el botón jugar
+    document.getElementById("play").disabled = false;
 }
 
 // Función iniciar juego
@@ -158,21 +199,30 @@ function initGame(juego){
     renderWords(juego.words);
     // Inicia la cuenta regresiva
     initCountdown();
-    // Evento click letra
     // Evento click casilla letra
     $( ".letra" ).click(function(e) {
         console.log(e.target);
+        // Marcamos o desmarcamos como seleccionada
+        jQuery('#' + letraId).toggleClass('soup');
+        // Almacenamos id / posiciones en selectedLetters (variable global)
         let letraId = e.target.id;
         let letraPosicion = letraId.split("-");
         // Obtenemos posiciones de la letra clicada
         let row = letraPosicion[0];
         let col = letraPosicion[1];
+        // Si la letra ha sido seleccionada añadimos a selectedLetters
+        if(jQuery("#"+letraId).hasClass("soup")){
+            let tempArray = [row,col]
+            selectedLetters.push(tempArray);
+        }else{
+            // Si la letra ha sido deseleccionada quitamos de selectedLetters
+            let filtered = selectedLetters.filter(function(value, index, arr){
+                return value = letraId;
+            });
+            console.log(filtered);
+        }
         console.log("row "+row+" col "+col);
-        // Comprobamos si está activada o no
-        jQuery('#' + letraId).toggleClass('soup');
-        // Definir un evento onclick asociado a la clase letra, que estaría presente en las casillas de la estructura de la sopa de letras
-        // Al hacer click comprueba si el elemento está seleccionado o no y aplica una clase de selección o no
-        // Esa clase define el estilo css, y además nos sirve para saber si la próxima vez que se clique hay que activarla o desactivarla
+
         // Comprobamos letras seleccionadas
         checkLetters(letraId);
     });
@@ -232,6 +282,7 @@ function renderWords(words){
 function generateWordList(words){
     let html = "<ul>";
     for (let i=0; i<words.length;i++){
+        // Aplicamos identificador de word a li para posteriormente poder tacharla aplicando css
         html += "<li>" + words[i].word + "</li>";
     }
     html += "</ul>";

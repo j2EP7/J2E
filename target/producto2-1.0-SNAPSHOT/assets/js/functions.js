@@ -59,6 +59,11 @@ function checkLetters(letraId) {
     // Seleccionar todas las letras seleccionadas (clase soup)
     let selectedLetters = jQuery(".soup");
     // Recorrer todas las palabras (words) y verificar si la posición de esas letras forman una palabra
+    for (let i = 0; i < selectedLetters.length; i++){
+        let letter = selectedLetters[i];
+        let row = "";
+        let col = "";
+    }
     // Solo daremos por válido si esa palabra formada tiene la misma cantidad de letras que el total de letras seleccionadas en la sopa de letras
     newWordFound = lettersAreWord();
     if(newWordFound == true){
@@ -123,11 +128,14 @@ function finishGame(){
         // En caso contrario le decimos que ha perdido
         gameOver();
     }
+    // Habilitamos el botón para que pueda volver a jugar
+    enablePlayButton();
 }
 
 // Función para deshabilitar todas las casillas
 function disableGame(){
     // Para que el jugador no pueda seguir interactuando con las casillas cuando la partida ha finalizado
+    jQuery("#game").addClass("gameOff");
 }
 
 // Función para mostrar mensaje
@@ -139,6 +147,12 @@ function renderMessage(message){
 
 function disablePlayButton(){
     // Deshabilitar el botón jugar
+    document.getElementById("play").disabled = true;
+}
+
+function enablePlayButton(){
+    // Deshabilitar el botón jugar
+    document.getElementById("play").disabled = false;
 }
 
 // Función iniciar juego
