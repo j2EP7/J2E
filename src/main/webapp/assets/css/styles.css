@@ -53,3 +53,6 @@ html,body {
 }
 
 /* Clase overline para tachar una palabra del listado */
+.lineThrough{
+    text-decoration:line-through;
+}
