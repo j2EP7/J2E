@@ -47,12 +47,30 @@ html,body {
     pointer-events:none;
 }
 
-/* Clase para letra de la página play */
+/* Clase para letra de una palabra encontrada de la página play */
 .letterOff{
     pointer-events:none;
+    background-color: chartreuse !important;
 }
 
 /* Clase overline para tachar una palabra del listado */
 .lineThrough{
     text-decoration:line-through;
+}
+
+/* Clase para las letras del casillero */
+.letra{
+    width:  44px !important;
+    height: 44px !important;
+}
+
+/* Clase para no mostrar la información del juego inicialmente */
+.esconder{
+    display: none;
+}
+
+.copyright{
+    padding:20px;
+    text-align:center;
+    color:grey;
 }

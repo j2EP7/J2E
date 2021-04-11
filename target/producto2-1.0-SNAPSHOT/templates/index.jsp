@@ -10,6 +10,7 @@
             <!-- Content -->
             <br>
             <h2>Inicia sesión para jugar</h2>
+            <!-- Form -->
             <form action="login" method="post">
                 <div class="mb-3">
                     <label for="inputUsername" class="form-label">Nombre de usuario</label>
@@ -23,7 +24,14 @@
                 <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-primary">Iniciar sesión</button>
                 </div>
+                <!-- End Form -->
             </form>
+            <!-- Copyright -->
+            <p class="copyright">Hecho con amor y café por J2E</p>
+
+        <%--  <jsp:include page="copyright.jsp">
+            </jsp:include>--%>
+            <!-- End Column -->
         </div>
         <!-- Second Column -->
         <div class="col-12 col-md-4 align-self-end indexWallpaper vh-100">

@@ -134,7 +134,7 @@ public class GameController extends HttpServlet {
             html += "<tr>";
             for (col=0; col < A[row].length; col++){
                 html += "<td id="+row+"-"+col+" class='letra'>";
-                html += A[col][row];
+                html += A[row][col];
                 html += "</td>";
             }
             html += "</tr>";
