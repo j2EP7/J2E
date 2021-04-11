@@ -46,3 +46,10 @@ html,body {
 .gameOff{
     pointer-events:none;
 }
+
+/* Clase para letra de la página play */
+.letterOff{
+    pointer-events:none;
+}
+
+/* Clase overline para tachar una palabra del listado */

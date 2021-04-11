@@ -83,18 +83,30 @@ function checkLetters(letraId) {
             // Tachamos la palabra de la lista
             overlineWord(word);
             // Bloqueamos las posiciones de esa palabra en la sopa de letras
-            blockWord(word.id);
+            //$("#"+letraId).addClass("letterOff");
+            blockWord(word.letters);
         }
     }
 }
 
 // Recibe como parámetro el identificador de una palabra que está dentro del array global gameWords
-function blockWord(wordId){
+function blockWord(letters){
+
+
     // recorremos gameWords
     // obtenemos palabra por id
     // recorremos letras
     // bloqueamos la posición de la sopa de letars asignando
     // Asignando la clase letterOff
+    for (let i=0;i<letters.length;i++){
+        let letra = letters[i].Letter;
+        let letterPosition = letra.Position;
+        let row = letterPosition[0];
+        let col = letterPosition[1];
+        let idLetter = row+"-"+col;
+        $("#"+idLetter).addClass("letterOff");
+    }
+
 }
 
 // Recibe elemento word con propiedades del modelo
