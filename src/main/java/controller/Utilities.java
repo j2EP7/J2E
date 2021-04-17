@@ -6,6 +6,9 @@ import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.naming.directory.DirContext;
 import javax.naming.directory.InitialDirContext;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -43,6 +46,7 @@ public class Utilities {
             }
         }
     }
+
 
     // Función para conectar al servidor LDAP Apache Directory Studio
     public String LdapConnection(String username, String password){

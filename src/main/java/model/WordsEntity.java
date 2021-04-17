@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -9,19 +10,22 @@ public class WordsEntity {
     private int id;
     private String word;
     private String description;
-    private List<Letter> letters;
 
+    // https://www.baeldung.com/jpa-transient-ignore-field
+    private transient List<Letter> letters;
+
+    @Transient
     public List<Letter> getLetters() {
         return letters;
     }
 
+    @Transient
     public void setLetters(List<Letter> letters) {
         this.letters = letters;
     }
 
-
     @Id
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     public int getId() {
         return id;
     }
@@ -31,7 +35,7 @@ public class WordsEntity {
     }
 
     @Basic
-    @Column(name = "word")
+    @Column(name = "word", nullable = false, length = 30)
     public String getWord() {
         return word;
     }
@@ -41,7 +45,7 @@ public class WordsEntity {
     }
 
     @Basic
-    @Column(name = "description")
+    @Column(name = "description", nullable = false, length = -1)
     public String getDescription() {
         return description;
     }
@@ -71,4 +75,6 @@ public class WordsEntity {
         result = 31 * result + (description != null ? description.hashCode() : 0);
         return result;
     }
+
+
 }

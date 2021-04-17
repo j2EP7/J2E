@@ -10,7 +10,7 @@ public class GameEntity {
     private String value;
 
     @Id
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     public int getId() {
         return id;
     }
@@ -20,7 +20,7 @@ public class GameEntity {
     }
 
     @Basic
-    @Column(name = "parameter")
+    @Column(name = "parameter", nullable = false, length = 50)
     public String getParameter() {
         return parameter;
     }
@@ -30,7 +30,7 @@ public class GameEntity {
     }
 
     @Basic
-    @Column(name = "value")
+    @Column(name = "value", nullable = false, length = 50)
     public String getValue() {
         return value;
     }
