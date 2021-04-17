@@ -52,7 +52,7 @@ public class GameController extends HttpServlet {
 
     public Character[][] createCasillero(){
         // Filas y columnas
-        final int FILAS = 12, COLUMNAS = 12;
+        final int FILAS = 15, COLUMNAS = 15;
         // Variables para recorrer palabras, letras..
         int i, j;
         // Creamos una matriz de caracteres 5 filas y 4 columnas
@@ -172,8 +172,8 @@ public class GameController extends HttpServlet {
                     // Si es la primera letra de la palabra
                     if(j==0){
                         // Generamos posición aleatoria para la primera letra en la matriz entre 0 y 11
-                        row = random.nextInt(11 - 0 + 1) + 0;
-                        col = random.nextInt(11 - 0 + 1) + 0;
+                        row = random.nextInt(14 - 0 + 1) + 0;
+                        col = random.nextInt(14 - 0 + 1) + 0;
                         // Definimos orientación de la palabra
                         // Hay 8 posibles direcciones
                         // PENDIENTE Optimizar direcciones en función de los valores de la primera posición
@@ -187,7 +187,7 @@ public class GameController extends HttpServlet {
                         col = position.get(1);
                     }
                     // Comprobamos que las posiciones no estén fuera de la matriz
-                    if(row < 0 || col < 0 || row > 11 || col > 11){
+                    if(row < 0 || col < 0 || row > 14 || col > 14){
                         System.out.println("fuera de la matriz");
                         // En ese caso salimos del for, y vuelve a empezar el while
                         break;

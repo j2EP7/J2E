@@ -16,7 +16,7 @@
         <div class="col-12 col-md-8 d-flex flex-column min-vh-100 justify-content-center align-items-center">
             <!-- H1 -->
             <h1>${param.title}</h1>
-            <p>Aprende jugando</p>
+
 
             <!-- Pruebas -->
  <%--           <br>
@@ -48,8 +48,7 @@
             <!-- botón jugar que dispara función js para cargar la sopa de letras -->
             <button id="play" type="button" class="btn btn-primary" onclick="play()">Jugar</button>
 
-            <!-- Copyright -->
-            <p class="copyright">Hecho con amor y café por J2E</p>
+
 
         <%-- <jsp:include page="copyright.jsp">
             </jsp:include>--%>
@@ -61,6 +60,7 @@
         <!-- Second Column -->
         <div class="col-12 col-md-4 sidebar-bg-color d-flex flex-column min-vh-100 justify-content-center align-items-center">
             <div>
+                <p>Aprende un poco más de Java jugando</p>
                 <div id="gameInfo" class="esconder">
                     <div id="parentTime">
                         <h2>Tiempo restante</h2>
@@ -82,6 +82,8 @@
                         <li>¡Hay recompensa!</li>
                     </ul>
                 </div>
+                <!-- Copyright -->
+                <p class="copyright">Hecho con amor y café por J2E</p>
             </div>
             <!-- End column -->
         </div>

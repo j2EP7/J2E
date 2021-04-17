@@ -7,11 +7,12 @@ import org.junit.jupiter.api.Test;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import java.util.List;
 
 public class emTest {
 
-
+/*
     @Test
     public void readGameEntityById(){
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
@@ -43,6 +44,20 @@ public class emTest {
             String palabra = word.getWord();
             System.out.println(palabra);
         }
+    }*/
+
+    @Test
+    public void readGameParameter(){
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        String parameter = "max_time";
+        Query query = entityManager.createQuery("select g.id from Game g where g.parameter = ?1");
+        query.setParameter(1, parameter);
+        Integer id = (Integer) query.getSingleResult();
+        Game game = entityManager.find(Game.class, id);
+        String value = game.getValue();
+        System.out.println("max_time: " + value);
     }
 
 }
