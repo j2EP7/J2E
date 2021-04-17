@@ -6,6 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
 import controller.Utilities;
 
 // @WebServlet(name = "login", value = "/login")
@@ -28,6 +30,8 @@ public class LoginController extends HttpServlet {
         String ldapResult = new Utilities().LdapConnection(username,password);
         // Si ha ido bien redirigimos a play
         if(ldapResult == "Connected"){
+            HttpSession session = request.getSession();
+            session.setAttribute("login", "true");
             response.sendRedirect("play.jsp");
         }else {
             // En caso contrario login
