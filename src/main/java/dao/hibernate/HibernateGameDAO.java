@@ -44,6 +44,8 @@ public class HibernateGameDAO implements GameDao {
         entityManager.getTransaction().commit();
         entityManager.close();
         entityManagerFactory.close();
-        return null;*/
+
+ */
+        return null;
     }
 }
