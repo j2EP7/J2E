@@ -11,7 +11,7 @@ public abstract class FactoryDAO {
     // List of DAO types supported by the factory
     final static int IMP_MYSQL = 1;
     final static int IMP_HIBERNATE = 2;
-    private static int implementacion = IMP_MYSQL;
+    private static int implementacion = IMP_HIBERNATE;
 
     // There will be a method for each DAO that can be
     // created. The concrete factories will have to
