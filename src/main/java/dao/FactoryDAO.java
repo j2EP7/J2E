@@ -1,7 +1,7 @@
 package dao;
 
-import dao.hibernate.HibernateGameDAO;
-import dao.hibernate.HibernateWordDAO;
+import dao.jpa.JpaGameDAO;
+import dao.jpa.JpaWordDAO;
 import dao.mysql.MySQLGameDAO;
 import dao.mysql.MySQLWordDAO;
 
@@ -10,8 +10,8 @@ public abstract class FactoryDAO {
 
     // List of DAO types supported by the factory
     final static int IMP_MYSQL = 1;
-    final static int IMP_HIBERNATE = 2;
-    private static int implementacion = IMP_HIBERNATE;
+    final static int IMP_JPA = 2;
+    private static int implementacion = IMP_JPA;
 
     // There will be a method for each DAO that can be
     // created. The concrete factories will have to
@@ -20,8 +20,8 @@ public abstract class FactoryDAO {
         switch (implementacion) {
             case IMP_MYSQL:
                 return new MySQLWordDAO();
-            case IMP_HIBERNATE    :
-                return new HibernateWordDAO();
+            case IMP_JPA:
+                return new JpaWordDAO();
             default           :
                 return null;
         }
@@ -31,8 +31,8 @@ public abstract class FactoryDAO {
         switch (implementacion) {
             case IMP_MYSQL:
                 return new MySQLGameDAO();
-            case IMP_HIBERNATE    :
-                return new HibernateGameDAO();
+            case IMP_JPA:
+                return new JpaGameDAO();
             default           :
                 return null;
         }

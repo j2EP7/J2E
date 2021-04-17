@@ -1,21 +1,18 @@
-package dao.hibernate;
+package dao.jpa;
 
 
 import dao.DAOException;
 import dao.GameDao;
 import model.Game;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.util.List;
 
-public class HibernateGameDAO implements GameDao {
+public class JpaGameDAO implements GameDao {
 
     // https://xebia.com/blog/jpa-implementation-patterns-data-access-objects/
     // https://stackoverflow.com/questions/24572092/using-java-generics-for-jpa-findall-query-with-where-clause
 
-    public HibernateGameDAO() {
+    public JpaGameDAO() {
     }
 
     @Override
