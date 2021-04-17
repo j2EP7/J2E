@@ -12,6 +12,9 @@ import java.util.List;
 
 public class HibernateGameDAO implements GameDao {
 
+    // https://xebia.com/blog/jpa-implementation-patterns-data-access-objects/
+    // https://stackoverflow.com/questions/24572092/using-java-generics-for-jpa-findall-query-with-where-clause
+
     public HibernateGameDAO() {
     }
 
@@ -37,15 +40,6 @@ public class HibernateGameDAO implements GameDao {
 
     @Override
     public Game read(String parameter) throws DAOException {
-/*        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
-        entityManager.createQuery("select value from ");
-        entityManager.getTransaction().commit();
-        entityManager.close();
-        entityManagerFactory.close();
-
- */
         return null;
     }
 }
