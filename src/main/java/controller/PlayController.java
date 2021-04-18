@@ -3,6 +3,7 @@ package controller;
 import com.google.gson.Gson;
 import dao.DAOException;
 import model.Game;
+import model.Letter;
 import model.Play;
 import model.Word;
 

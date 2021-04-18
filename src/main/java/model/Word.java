@@ -1,5 +1,7 @@
 package model;
 
+import com.google.gson.annotations.Expose;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -11,14 +13,13 @@ public class Word {
     private String description;
 
     // https://www.baeldung.com/jpa-transient-ignore-field
-    private transient List<Letter> letters;
+    private List<Letter> letters;
 
     @Transient
     public List<Letter> getLetters() {
         return letters;
     }
 
-    @Transient
     public void setLetters(List<Letter> letters) {
         this.letters = letters;
     }

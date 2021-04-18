@@ -74,3 +74,8 @@ html,body {
     text-align:center;
     color:grey;
 }
+
+/* Clase que señala las casillas de las letras cuando el jugador pierde para que vean donde estaban */
+   .wally{
+    background-color: red !important;
+   }

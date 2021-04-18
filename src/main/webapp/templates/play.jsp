@@ -15,7 +15,7 @@
             <div id="game"></div>
 
             <!-- Cargamos funciones js -->
-            <script src="${pageContext.request.contextPath}/assets/js/functions.js" /></script>
+            <script src="${pageContext.request.contextPath}/assets/js/functions.js" charset="UTF-8"/></script>
 
             <!-- botón jugar que dispara función js para cargar la sopa de letras -->
             <button id="play" type="button" class="btn btn-primary" onclick="play()">Jugar</button>

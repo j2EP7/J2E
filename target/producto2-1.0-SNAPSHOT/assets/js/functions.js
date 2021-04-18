@@ -1,8 +1,8 @@
 /* Variables globales */
 
-// N�mero de palabras encontradas
+// Número de palabras encontradas
 wordsFound = 0;
-// Array con la informaci�n de las palabras
+// Array con la información de las palabras
 // Cada elemento es un objeto (Word) con sus propiedades (id, word y description) y una propiedad extra que es un array, el cual contiene las ids de las posiciones de las letras en el tablero
 gameWords = [];
 // Segundos del juego
@@ -14,25 +14,10 @@ selectedLetters = [];
 
 /* Funciones */
 
-// Funci�n jugar
-
-
-/*{
-    casillero: 'html del casillero',
-    words: [
-    {
-        id: '4',
-        word: 'Code',
-        description: 'lo que significa',
-        cell: ['14','26','38','40']
-    }
-],
-    gameSeconds
-}*/
-
+// Función jugar
 
 function play(){
-    // Recoge par�metros para el juego
+    // Recoge parámetros para el juego
     // https://stackoverflow.com/questions/43895473/promise-inside-promise-whats-the-correct-way-to-return-a-variable-from-the-chi/43895627
     jQuery.ajax({
         type: 'POST',
@@ -45,19 +30,19 @@ function play(){
         });
 }
 
-// Ejemplo petici�n Ajax a servlet
-// petici�n post v�a ajax cuya a un servlet para obtener la estructura de la sopa de letras
-// ser�a un post a un servlet
-// ese servlet generar�a la estructura de la sopa de letras completa y devuelve
+// Ejemplo petición Ajax a servlet
+// petición post vía ajax cuya a un servlet para obtener la estructura de la sopa de letras
+// sería un post a un servlet
+// ese servlet generaría la estructura de la sopa de letras completa y devuelve
 // en la respuesta se inserta la sopa de letras
 function demoAjaxServletRequest(){
 
 }
 
-// Funci�n para comprobar las letras seleccionadas
+// Función para comprobar las letras seleccionadas
 function checkLetters(letraId) {
     let wasFound = [];
-    // Recorrer todas las palabras (words) y verificar si la posici�n de esas letras forman una palabra
+    // Recorrer todas las palabras (words) y verificar si la posición de esas letras forman una palabra
     for (let i = 0; i < gameWords.length; i++){
         // Palabra
         let word = gameWords[i];
@@ -73,7 +58,7 @@ function checkLetters(letraId) {
             //console.log(selectedLettersString);
             //console.log(selectedLettersString[0]);
             //console.log(positions);
-            // Si la posici�n de la letra de la palabra que estamos recorriendo no est� en las posiciones almacenadas de las letras seleccionadas
+            // Si la posición de la letra de la palabra que estamos recorriendo no está en las posiciones almacenadas de las letras seleccionadas
             if(!selectedLetters.includes(positionString)){
                 //console.log(word.word);
                 //console.log(letter);
@@ -121,14 +106,14 @@ function checkLetters(letraId) {
     }
 }
 
-// Recibe como par�metro el identificador de una palabra que est� dentro del array global gameWords
+// Recibe como parámetro el identificador de una palabra que está dentro del array global gameWords
 function blockWord(letters){
 
     let letter, position, row, col, id;
     // recorremos gameWords
     // obtenemos palabra por id
     // recorremos letras
-    // bloqueamos la posici�n de la sopa de letars asignando
+    // bloqueamos la posición de la sopa de letars asignando
     // Asignando la clase letterOff
     for (let i=0;i<letters.length;i++){
 
@@ -151,52 +136,38 @@ function overlineWord(word){
     palabra.classList.add('lineThrough');
 }
 
-// Funci�n para comprobar si las letras seleccionadas forman una palabra
-function lettersAreWord(){
-    // Obtenemos las letras seleccionadas
-    // Recorremos y obtenemos el identificador del casillero
-    // Comparamos los identificadores del casillero con los identificadores asignados a las palabras
-    // Si hay match devolvemos true
-    // En caso contrario false
-}
-
-// Funci�n para desactivar letras seleccionadas del tablero
-function disableSelectedLetters(){
-    // Desactiva las letras que est�n actualmente marcadas como seleccionadas
-}
-
-// Funci�n contabilizar palabra encontrada
+// Función contabilizar palabra encontrada
 function wordFound(){
     // Aumenta en 1 el contador de palabras encontradas
     wordsFound = wordsFound + 1;
     checkWin();
 }
 
-// Funci�n checkWin
+// Función checkWin
 function checkWin(){
-    // Comprueba si ya est�n encontradas todas las palabras
+    // Comprueba si ya están encontradas todas las palabras
     if(wordsFound == gameWords.length){
         // Finalizar partida
         finishGame();
     }
 }
 
-// Funci�n mostrar victoria
+// Función mostrar victoria
 function youWin(){
     // Muestra mensaje al usuario de que ha ganado
-    const message = "�Enhorabuena! Has ganado.";
+    const message = "¡Enhorabuena! Has ganado.";
     renderMessage(message);
-    // Renderizamos informaci�n de palabras
+    // Renderizamos información de palabras
     renderWordDetails();
 }
 
-// Funci�n terminar la partida
+// Función terminar la partida
 function finishGame(){
     // Finaliza setInterval
     clearInterval(countdown);
     // Deshabilitamos casillero
     OnOffGame();
-    // Comprueba n�mero de palabras encontradas
+    // Comprueba número de palabras encontradas
     if(wordsFound == gameWords.length){
         // Si el jugador ha encontrado todas le decimos que ha ganado
         youWin();
@@ -204,34 +175,34 @@ function finishGame(){
         // En caso contrario le decimos que ha perdido
         gameOver();
     }
-    // Habilitamos el bot�n para que pueda volver a jugar
+    // Habilitamos el botón para que pueda volver a jugar
     enablePlayButton();
 }
 
-// Funci�n para deshabilitar todas las casillas
+// Función para deshabilitar todas las casillas
 function OnOffGame(){
     // Para que el jugador no pueda seguir interactuando con las casillas cuando la partida ha finalizado
     jQuery("#game").toggleClass("gameOff");
 }
 
-// Funci�n para mostrar mensaje
+// Función para mostrar mensaje
 function renderMessage(message){
-    // Recibe el par�metro de las funciones youWin y gameOver
+    // Recibe el parámetro de las funciones youWin y gameOver
     // Renderiza el mensaje en pantalla
     alert(message);
 }
 
 function disablePlayButton(){
-    // Deshabilitar el bot�n jugar
+    // Deshabilitar el botón jugar
     document.getElementById("play").disabled = true;
 }
 
 function enablePlayButton(){
-    // Deshabilitar el bot�n jugar
+    // Deshabilitar el botón jugar
     document.getElementById("play").disabled = false;
 }
 
-// Funci�n iniciar juego
+// Función iniciar juego
 function initGame(juego){
     // Mostrar información de juego
     if(jQuery("#gameInfo").hasClass("esconder")){
@@ -247,7 +218,7 @@ function initGame(juego){
     if(jQuery("#game").hasClass("gameOff")){
         OnOffGame();
     }
-    // Deshabilitar bot�n jugar
+    // Deshabilitar botón jugar
     disablePlayButton();
     // Renderizamos palabras a encontrar
     renderWords(juego.words);
@@ -264,7 +235,7 @@ function initGame(juego){
         // Obtenemos posiciones de la letra clicada
         let row = letraPosicion[0];
         let col = letraPosicion[1];
-        // Si la letra ha sido seleccionada a�adimos a selectedLetters
+        // Si la letra ha sido seleccionada añadimos a selectedLetters
         if(jQuery("#"+letraId).hasClass("soup")){
             let tempId = row+"-"+col;
             selectedLetters.push(tempId);
@@ -280,11 +251,11 @@ function initGame(juego){
     });
 }
 
-// Funci�n para contar el tiempo restante
+// Función para contar el tiempo restante
 function initCountdown(){
-    // Cuenta regresiva con m�todo setInterval
+    // Cuenta regresiva con método setInterval
     // El set interval se ejecuta cada 1000 milisegundos = 1 segundo
-    // Vamos restando 1 segundo por ejecuci�n
+    // Vamos restando 1 segundo por ejecución
     countdown = setInterval(function(){
         gameSeconds = gameSeconds - 1;
         // Muestra segundos restantes en pantalla
@@ -308,20 +279,35 @@ function renderTime(seconds){
 
 // Recibe segundos y devuelve minutos y segundos
 function secondsToTime(seconds){
-    const minutos = Math.floor(seconds / 60);
-    const segundos = seconds - minutos * 60;
+    let minutos = Math.floor(seconds / 60);
+    let segundos = seconds - minutos * 60;
+    // Añadimos 0 delante
+    minutos = "0" + minutos;
+    if(segundos < 10){
+        segundos = "0" + segundos;
+    }
     const time = minutos + ":" + segundos;
     return time;
 }
 
-// Funci�n mostrar derrota
+// Función mostrar derrota
 function gameOver(){
+    // Iluminar letras de todas las palabras a encontrar en el casillero
+    for(let i = 0; i < gameWords.length; i++){
+        let letters = gameWords[i].letters;
+        for(let j = 0; j < letters.length; j++){
+            let position = letters[j].Position;
+            let row = position[0];
+            let col = position[1];
+            jQuery("#"+row+"-"+col).addClass("wally");
+        }
+    }
     // Muestra mensaje al usuario de que ha perdido
-    const message = "Ohhh, se te ha agotado el tiempo y has perdido. ¡Ánimo! Inténtalo de nuevo.";
+    const message = "Ohhh, se te ha agotado el tiempo y has perdido. Pulsa en el botón Jugar para volver a intentarlo.";
     renderMessage(message);
 }
 
-// Funci�n para mostrar palabras a encontrar
+// Función para mostrar palabras a encontrar
 function renderWords(words){
     //console.log(words);
     // Obtiene listado de palabras
@@ -349,7 +335,7 @@ function generateWordList(words,details){
     return html;
 }
 
-// Funci�n para mostrar palabras y descripciones
+// Función para mostrar palabras y descripciones
 function renderWordDetails(){
     // Obtiene listado de palabras
     const wordList = generateWordList(gameWords,true);
@@ -357,7 +343,7 @@ function renderWordDetails(){
     document.getElementById("words").innerHTML = wordList;
 }
 
-// Funci�n para renderizar la sopa de letras
+// Función para renderizar la sopa de letras
 function renderGame(game){
     document.getElementById('game').innerHTML = game;
 }
