@@ -64,12 +64,24 @@ En este apartado explicaremos los detalles más relevantes de nuestra código.
 
 
 
-# CONSTRUIDO CON
-Las herramientas usadas para este proyecto han sido:
+# TECNOLOGIAS USADAS CON
+Las herramientas y tecnologías usadas mas importantes para este proyecto han sido:
 
- - Maven - Manejador de dependencias.
- - 
+ - **Apache Directory Studio:** Autenticación LDAP en el Active Directory.
+ - **Entorno Java EE (Jakarta EE):** Plataforma para desarrollar aplicaciones empresariales distribuidas, con arquitecturas multicapa, escritas en Java y que se ejecutan en un servidor de aplicaciones.
+ - **Tomcat:** Tomcat es un contenedor web con soporte de servlets y JSPs
+ - **Maven:**  Manejador de dependencias.
+ - **DAO y JDBC:** Patrón de diseño DAO y gestión de base de datos mediante JDBC.
+ - **Servlets:** Programas que se ejecutan en un servidor web.
+ - **JSP:** Tecnología que nos permite mezclar HMTL estático con HTML generado dinámicamente.
+ - **JQuery:** Librería de Javascript que nos permite agregar interactividad a nuestro sitio web.
+ - **Ajax:** Tecnología usada para procesar solicitudes al servidor en segundo plano.
+ - **MySQL y phpMyAdmin:** Sistema de gestión de base de datos .
+ - **JPA:** API de persistencia estándar para mapear objetos Java a una base de datos relacional.
+ - **Hibernate:** Framework para la implementación del estándar JPA mediante el Mapeo objeto-relacional (ORM).
 
 # AUTORES
 
- - Esteban 
+ - Esteban Bresba - ebresba@uoc.edu
+ - Jorge Arrojo - arrojorge@uoc.edu
+ - Jordi Molet - jmoletr@uoc.edu
