@@ -80,9 +80,6 @@ En esta capa encontramos 5 clases, las detallamos a continuación:
  - **Utilities:** Clase encargada de crear la conexión a la base de datos.
  - **WordController:** Clase encargada de generar palabras aleatorias para ubicarlas dentro del casillero de juego.
 
- 
-## CAPA MODELO
-
 ## CAPA VISTA
 
 
