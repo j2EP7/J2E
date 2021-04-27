@@ -51,16 +51,41 @@ Una vez finalizados los pasos de la instalación tendremos el IDE listo para su 
 En este apartado explicaremos los detalles más relevantes de nuestra código.
 
 ## ESTRUCTURA DEL PROYECTO
+Hemos estructurado el proyecto de la siguiente manera:
 
+ - **Capa Controller:** Recibe las peticiones del usuario, desencadena las acciones adecuadas en el modelo y muestra la vista correspondiente. Estos controladores se implementarán mediante servlets. En esta capa también creamos la conexión a nuestra Base de Datos.
+ - **Capa DAO:** En esta capa realizamos la persistencia de datos usando JDBC y JPA.
+ - **Capa Model:** En esta capa tenemos los datos que maneja el sistema, su lógica de negocio y sus mecanismos de persistencia.
+ - **Capa Vista:** Capa donde gestionamos la interfaz de usuario, donde mostramos  los datos del modelo. Para implementar las vistas, hemos usado JSPs.
 
+## CAPA MODELO
+En esta capa encontramos 4 clases, las detallamos a continuación:
 
+ - **Game:** Esta clase juego esta compuesta por 2 atributos:
+	- **Parameter**: que puede ser words o max_time
+	- **Value**: que puede tener dos valores, 7 (words) o 300 (max_time)
+ - **Letter:** Esta clase letter esta compuesta por los siguiente atributos:
+	 - **Id**: un identificador
+	 - **Letter:** una letra
+	 - **Position:** un array bidimensional para guardar la posición de la letra.
+ - **Play:**
+ - **Word:**
 
+## CAPA CONTROLLADOR
+En esta capa encontramos 5 clases, las detallamos a continuación:
 
+ - **GameController:** Servlet encargado de gestionar la configuración del juego.
+ - **LoginController:** Servlet encargado de gestionar el logueo del usuario.
+ - **PlayController:** Servlet encargado de construir el juego en base a los datos de configuración.
+ - **Utilities:** Clase encargada de crear la conexión a la base de datos.
+ - **WordController:** Clase encargada de generar palabras aleatorias para ubicarlas dentro del casillero de juego.
+
+ 
 ## CAPA MODELO
 
 ## CAPA VISTA
 
-## CAPA CONTROLLADOR
+
 
 
 
