@@ -123,6 +123,12 @@ Las herramientas y tecnologías usadas mas importantes para este proyecto han si
  - **JPA:** API de persistencia estándar para mapear objetos Java a una base de datos relacional.
  - **EclipseLink:** Framework de Persistencia basado en Java Persistence Api (JPA).
 
+# GUIA DE USUARIO
+En el siguiente enlace podréis la guía de usuario de la aplicación Sopa de letras en formato video.
+[Guia Usuario - Sopa de Letras](https://youtu.be/kzlLvN3CwcU)
+
+# EJB
+
 # AUTORES
 
  - Esteban Bresba - ebresba@uoc.edu
