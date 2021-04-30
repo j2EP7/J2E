@@ -63,21 +63,21 @@ Hemos estructurado el proyecto de la siguiente manera:
 En esta capa encontramos 4 clases, las detallamos a continuación:
 
  - **Game:** Esta clase define los parametros del juego. Esta compuesta por 2 atributos:
-		- **Parameter**: que puede ser words o max_time
-		- **Value**: que puede tener dos valores, 7 (words) o 300 (max_time)
+	- **Parameter**: que puede ser words o max_time
+	- **Value**: que puede tener dos valores, 7 (words) o 300 (max_time)
  - **Letter:** Esta clase define la letra y su posición. Esta compuesta por los siguiente atributos:
-		 - **Id**: un identificador
-		 - **Letter:** una letra
-		 - **Position:** un array bidimensional para guardar la posición de la letra en filas y columnas.
+	- **Id**: un identificador
+	- **Letter:** una letra
+	- **Position:** un array bidimensional para guardar la posición de la letra en filas y columnas.
 - **Play:** Esta clase define la configuración de la partida. Contiene los siguientes atributos:
-		 - **WordsNumber**: Indica el numero de palabras que contendrá la partida.
-		 - **Seconds:** Indica los segundos que tendrá la partida.
-		 - **List words**: Array de palabras.
-		 - **Casillero**: Casillero es donde colocamos todas la palabras y letras para construir la sopa de letras.
+	- **WordsNumber**: Indica el numero de palabras que contendrá la partida.
+	- **Seconds:** Indica los segundos que tendrá la partida.
+	- **List words**: Array de palabras.
+	- **Casillero**: Casillero es donde colocamos todas la palabras y letras para construir la sopa de letras.
 - **Word**: Esta clase palabra esta compuesta por los siguiente atributos:
-		 - **id:** un identificador.
-		 - **word:** una palabra.
-		 - **description**: una pequeña descripción de la palabra que se mostrará si el usuario gana la partida.
+	- **id:** un identificador.
+	- **word:** una palabra.
+	- **description**: una pequeña descripción de la palabra que se mostrará si el usuario gana la partida.
 
 
 ## CAPA CONTROLLADOR
