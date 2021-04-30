@@ -140,7 +140,7 @@ Dentro de nuestro contenedor del servidor de aplicaciones tenemos el contenedor 
 En una capa inferior tenemos el nivel de persistencia donde tenemos las clases de entidad o **beans de entidad** donde tenemos que definir nuestra clase que representa a la tabla en la BBDD vinculando cada uno de nuestros campos con los atributos de la entidad que tenemos en nuestra aplicación, es decir crear ese mapeo objeto-relacional de las clases junto con la BBDD.
 Tenemos otras librerías que serán utilizadas como los **ORM correlacionadores de datos** y clases **DAO**.
 
-![Tipos de Sesion Beans: Stateless, Stateful, Singleton y opciones CMP & BMP Transaction API](https://ibb.co/pffXkd8)
+[Ver imagen.](https://ibb.co/pffXkd8)
 
 # AUTORES
 
