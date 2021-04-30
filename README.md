@@ -127,7 +127,19 @@ Las herramientas y tecnologías usadas mas importantes para este proyecto han si
 En el siguiente enlace podréis la guía de usuario de la aplicación Sopa de letras en formato video.
 [Guia Usuario - Sopa de Letras](https://youtu.be/kzlLvN3CwcU)
 
+
 # EJB
+Cuando queremos crear la **lógica** de nuestra aplicación para una clase en concreto usaremos los EJB (Enterprise Java Bean)
+
+> La **lógica** del programa es  toda aquella parte que se encarga de la parte central del sistema, de o que el sistema verdaderamente tiene que hacer como funcionamiento para proveer funcionalidades a las necesidades del cliente, como operaciones que se encargan de trabajar con los datos en la BBDD (Crud) y validaciones como  evitar  que se carguen valores nulos en un campo, que se repitan datos con los mismo valores, etc...
+JAVA EE nos provee un apartado donde nosotros podemos centralizar y unificar todo lo que corresponde a la lógica de la aplicación y ese apartado lo denominamos Session Bean.
+
+## ESTRUCTURA DE NUESTRO SERVIDOR DE APLICACIONES USANDO EJB.
+Dentro de nuestro contenedor del servidor de aplicaciones tenemos el contenedor EJB, donde tenemos una parte o los componentes que se ocupan de la lógica de negocio, llamados Beans de Sesión o los Beans gestionados por mensajes.
+
+En una capa inferior tenemos el nivel de persistencia donde tenemos las clases de entidad o **beans de entidad** donde tenemos que definir nuestra clase que representa a la tabla en la BBDD vinculando cada uno de nuestros campos con los atributos de la entidad que tenemos en nuestra aplicación, es decir crear ese mapeo objeto-relacional de las clases junto con la BBDD.
+Tenemos otras librerías que serán utilizadas como los **ORM correlacionadores de datos** y clases **DAO**.
+![enter image description here](https://drive.google.com/file/d/1yz_S5snsTwea1YsAPTUWxYm---iirf-l/view?usp=sharing)
 
 # AUTORES
 
