@@ -131,7 +131,7 @@ En el siguiente enlace podréis la guía de usuario de la aplicación Sopa de l
 # EJB
 Cuando queremos crear la **lógica** de nuestra aplicación para una clase en concreto usaremos los EJB (Enterprise Java Bean)
 
-> La **lógica** del programa es  toda aquella parte que se encarga de la parte central del sistema, de o que el sistema verdaderamente tiene que hacer como funcionamiento para proveer funcionalidades a las necesidades del cliente, como operaciones que se encargan de trabajar con los datos en la BBDD (Crud) y validaciones como  evitar  que se carguen valores nulos en un campo, que se repitan datos con los mismo valores, etc...
+> La **lógica** del programa es  toda aquella parte que se encarga de la parte central del sistema, de lo que el sistema verdaderamente tiene que hacer como funcionamiento para proveer funcionalidades a las necesidades del cliente, como operaciones que se encargan de trabajar con los datos en la BBDD (Crud) y validaciones como  evitar  que se carguen valores nulos en un campo, que se repitan datos con los mismo valores, etc...
 JAVA EE nos provee un apartado donde nosotros podemos centralizar y unificar todo lo que corresponde a la lógica de la aplicación y ese apartado lo denominamos Session Bean.
 
 ## ESTRUCTURA DE NUESTRO SERVIDOR DE APLICACIONES USANDO EJB.
