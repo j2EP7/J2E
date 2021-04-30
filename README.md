@@ -1,3 +1,4 @@
+
 # J2E
 
 Bienvenidos a nuestro proyecto! Este proyecto esta basado en un juego estilo Sopa de letras donde el jugador tendrá un tiempo establecido para encontrar todas las letras definidas en una lista. Ganará el jugador que encuentre todas las palabras, previamente listadas, dentro del tiempo marcado. El premio del ganador será poder ver las definiciones de cada una de las palabras encontradas.
@@ -61,30 +62,50 @@ Hemos estructurado el proyecto de la siguiente manera:
 ## CAPA MODELO
 En esta capa encontramos 4 clases, las detallamos a continuación:
 
- - **Game:** Esta clase juego esta compuesta por 2 atributos:
-	- **Parameter**: que puede ser words o max_time
-	- **Value**: que puede tener dos valores, 7 (words) o 300 (max_time)
- - **Letter:** Esta clase letter esta compuesta por los siguiente atributos:
-	 - **Id**: un identificador
-	 - **Letter:** una letra
-	 - **Position:** un array bidimensional para guardar la posición de la letra.
- - **Play:**
- - **Word:**
+ - **Game:** Esta clase define los parametros del juego. Esta compuesta por 2 atributos:
+		- **Parameter**: que puede ser words o max_time
+		- **Value**: que puede tener dos valores, 7 (words) o 300 (max_time)
+ - **Letter:** Esta clase define la letra y su posición. Esta compuesta por los siguiente atributos:
+		 - **Id**: un identificador
+		 - **Letter:** una letra
+		 - **Position:** un array bidimensional para guardar la posición de la letra en filas y columnas.
+- **Play:** Esta clase define la configuración de la partida. Contiene los siguientes atributos:
+		 - **WordsNumber**: Indica el numero de palabras que contendrá la partida.
+		 - **Seconds:** Indica los segundos que tendrá la partida.
+		 - **List words**: Array de palabras.
+		 - **Casillero**: Casillero es donde colocamos todas la palabras y letras para construir la sopa de letras.
+- **Word**: Esta clase palabra esta compuesta por los siguiente atributos:
+		 - **id:** un identificador.
+		 - **word:** una palabra.
+		 - **description**: una pequeña descripción de la palabra que se mostrará si el usuario gana la partida.
+
 
 ## CAPA CONTROLLADOR
 En esta capa encontramos 5 clases, las detallamos a continuación:
 
  - **GameController:** Servlet encargado de gestionar la configuración del juego.
+ En esta clase renderizamos el casillero. Recibimos el listado de las palabras y creamos el casillero otorgándoles una posición.
  - **LoginController:** Servlet encargado de gestionar el logueo del usuario.
  - **PlayController:** Servlet encargado de construir el juego en base a los datos de configuración.
- - **Utilities:** Clase encargada de crear la conexión a la base de datos.
- - **WordController:** Clase encargada de generar palabras aleatorias para ubicarlas dentro del casillero de juego.
+ - **Utilities:** Clase encargada de crear la conexión a la base de datos y al servidor LDAP.
+ - **WordController:** Clase encargada de seleccionar palabras aleatorias para ubicarlas dentro del casillero de juego.
 
 ## CAPA VISTA
+En esta capa vista encontramos todos los archivos .jsp acompañado de un fichero de estilos .css y otro de Javascript .js.
 
+ - **styles.css**: archivo donde damos estilo a funciones como, por ejemplo, tachar la palabra del listado de palabras cuando se encuentra durante el juego, configurar el fondo de la pagina entre otros.
+ - **functions.js**: en este archivo gestionamos los eventos que se pueden producir durante el juego como, por ejemplo, las funciones "youWin" o "finishGame" para gestionar la victoria o derrota del jugador, "initGame" la función para iniciar el juego o "checkLetters" que es una función que se encarga de comprobar las letras seleccionadas, entre otras funciones.
+ - **templates**: dentro de esta carpeta encontramos 4 archivos .jsp que se encargan de mostrar visualmente la estructura de las dos paginas que usamos en este juego, la pagina de login y la pagina donde se muestra el juego. 
+ - **index.jsp:** este archivo es el encargado de cargar la pagina inicial al arrancar juego. Este se construye mediante los archivos .jsp que se encuentran en la carpeta templates.
+ - **play.jsp:** este archivo es el encargado de cargar la pagina del juego, una vez logueados. Este se construye mediante los archivos .jsp que se encuentran en la carpeta templates. 
 
+## CAPA DAO
+En esta capa realizamos la persistencia de datos usando JDBC y JPA. La estructuración de esta capa la hemos realizado de la siguiente manera:
 
-
+ - **DAO:** Interfaz Generica con los metodos CRUD.
+ - **GameDAO** y **WordDAO**: creadas para la utilización de la interfaz DAO.
+ - **Jpa**: dentro de este paquete encontramos las clases encargadas de la implementación del DAO mediante la librería EclipseLink.
+ - **Mysql**: dentro de este paquete encontramos las clases encargadas de la implementación del DAO mediante JDBC.
 
 # TECNOLOGIAS USADAS CON
 Las herramientas y tecnologías usadas mas importantes para este proyecto han sido:
@@ -100,7 +121,7 @@ Las herramientas y tecnologías usadas mas importantes para este proyecto han si
  - **Ajax:** Tecnología usada para procesar solicitudes al servidor en segundo plano.
  - **MySQL y phpMyAdmin:** Sistema de gestión de base de datos .
  - **JPA:** API de persistencia estándar para mapear objetos Java a una base de datos relacional.
- - **Hibernate:** Framework para la implementación del estándar JPA mediante el Mapeo objeto-relacional (ORM).
+ - **EclipseLink:** Framework de Persistencia basado en Java Persistence Api (JPA).
 
 # AUTORES
 
