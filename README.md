@@ -129,6 +129,47 @@ En el siguiente enlace podréis la guía de usuario de la aplicación Sopa de l
 
 
 # EJB
+
+## Definición
+
+Los EJB (Enterprise Java Beans) se definen como interfaces de programación de aplicaciones. Forma parte del estándar JEE por lo que todo servidor de aplicaciones debe poder desplegarlos.
+Los EJB proporcionan un modelo de componentes distribuido estándar del lado del servidor, permitiendo al programador centrarse solamente en la parte de la lógica que necesita implementar para el propósito que persigue.
+Los EJB aportan:
+
+ - Transaccionalidad distribuida
+ - Seguridad Persistencia manejada por el contendor EJB
+ - Control de la concurrencia 
+ - Eventos mediante JMS (Java Messaging Service)
+ - Servicio de nombres y directorio
+ - Escalabilidad
+
+## Tipos de EJB
+
+Se denominan con el nombre de Beans. Tenemos los siguientes tipos:
+
+ - **Beans de Sesión:** Representa un proceso o una acción de negocio con uno o más clientes. Mantienen el estado pero solo mientras el cliente interactúa con el bean. No son persistentes. Existe correspondiencia 1 a 1 entre el bean y el cliente. Es decir, diferentes clientes no pueden compartir el mismo bean de sesión. Existen:
+    - Con estado
+	- Sin estado
+- **Beans de Entidad** Modelan conceptos o datos de negocios que pueden representarse con un sustantivo. Los beans de entidad describen tanto el estado como la conducta de objetos del mundo real y permiten a los desarrolladores encapsular las reglas de datos y de negocio asociadas con un concepto específico. Tienen
+	- Persistencia
+	- Acceso compartido
+	- Clave primaria
+	- Relaciones
+- **Beans dirigidos por mensajes** permiten que las aplicaciones J2EE reciban mensajes JMS de forma asíncrona. Así, el hilo de ejecución de un cliente no se bloquea cuando está esperando que se complete algún método de negocio de otro enterprise bean. Los mensajes pueden enviarse desde cualquier componente J2EE (una aplicación cliente, otro enterprise bean, o un componente Web) o por una aplicación o sistema JMS que no use la tecnología J2EE.
+
+## Servicios del contenedor EJB
+
+- Transacciones
+- Seguridad
+- Persistencia
+
+## Transacciones
+
+## Seguridad
+
+## Persistencia
+
+
 Cuando queremos crear la **lógica** de nuestra aplicación para una clase en concreto usaremos los EJB (Enterprise Java Bean)
 
 > La **lógica** del programa es  toda aquella parte que se encarga de la parte central del sistema, de lo que el sistema verdaderamente tiene que hacer como funcionamiento para proveer funcionalidades a las necesidades del cliente, como operaciones que se encargan de trabajar con los datos en la BBDD (Crud) y validaciones como  evitar  que se carguen valores nulos en un campo, que se repitan datos con los mismo valores, etc...
