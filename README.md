@@ -142,6 +142,10 @@ Los EJB aportan:
  - Eventos mediante JMS (Java Messaging Service)
  - Servicio de nombres y directorio
  - Escalabilidad
+ 
+ Los EJBs o Beans son manejados de forma centralizada por un contenedor.
+ 
+ Los nombres de las especificaciones EJB y JavaBeans y de sus componentes son muy similares, ahí es donde terminan las similitudes. La especificación y el modelo de componentes de JavaBeans y el modelo de componentes Enterprise JavaBeans tienen muy poco en común
 
 ## Tipos de EJB
 
@@ -165,9 +169,39 @@ Se denominan con el nombre de Beans. Tenemos los siguientes tipos:
 
 ## Transacciones
 
+Una transacción de un sistema de negocios (transacción para abreviar) es la ejecución de una
+unidad-de-trabajo que accede uno o más recursos compartidos, normalmente bases de datos.
+Una unidad-de-trabajo es un conjunto de actividades que se relacionan mutuamente y que
+deben ser realizadas completamente.
+
+Transacción quiere decir, un intercambio entre dos partes. Es importante verificar que el proceso se ha llevado a cabo según lo esperado.
+
 ## Seguridad
 
+La seguridad es un aspecto fundamental de las aplicaciones empresariales. Cualquier aplicación interna o accesible via web va a intentar ser hackeada por extraños. Podemos analizar tres elementos fundamentales en la seguridad de una aplicación:
+
+- Autentificación
+
+Dicho sencillamente, la autentificación valida la identidad del usuario. La forma más común de autentificación es una simple ventana de login que pide un nombre de usuario y una contraseña. Una vez que los usuarios han pasado a través del sistema de autentificación, pueden usar el sistema libremente, hasta el nivel que les permita el control de acceso. La autentificación se puede basar también en tarjetas de identificación, certificados y en otros tipos de identificación.
+
+- Control de acceso
+
+El control de acceso (también conocido como autorización) aplica políticas de seguridad que regulan lo que un usuario específico puede y no puede hacer en el sistema. El control de acceso asegura que los usuarios accedan sólo a aquellos recursos y operaciones a los que se les ha dado permiso. El control de acceso puede restringir el acceso de un usuario a subistemas, datos, y objetos de negocio. Por ejemplo, a algunos usuarios se les puede dar permiso de modificar información, mientras que otros sólo tienen permiso de visualizarla.
+
+- Comunicación segura
+
+Los canales de comunicación entre un cliente y un servidor son un elemento muy importante en la seguridad del sistema. Un canal de comunicación puede hacerse seguro mediante aislamiento físico (por ejemplo, via una conexión de red dedicada) o por medio de la encriptación de la comunicación entre el cliente y el servidor. El aislamiento físico es caro, limita las posibilidades del sistema y es casi imposible en Internet, por lo que lo más usual es la encriptación. Cuando la comunicación se asegura mediante la encriptación, los mensajes se codifican de forma que no puedean ser leídos ni manipulados por individuos no autorizados. Esto se suele consigue mediante el intercambio de claves criptográficas entre el cliente y el servidor. Las claves permiten al receptor del mensaje decodificarlo y leerlo.
+
+La mayoría de los servidores EJB soportan la comunicación segura a través del protocolo SSL (Secure Socket Layer) y proporcionan algún mecanismo de autentificación, pero la especificación Enterprise JavaBeans sólo especifica el control de acceso a los enterprise beans.
+
 ## Persistencia
+
+El mapeo objeto-relacional implícito en los beans de entidad requiere que un bean de entidad sea responsable de insertar, actualizar, seleccionar y eliminar datos dentro de la fuente de datos. Este proceso del manejo de la comunicación entre el componente y la fuente de datos se llama persistencia. En otras palabras, persistencia es el proceso de escribir la información en una fuente de datos externa. Hay dos tipos de persistencia para los beans de entidad:
+
+- Persistencia Manejada por el Bean (BMP)
+Con la persistencia manejada por el bean (BMP), el programador es el responsable de escribir dentro del bean todo el código para acceder a la fuente de datos. Este tipo de persistenca le da más flexibilidad al programador porque controla todos los accesos a la fuente de datos.
+- Persistencia Manejada por el Contenedor (CMP)
+Con la persistencia manejada por el contenedor EJB es el propio contenedor EJB el que maneja todos los accesos a la base de datos requeridos por el bean de entidad. Como resultado, el código de acceso a los datos del bean, no está acoplado programáticamente a una fuente de datos específica. Esto libera al programador de tener que escribir código de acceso a los datos y permite que el bean de entidad se pueda desplegar en diferentes contenedores y/o contra diferentes fuentes de datos.
 
 
 Cuando queremos crear la **lógica** de nuestra aplicación para una clase en concreto usaremos los EJB (Enterprise Java Bean)
