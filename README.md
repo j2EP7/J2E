@@ -1,4 +1,5 @@
 
+
 # J2E
 
 Bienvenidos a nuestro proyecto! Este proyecto esta basado en un juego estilo Sopa de letras donde el jugador tendrá un tiempo establecido para encontrar todas las letras definidas en una lista. Ganará el jugador que encuentre todas las palabras, previamente listadas, dentro del tiempo marcado. El premio del ganador será poder ver las definiciones de cada una de las palabras encontradas.
@@ -132,7 +133,7 @@ En el siguiente enlace podréis la guía de usuario de la aplicación Sopa de l
 
 ## Definición
 
-Los EJB (Enterprise Java Beans) se definen como interfaces de programación de aplicaciones. Forma parte del estándar JEE por lo que todo servidor de aplicaciones debe poder desplegarlos.
+Los EJB (Enterprise Java Beans) se definen como **interfaces de programación** de aplicaciones. Es el entorno de trabajo estándar que equivale al núcleo del ecosistema JEE y comparte carácter de **Framework** con Spring, Hibernate, etc... Todo servidor de aplicaciones debe poder desplegarlos.
 Los EJB proporcionan un modelo de componentes distribuido estándar del lado del servidor, permitiendo al programador centrarse solamente en la parte de la lógica que necesita implementar para el propósito que persigue.
 Los EJB aportan:
 
@@ -216,6 +217,13 @@ En una capa inferior tenemos el nivel de persistencia donde tenemos las clases d
 Tenemos otras librerías que serán utilizadas como los **ORM correlacionadores de datos** y clases **DAO**.
 
 [Ver imagen.](https://ibb.co/pffXkd8)
+
+## ENLACES INTERESANTES SOBRE EJB
+
+ - [SPRING VS EJB](https://www.youtube.com/watch?v=jQxJ10PLHfo)
+ - [Videotutorial No. 1 Curso de EJB 3 - Introducción](https://www.youtube.com/watch?v=B-svHYbqZYE)
+ - [Introducción a la tecnología EJB](http://www.jtech.ua.es/j2ee/2003-2004/abierto-j2ee-2003-2004/ejb/sesion01-apuntes.htm)
+ - [EJB 3.0: Resurrection](https://www.adictosaltrabajo.com/2007/05/07/ejb-3-resurrection/)
 
 # AUTORES
 
